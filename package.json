@@ -1,0 +1,262 @@
+{
+  "name": "lumia-website",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release",
+    "cm": "git-cz"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.407.0",
+    "next": "14.0.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.2",
+    "tailwind-variants": "^0.2.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cz-commitlint": "^19.4.0",
+    "@rocketseat/eslint-config": "^2.2.2",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "@types/node": "^20.16.1",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "commitizen": "^4.3.0",
+    "conventional-changelog-config-spec": "^2.1.0",
+    "conventional-changelog-conventionalcommits": "^8.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.0.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.9",
+    "postcss": "^8.4.41",
+    "prettier": "^3.3.3",
+    "semantic-release": "^23.1.1",
+    "standard-version": "^9.5.0",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xavierjece/lumia-website.git"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "types": {
+        "build": {
+          "description": "Changes that affect the build system or external dependencies (e.g., webpack, npm).",
+          "title": "Build"
+        },
+        "chore": {
+          "description": "Routine tasks that don't fit in other categories (e.g., updating dependencies, housekeeping).",
+          "title": "Chore"
+        },
+        "ci": {
+          "description": "Changes to CI configuration files and scripts (e.g., GitHub Actions, CircleCI, Travis).",
+          "title": "CI"
+        },
+        "docs": {
+          "description": "Documentation only changes",
+          "title": "Documentation"
+        },
+        "feat": {
+          "description": "A new feature",
+          "title": "Feature"
+        },
+        "fix": {
+          "description": "A bug fix",
+          "title": "Fix"
+        },
+        "bugfix": {
+          "description": "A fix bug found in the production environment",
+          "title": "Bugfix"
+        },
+        "perf": {
+          "description": "A code change that improves performance",
+          "title": "perf"
+        },
+        "refactor": {
+          "description": "A code change that neither fixes a bug nor adds a feature",
+          "title": "Refactor"
+        },
+        "style": {
+          "description": "Changes that do not affect the meaning of the code (e.g., formatting, missing semi-colons).",
+          "title": "Style"
+        },
+        "test": {
+          "description": "Adding missing tests or correcting existing tests.",
+          "title": "Test"
+        },
+        "wip": {
+          "description": "Work in progress, indicating the commit is not a complete feature or fix.",
+          "title": "WIP"
+        }
+      }
+    }
+  },
+  "release": {
+    "branches": [
+      "release/*"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "releaseRules": [
+            {
+              "type": "build",
+              "release": false
+            },
+            {
+              "type": "chore",
+              "release": false
+            },
+            {
+              "type": "ci",
+              "release": false
+            },
+            {
+              "type": "docs",
+              "release": false
+            },
+            {
+              "type": "feat",
+              "release": "minor"
+            },
+            {
+              "type": "fix",
+              "release": false
+            },
+            {
+              "type": "bugfix",
+              "release": "patch"
+            },
+            {
+              "type": "perf",
+              "release": false
+            },
+            {
+              "type": "refactor",
+              "release": false
+            },
+            {
+              "type": "style",
+              "release": false
+            },
+            {
+              "type": "test",
+              "release": false
+            },
+            {
+              "type": "wip",
+              "release": false
+            }
+          ],
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES"
+            ]
+          }
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "presetConfig": {
+            "types": [
+              {
+                "type": "build",
+                "hidden": true
+              },
+              {
+                "type": "ci",
+                "hidden": true
+              },
+              {
+                "type": "docs",
+                "hidden": true
+              },
+              {
+                "type": "feat",
+                "hidden": false,
+                "section": ":sparkles: Features"
+              },
+              {
+                "type": "fix",
+                "hidden": true
+              },
+              {
+                "type": "bugfix",
+                "hidden": false,
+                "section": ":bug: Bug Fixes"
+              },
+              {
+                "type": "perf",
+                "hidden": true
+              },
+              {
+                "type": "refactor",
+                "hidden": true
+              },
+              {
+                "type": "style",
+                "hidden": true
+              },
+              {
+                "type": "test",
+                "hidden": true
+              },
+              {
+                "type": "wip",
+                "hidden": true
+              },
+              {
+                "type": "chore",
+                "hidden": true
+              }
+            ]
+          }
+        }
+      ],
+      "@semantic-release/npm",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]"
+        }
+      ]
+    ]
+  }
+}

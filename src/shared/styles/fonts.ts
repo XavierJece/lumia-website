@@ -1,50 +1,17 @@
-import { Inter } from 'next/font/google'
-import localFont from 'next/font/local'
+import { Maven_Pro, Montserrat } from 'next/font/google'
 
-export const aristaProFonts = localFont({
-  src: [
-    {
-      path: 'fonts/AristaPro-Fat.otf',
-      weight: '900',
-      style: 'normal',
-    },
-    {
-      path: 'fonts/AristaPro-Bold.otf',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: 'fonts/AristaPro-Light.otf',
-      weight: '500',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-arista-pro',
-})
-
-export const aristaProAlternateFonts = localFont({
-  src: [
-    {
-      path: 'fonts/AristaProAlternate-Bold.otf',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: 'fonts/AristaProAlternate-Fat.otf',
-      weight: '900',
-      style: 'normal',
-    },
-    {
-      path: 'fonts/AristaProAlternate-Light.otf',
-      weight: '500',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-arista-pro-alternate',
-})
-
-// Importando a fonte do Google
-export const interFonts = Inter({
+// Maven Pro - Primary font for headings
+export const mavenFonts = Maven_Pro({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-maven',
+  display: 'swap',
+})
+
+// Montserrat - Secondary font for body text and interface
+export const montserratFonts = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-montserrat',
+  display: 'swap',
 })

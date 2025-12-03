@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import '~/shared/styles/colors.css'
-import {
-  aristaProAlternateFonts,
-  aristaProFonts,
-  interFonts,
-} from '~/shared/styles/fonts'
+import { mavenFonts, montserratFonts } from '~/shared/styles/fonts'
 import '~/shared/styles/globals.css'
 
 export const metadata: Metadata = {
@@ -25,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      className={`${aristaProAlternateFonts.variable} ${aristaProFonts.variable} ${interFonts.variable}`}
+      className={`${mavenFonts.variable} ${montserratFonts.variable}`}
       lang="pt-br"
     >
       <body>{children}</body>

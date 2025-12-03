@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center justify-between h-screen bg-primary text-white font-aristaPro">
+    <div className="flex flex-col items-center justify-between h-screen bg-secondary-green text-white">
       <main className="flex flex-col items-center justify-center gap-6 h-full">
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col items-center">
@@ -12,7 +12,7 @@ const Home = () => {
             <p className="text-lg font-medium">Base project (Boilerplate)</p>
           </div>
         </div>
-        <div className="inline-flex items-center justify-center rounded-md bg-secondary px-6 py-3 text-lg text-primary font-bold shadow-sm transition-colors">
+        <div className="inline-flex items-center justify-center rounded-md bg-primary-green px-6 py-3 text-lg text-primary font-bold shadow-sm transition-colors">
           Get Started!
         </div>
         <div className="flex items-center justify-center space-x-4">
@@ -48,7 +48,7 @@ const Home = () => {
       </main>
       <footer className="w-full bg-secondary py-4 text-center">
         <p className="text-sm">
-          &copy; <span className="font-sans">2025</span>LUMIA. All rights
+          &copy; <span className="font-sans">2025</span> LUMIA. All rights
           reserved.
         </p>
       </footer>

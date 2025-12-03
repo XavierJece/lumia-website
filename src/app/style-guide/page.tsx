@@ -25,13 +25,7 @@ export default function StyleGuidePage() {
 
   return (
     <div className="min-h-screen bg-white-essential">
-      <Header
-        navigationItems={[
-          { label: 'Home', href: '/' },
-          { label: 'Sobre', href: '/sobre' },
-          { label: 'Serviços', href: '/servicos' },
-        ]}
-      />
+      <Header />
 
       <main className="container mx-auto px-4 py-12">
         <h1 className="font-maven text-h1 text-neutral-900 mb-8">

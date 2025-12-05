@@ -1,0 +1,95 @@
+---
+description: 'Frontend logging standards for React/Next.js institutional website'
+globs: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx']
+alwaysApply: true
+---
+
+# Frontend Logging Standards
+
+## Primary Principle
+
+Logging should enhance user experience and aid debugging without compromising performance or privacy.
+
+## Library & Implementation
+
+- **Production**: Use Next.js built-in logging with `console` methods (automatically optimized in production)
+- **Development**: Use structured logging with `console` methods
+- **Error tracking**: Integrate Sentry/Bugsnag for production error monitoring
+- **Avoid**: Winston or other Node.js-specific libraries in frontend code
+
+## Log Levels (Simplified)
+
+| Level   | When to Use                              | Example                                           |
+| ------- | ---------------------------------------- | ------------------------------------------------- |
+| `error` | Unhandled exceptions, API failures       | `console.error('Checkout failed:', error)`        |
+| `warn`  | Deprecated API usage, performance issues | `console.warn('Large image detected:', imageUrl)` |
+| `info`  | Key user actions, feature usage          | `console.info('User submitted contact form')`     |
+| `debug` | Development debugging only               | Removed in production builds                      |
+
+## Security & Privacy Rules
+
+### NEVER Log:
+
+- PII (Personal Identifiable Information)
+- Payment details (credit cards, bank info)
+- Authentication tokens or passwords
+- Session IDs or user identifiers
+- Form inputs with sensitive data
+
+### Safe to Log (Anonymized):
+
+- Action types (e.g., "form_submitted")
+- Feature usage counts
+- Error types without user context
+- Performance metrics
+- Page view events
+
+## Implementation Guidelines
+
+### Do:
+
+```typescript
+// Good - Descriptive but anonymous
+console.info('Product added to cart', {
+  productId: 'ABC123',
+  category: 'electronics',
+})
+
+// Good - Error with context but no PII
+console.error('Payment processing failed', {
+  errorCode: error.code,
+  gateway: 'stripe',
+  timestamp: Date.now(),
+})
+```
+
+### Don't:
+
+```typescript
+// Bad - Contains PII
+console.info('User John Doe (john@email.com) purchased item')
+
+// Bad - Too verbose
+console.log(
+  'The user clicked the button that says Add to Cart on the product page...',
+)
+```
+
+## Next.js Specifics
+
+- Use `console` methods directly (Next.js optimizes them)
+- Leverage Next.js built-in error reporting
+- Configure source maps for production debugging
+- Use environment-based logging:
+  ```typescript
+  if (process.env.NODE_ENV === 'development') {
+    console.debug('Component rendered:', props)
+  }
+  ```
+
+## Performance Considerations
+
+- Remove all `console.debug` calls in production builds
+- Keep log messages under 200 characters
+- Batch log events when possible
+- Use conditional logging for high-frequency events

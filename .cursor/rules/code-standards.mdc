@@ -1,0 +1,63 @@
+---
+description: 'Code style and standards for TypeScript/React project'
+globs: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx']
+---
+
+# Code Standards
+
+## Naming Conventions
+
+- **Variables/Functions/Methods**: `camelCase` (`getUserData`, `calculateTotal`)
+- **Classes/Components/Interfaces**: `PascalCase` (`UserProfile`, `ApiService`)
+- **Interface Prefix**: Start with `I` (`IUserProps`, `IApiResponse`)
+- **Constants**: `UPPER_SNAKE_CASE` (`MAX_ITEMS`, `API_TIMEOUT`)
+- **Files/Directories**: `kebab-case` (`user-profile.tsx`, `api-utils/`)
+- **Private Methods**: `_privateMethod()` (with underscore prefix)
+- **Boolean Variables**: `isActive`, `hasPermission`, `canEdit`
+
+## TypeScript Specifics
+
+- Use interfaces over types for object definitions
+- Avoid `any` type - use `unknown` or proper typing
+- Use type guards for runtime type checking
+- Export types/interfaces from `src/shared/types/`
+
+## React/Next.js Standards
+
+- Functional components only (no class components)
+- Custom hooks for business logic (`use` prefix)
+- Server Components default, Client Components only when necessary
+- Type props with interfaces (`interface ButtonProps`)
+- Use `tailwind-variants` for component variants
+
+## Function Design
+
+- **Single responsibility** per function
+- **Max 3 parameters** (use objects for more)
+- **Verb-named functions**: `calculateTotal()` not `totalCalculator()`
+- **Pure functions** when possible (no side effects)
+- **Early returns** over nested conditionals
+- **Max 50 lines** per function
+
+## Code Organization
+
+- One variable declaration per line
+- Declare variables close to usage
+- No flag parameters (split into separate functions)
+- Max 2 levels of if/else nesting
+- Prefer composition over inheritance
+
+## Best Practices
+
+- **DRY**: Extract repeated logic
+- **KISS**: Simple solutions over complex patterns
+- **YAGNI**: Implement only what's needed now
+- **Single Responsibility**: One clear purpose per module
+- **Dependency Inversion**: Depend on abstractions
+
+## Comments & Documentation
+
+- JSDoc for public functions/APIs
+- Explain "why" not "what"
+- Keep comments updated with code changes
+- Remove debug/temporary comments before commit

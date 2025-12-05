@@ -1,0 +1,114 @@
+---
+description: 'README.md documentation standards and structure'
+globs: ['README.md', '**/README.md']
+---
+
+# README Documentation Standards
+
+## Required Structure (In Order)
+
+### 1. Project Title & Badges
+
+- Clear, descriptive project name
+- Include relevant badges (version, build status, license, etc.)
+- Example: `# Project Name [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)]`
+
+### 2. Business Description
+
+- 2-3 sentences explaining what the project does in business/user terms
+- **Not** technical implementation details
+- Answer: **Why it exists?**, **what problem it solves?** and **Who benefits?**
+
+### 3. Tech Stack
+
+- Bulleted list of key technologies
+- Include versions if version-specific (e.g., "Node.js 18+", "React 18.2.0")
+
+### 4. Installation
+
+```bash
+# Include exact install command
+pnpm install
+```
+
+### 5. Configuration
+
+#### Environment Variables
+
+```bash
+cp .env.example .env
+```
+
+```env
+# List REQUIRED variables with example values
+DATABASE_URL=postgresql://...
+API_KEY=your_key_here
+PORT=3000
+```
+
+#### Port Configuration
+
+- Specify default port: `PORT=3000`
+- Document port customization if applicable
+
+### 6. Getting Started
+
+#### Essential Commands
+
+```bash
+# Development
+pnpm run dev
+
+# Build
+pnpm run build
+
+# Tests
+pnpm test
+
+# Database Migrations (if applicable)
+pnpm run migrate
+```
+
+### 7. Dependencies
+
+#### External Services
+
+- Database (PostgreSQL, MongoDB, etc.) (if applicable)
+- Messaging platforms (Redis, RabbitMQ, etc.) (if applicable)
+- Required external APIs (if applicable)
+
+### 8. Project Structure
+
+```plaintext
+src/
+├── components/     # React/Vue components
+├── services/      # API calls and external services
+├── utils/         # Helper functions
+└── ...
+```
+
+### 9. Contributing
+
+- Link to CONTRIBUTING.md or brief guidelines
+- Code style references
+
+### 10. License
+
+- License type (MIT, Apache 2.0, etc.)
+- Copyright notice if required
+
+## Documentation Guidelines
+
+### Writing Standards
+
+- Use clear, simple language (avoid jargon)
+- Include **code examples** for complex operations
+- Add **screenshots/diagrams** for UI components
+- Keep updated with code changes
+
+### Links Section
+
+- [API Documentation]()
+- [Architecture Decision Records]()
+- [Changelog]()
+- [Issue Tracker]()

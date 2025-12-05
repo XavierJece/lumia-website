@@ -1,0 +1,37 @@
+---
+description: 'Code review standards and PR requirements for TypeScript projects'
+globs: ['**/*.ts', '**/*.tsx']
+alwaysApply: false
+---
+
+# Code Review Standards
+
+## Mandatory Checks
+
+- **Style Compliance**: Adhere to project's ESLint/Prettier configuration
+- **Test Coverage**: New features require unit tests; existing tests must pass
+- **Secret Management**: Never commit hardcoded API keys, passwords, or tokens
+- **Import Hygiene**: Remove unused imports; consolidate duplicate imports
+- **Variable Cleanup**: Eliminate unused variables and dead code
+
+## Performance & Quality
+
+- **Performance Review**: Assess algorithmic complexity and memory usage
+- **Code Clarity**: Prioritize readability over cleverness
+- **Comment Preservation**: Only remove comments if they're redundant with clear code
+- **Best Practices**: Validate against TypeScript-specific patterns and project conventions
+
+## Automated Validation
+
+Before requesting review:
+
+1. Run `pnpm run lint:prettier:check` and fix formatting with `pnpm run lint:prettier:fix` if needed
+2. Run `pnpm run lint:eslint:check` and fix all ESLint errors
+3. Run test suite (specify command if available, e.g., `pnpm run test`)
+4. Run build verification (specify command if available, e.g., `pnpm run build`)
+
+## Documentation Updates
+
+- Update inline JSDoc comments for modified functions
+- Update README if public APIs change
+- Update TypeScript type definitions for new data structures

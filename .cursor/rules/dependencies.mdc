@@ -1,0 +1,60 @@
+---
+description: 'Package management, dependency guidelines, and version control'
+alwaysApply: true
+---
+
+# Dependency Management Guidelines
+
+## Package Manager & Installation
+
+- Use pnpm exclusively for package management
+- **Workflow for adding dependencies**:
+  1. Install with exact version: `pnpm add package-name@version`
+  2. Verify the version is pinned in package.json (no `^` or `~`)
+  3. Commit both package.json and pnpm-lock.yaml
+- Never manually edit package.json dependencies without installing via pnpm first
+
+## Version Policy
+
+- **Pin exact versions** (without `^` or `~`) for production dependencies
+- Use semantic-release for automated version management
+- Lock file (pnpm-lock.yaml) must always be committed
+- Security vulnerabilities: Update immediately to fixed version
+
+## Allowed Libraries & Versions
+
+- **Core**: Next.js 14.x, React 18.x, TypeScript 5.x
+- **Styling**: Tailwind CSS 3.x, tailwind-merge, tailwind-variants
+- **UI Components**: Radix UI primitives, lucide-react
+- **Forms**: react-hook-form with @hookform/resolvers + Zod validation
+- **State Management**: React Context API only (no Redux/Zustand)
+- **HTTP Client**: Axios (preferred) or Fetch API
+- **Internationalization**: next-intl
+- **Authentication**: next-auth
+- **Date Handling**: date-fns (use caret `^` version, currently ^4.1.0)
+- **Utilities**: clsx, class-variance-authority
+
+## Dependency Rules
+
+- **Forbidden**: Class components, Redux, duplicate utility libraries (e.g., multiple date/time libraries)
+- **Require approval**: Any new dependency not in the "Allowed Libraries" list
+- **Check before adding**:
+  - Bundle size impact (prefer tree-shakable packages)
+  - Maintenance status (regular updates, active issues)
+  - License compatibility
+  - No duplicates of existing functionality
+
+## Package.json Standards
+
+- Maintain existing commitizen configuration
+- Follow semantic-release branch strategy (release/\*)
+- Keep engines.node at "20.x"
+- All Radix UI dependencies should use pinned exact versions
+- Development dependencies must include: ESLint, Prettier, Husky, commitlint
+
+## Quality Assurance
+
+- Run `pnpm lint:eslint:check` and `pnpm lint:prettier:check` after dependency changes
+- Ensure no TypeScript errors post-installation
+- Test affected functionality when updating dependencies
+- Update CHANGELOG.md via semantic-release workflow only (no manual edits)

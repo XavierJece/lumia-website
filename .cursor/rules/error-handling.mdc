@@ -1,0 +1,123 @@
+---
+description: 'Frontend error handling for React/NextJS institutional websites'
+globs: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx']
+alwaysApply: false
+---
+
+# Frontend Error Handling Guidelines
+
+## Core Principle
+
+Errors should never break the user experience on our institutional website. Graceful degradation is mandatory.
+
+## User-Facing Error Handling
+
+### Display Standards
+
+- Show branded, reassuring messages for institutional credibility
+- Never display technical error details to website visitors
+- Provide clear next steps (contact support, try again later, browse other pages)
+- Maintain consistent styling with company branding
+
+### Message Templates
+
+- Data loading failures: "We're having trouble loading this content. Please refresh or contact [Company Name] support."
+- Form submission errors: "We couldn't process your submission. Please check your information and try again."
+- Page errors: "This page isn't loading properly. Try another section or visit our homepage."
+
+## Implementation Patterns
+
+### React Components
+
+- Use Error Boundaries for all page sections and main components
+- Implement fallback UIs that match institutional design system
+- Reset error states after failed retries or user navigation
+- Never wrap individual event handlers in error boundaries
+
+### Data Fetching (NextJS Specific)
+
+- Use NextJS error.js for route-level error handling
+- Implement loading.js for better perceived performance
+- For SWR/React Query: provide fallback data when appropriate
+- Retry failed fetches once with 2-second delay
+
+### Async Operations
+
+- Always catch promises; never use empty catch blocks
+- Log errors before displaying user messages
+- For non-critical features: fail silently with console warnings
+- For critical features: show user feedback with recovery options
+
+## Logging & Monitoring
+
+### What to Log
+
+- Error type and component location
+- User action that triggered error (without PII)
+- Error severity (CRITICAL, WARNING, INFO)
+- Page URL and session context
+
+### What Never to Log
+
+- Personal identifiable information
+- Form data values
+- Authentication tokens
+- Company-sensitive information
+
+## Institutional Website Specifics
+
+### Page Resilience
+
+- Hero sections must never show error boundaries
+- Navigation must remain functional despite content errors
+- Footer and contact information must always be accessible
+- Critical pages (Home, About, Contact) require highest error tolerance
+
+## Recovery Patterns
+
+### Automatic Recovery
+
+- Retry failed image loads once
+- Re-fetch stale data on user interaction
+- Restore scroll position after page errors
+- Maintain form input during submission retries
+
+### Manual Recovery
+
+- Provide "Try Again" buttons for user-initiated retries
+- Offer alternative navigation paths when content fails
+- Include support contact in all error states
+- Suggest related content when primary content fails
+
+## Validation Rules
+
+### Input Validation
+
+- Validate client-side for immediate user feedback
+- Server errors should map to user-friendly messages
+- Use institutional tone in validation messages
+- Never expose validation logic details
+
+### API Error Mapping
+
+- Map HTTP status codes to branded messages:
+  - 4xx: "Please check your information"
+  - 5xx: "We're experiencing technical difficulties"
+  - Network: "Connection issue - please check your internet"
+
+## Anti-Patterns
+
+### Never Allow
+
+- Blank white screens
+- Stack traces in production
+- Broken navigation
+- Lost user progress without warning
+- Institutional branding inconsistencies during errors
+
+### Avoid
+
+- Overly technical error messages
+- Multiple retries without user consent
+- Hiding all content for partial failures
+- Blocking user navigation during errors

@@ -1,0 +1,31 @@
+---
+description: 'Testing standards and requirements'
+globs: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts']
+alwaysApply: true
+---
+
+# Testing Guidelines
+
+- Use the jest library to determine test scenarios and expectations, and sinon to implement test patterns such as stub, spy, and mock
+- To run the tests, use the command `pnpm test`
+- All tests must be placed in the `/test` folder. Do not place tests in the `/src` folder, along with the files being tested.
+- Tests must have the extension `.test.ts`
+- Do not create dependencies between tests; it should be possible to run each one independently
+- Follow the Arrange, Act, Assert or Given, When, Then principle to ensure maximum organization and readability within tests.
+- If you are testing behavior that depends on a Date, and this is important for what is being tested, use a Mock to ensure that the test is repeatable.
+- If a test depends on external resources such as HTTP requests, databases, messaging, or file systems, it should be placed in the `/test/integration` folder; otherwise, it can be placed in the `/test/unit` folder.
+- Create tests for HTTP endpoints. These tests should not use libraries such as supertest and should be integration tests. In addition, create these tests only to ensure that the main and alternative flows are working (mainly exploring status codes and error messages), leaving the variation of business rule tests for use case tests.
+- Crie testes para todos os use cases, nesse caso, teste sempre os fluxos principais e pelo menos um fluxo alternativo, que lance exceptions. Utilize o test pattern stub para evitar utilizar APIs externas nesse nível de teste
+- Create tests for all domains, test all possible rules, all possible variations, always at the unit level, without relying on any external resources.
+- Focus on testing one behavior per test; avoid writing very large tests
+- Ensure that the code being written is fully covered by tests
+- Create consistent expectations by ensuring that everything being tested is actually being checked
+- Always close connections to the database or messaging platforms after running tests
+- Use beforeEach to initialize
+
+
+## Coverage Requirements
+
+- Minimum 80% code coverage
+- 100% for critical paths
+- Critical paths: auth, payments, user data

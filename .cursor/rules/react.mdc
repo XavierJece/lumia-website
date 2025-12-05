@@ -1,0 +1,81 @@
+---
+description: 'React/Next.js component standards for institutional/e-commerce websites'
+globs: ['**/*.tsx', '**/*.jsx']
+alwaysApply: true
+---
+
+# React/Next.js Component Standards
+
+## Component Architecture
+
+- Use functional components with TypeScript (.tsx extension)
+- Export each component as default from its own file
+- Place components close to their usage location
+- Split components exceeding 200 lines of code
+- Avoid creating components under 50 lines unless reusable
+
+## Props & TypeScript
+
+- Define props using TypeScript interfaces prefixed with `I` (e.g., `IButtonProps`)
+- Use `ComponentProps<"element">` for native HTML element props
+- Pass props explicitly; avoid spread operators (`<Component {...props} />`)
+- Document complex props with JSDoc comments
+
+## Styling Standards
+
+- Use Tailwind CSS for all styling
+- Apply `tailwind-merge` to allow className overrides
+- For component variants (buttons, cards), use `tailwind-variants` instead of tailwind-merge
+- Do not use styled-components, CSS-in-JS, or other styling libraries
+
+## Performance & Patterns
+
+- Use `React.memo()` for components receiving complex props
+- Implement `useCallback` for event handlers passed to child components
+- Use `useMemo` for expensive calculations
+- Apply code splitting with `React.lazy()` for route-based components
+- Minimize `useEffect` dependencies to essential values only
+
+## Hooks & State Management
+
+- Call hooks only at the top level of components
+- Extract complex logic into custom hooks (prefixed with `use`)
+- Use React Query (TanStack Query) for server state
+- Use Context API for shared state across component trees
+- Consider Zustand for global state beyond Context capabilities
+
+## UI & Component Library
+
+- Prefer Shadcn/ui components when available
+- Evaluate existing component libraries before building complex UI elements
+- Maintain design system consistency across institutional and e-commerce sections
+
+## Testing Requirements
+
+- Write unit tests for complex components using Vitest/React Testing Library
+- Test component variants and edge cases
+- Include accessibility tests for public-facing components
+
+## File & Naming Conventions
+
+- **Components**: PascalCase (`ProductCard.tsx`)
+- **Hooks**: camelCase with `use` prefix (`useCart.ts`)
+- **Interfaces**: PascalCase with `I` prefix (`IProductProps.ts`)
+- **Constants**: UPPER_SNAKE_CASE (`MAX_QUANTITY = 10`)
+- **Utilities**: camelCase (`formatCurrency.ts`)
+
+## Next.js Specific
+
+- Use App Router with Server Components where possible
+- Implement loading states with `loading.tsx`
+- Handle errors with `error.tsx` boundaries
+- Optimize images with Next.js Image component
+- Use Route Handlers (not API Routes) for backend logic
+
+## Institutional & E-commerce Considerations
+
+- Prioritize accessibility (ARIA labels, keyboard navigation)
+- Optimize for Core Web Vitals (LCP, FID, CLS)
+- Implement SEO best practices (meta tags, structured data)
+- Ensure mobile-responsive designs
+- Include analytics tracking for conversion optimization

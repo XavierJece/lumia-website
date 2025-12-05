@@ -1,0 +1,131 @@
+---
+description: 'Project structure and component guidelines for Next.js institutional website'
+globs: ['**/*.tsx', '**/*.ts', '**/*.jsx', '**/*.js']
+---
+
+# Project Structure Guidelines
+
+## Directory Structure
+
+```plaintext
+project-root/
+├── .github/ # GitHub Actions, workflows, templates
+├── .husky/ # Git hooks for pre-commit/pre-push
+├── docs/ # Project documentation (beyond README)
+├── public/ # Static assets (images, fonts, favicon)
+│ └── images/
+│ ├── products/ # Product images
+│ └── company/ # Brand assets
+├── src/
+│ ├── shared/ # Reusable across entire application
+│ │ ├── components/ # Global UI components (used in 3+ places)
+│ │ ├── hooks/ # Custom React hooks
+│ │ ├── types/ # TypeScript type definitions
+│ │ ├── lib/ # Utilities, helpers, constants
+│ │ └── styles/ # Global styles, Tailwind config extensions
+│ └── app/ # Next.js App Router
+│ ├── (marketing)/ # Public pages (About, Contact, Home)
+│ ├── (shop)/ # E-commerce section (Products, Cart, Checkout)
+│ ├── (dashboard)/ # Admin/company dashboard (if applicable)
+│ └── api/ # API routes (if not using external API)
+│ └── webhook/ # Payment/notification webhooks
+├── tests/ # Test files (Jest, React Testing Library)
+└── ...config files # Root configuration (next.config.js, etc.)
+```
+
+## Placement Rules
+
+### When to Use Each Directory:
+
+**`src/shared/components/`** (Global Components):
+
+- Used in 3 or more different routes/sections
+- Generic UI elements (Button, Modal, Card, Input)
+- Layout components (Header, Footer, Sidebar)
+
+**`app/[section]/components/`** (Route-Specific Components):
+
+- Used only within one route/section
+- Page-specific layouts or widgets
+- Complex page sections broken into smaller pieces
+
+**`src/shared/lib/`** (Utilities & Helpers):
+
+- Formatting functions (`formatCurrency`, `formatDate`)
+- Validation logic
+- API client configurations
+- Business logic extractable from components
+
+**`src/shared/hooks/`** (Custom Hooks):
+
+- Stateful logic used across multiple components
+- Data fetching patterns specific to your domain
+- Complex form handling or animation logic
+
+**`public/images/`** (Static Assets):
+
+- `products/` → Product images (optimized for web)
+- `company/` → Logos, team photos, brand assets
+- Icons go in SVG format when possible
+
+## Component Organization Checklist
+
+When creating a component, follow this decision tree:
+
+1. **Is it used in multiple routes/sections?**
+
+   - Yes → `src/shared/components/`
+   - No → `app/[current-route]/components/`
+
+2. **Does it contain business logic?**
+
+   - Yes → Extract to `src/shared/lib/` or custom hook
+
+3. **Does it need styling variants?**
+
+   - Yes → Use `tailwind-variants` in component file
+
+4. **Is it a page component?**
+   - Yes → Place as `app/[route]/page.tsx`
+
+## File Naming Conventions (Placement Focus)
+
+- **Component folders**: `component-name/` (kebab-case)
+- **Component files**: `ComponentName.tsx` (PascalCase)
+- **Utility files**: `format-currency.ts` (kebab-case)
+- **Hook files**: `use-shopping-cart.ts` (kebab-case with `use-` prefix)
+- **Type files**: `product.types.ts` (kebab-case with `.types.ts` suffix)
+
+## Special Cases
+
+### E-commerce Specific:
+
+- Product-related components → `app/(shop)/products/components/`
+- Cart logic → `src/shared/hooks/use-cart.ts`
+- Payment processing → `src/shared/lib/payment/`
+- Product types → `src/shared/types/product.types.ts`
+
+### Institutional Website:
+
+- Marketing pages → `app/(marketing)/`
+- Company info components → `app/(marketing)/about/components/`
+- Contact forms → `app/(marketing)/contact/components/`
+
+### API Routes (if applicable):
+
+- External API calls → `src/shared/lib/api/`
+- Webhook handlers → `app/api/webhook/route.ts`
+- API types → `src/shared/types/api.types.ts`
+
+## Migration/Refactoring Guidance
+
+When moving files:
+
+1. Update all import paths (Cursor can help with this)
+2. Check for broken dependencies
+3. Update TypeScript path aliases if configured
+4. Verify tests still pass
+
+## Cross-Reference Note
+
+For coding standards (naming, formatting, patterns), refer to the **Code Standards** rule which applies to all files matching `["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]`.

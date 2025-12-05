@@ -1,0 +1,38 @@
+---
+description: 'Performance & SEO optimization for NextJS institutional websites'
+globs: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx']
+alwaysApply: false
+---
+
+# Performance Rules for Business Websites
+
+## Critical (Prioritize These)
+
+- **Core Web Vitals**: Ensure LCP < 2.5s, FID < 100ms, CLS < 0.1
+- **NextJS Image Component**: Always use `<Image>` with optimized formats (WebP/AVIF)
+- **Code Splitting**: Use NextJS dynamic imports for non-critical components
+- **SEO Metadata**: Every page must have complete meta tags and structured data
+
+## React Optimization
+
+- **Memoization**: Use `React.memo` for components re-rendering with same props
+- **Callback/Value Memoization**: Apply `useCallback`/`useMemo` only when dependencies change
+- **State Collocation**: Keep state as close as possible to where it's used
+
+## Network & Data
+
+- **Static Generation**: Use `getStaticProps` for public pages, `getServerSideProps` for user-specific
+- **Incremental Static Regeneration**: Implement ISR for dynamic content
+- **API Optimization**: Implement pagination for lists > 10 items, debounce search inputs
+
+## Avoid (Anti-Patterns)
+
+- **Large Bundles**: Keep initial JS < 150kB (compressed)
+- **Inline Functions/Objects**: In JSX attributes that cause re-renders
+- **Layout Shifts**: Always define image dimensions
+- **Unoptimized Assets**: Images > 100kB without compression
+
+## Monitoring
+
+- **Performance Budgets**: Track bundle size, image weight, and Core Web Vitals
+- **DevTools Audits**: Run Lighthouse before deployment

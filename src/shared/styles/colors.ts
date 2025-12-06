@@ -4,7 +4,9 @@ export const colors = {
   // Primary brand colors
   'primary-green': '#10763e',
   'secondary-green': '#003a33',
+  'horizon-green': '#003a33',
   'accent-yellow': '#d2d658',
+  'light-yellow': '#d2d658',
   'white-essential': '#fffbf7',
   // Green scale
   green: {
@@ -52,4 +54,3 @@ export const colors = {
   warning: '#ff9800',
   info: '#1976d2',
 } as const
-

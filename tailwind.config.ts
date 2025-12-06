@@ -21,6 +21,27 @@ const config = {
     },
     extend: {
       colors,
+      backdropBlur: {
+        xs: '4px',
+        sm: '8px',
+        md: '12px',
+        lg: '16px',
+        xl: '24px',
+      },
+      borderRadius: {
+        glass: '24px',
+        card: '18px',
+        pill: '999px',
+      },
+      boxShadow: {
+        glass: '0 10px 40px rgba(0, 58, 51, 0.18)',
+        soft: '0 6px 24px rgba(0, 0, 0, 0.08)',
+        outline: '0 0 0 1px rgba(33, 33, 29, 0.08)',
+      },
+      backgroundImage: {
+        'glass-overlay':
+          'linear-gradient(135deg, rgba(255, 251, 247, 0.9) 0%, rgba(255, 251, 247, 0.7) 45%, rgba(16, 118, 62, 0.08) 100%)',
+      },
       fontFamily: {
         maven: ['var(--font-maven)', 'sans-serif'],
         montserrat: ['var(--font-montserrat)', 'sans-serif'],

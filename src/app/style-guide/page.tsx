@@ -1,5 +1,6 @@
 'use client'
 
+import { ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 import { Button } from '~/shared/components/Button/Button'
 import { Card } from '~/shared/components/Card/Card'
@@ -8,6 +9,9 @@ import { Input } from '~/shared/components/Form/Input'
 import { Label } from '~/shared/components/Form/Label'
 import { Header } from '~/shared/components/Header/Header'
 import { Logo } from '~/shared/components/Logo/Logo'
+import { Heading, Text } from '~/shared/components/Typography/Typography'
+import GlassCard from '~/shared/components/ui/GlassCard'
+import GlassContainer from '~/shared/components/ui/GlassContainer'
 import { colors } from '~/shared/styles/colors'
 
 export default function StyleGuidePage() {
@@ -28,15 +32,15 @@ export default function StyleGuidePage() {
       <Header />
 
       <main className="container mx-auto px-4 py-12">
-        <h1 className="font-maven text-h1 text-neutral-900 mb-8">
+        <Heading level={1} className="mb-8">
           Guia de Estilo - Lumia Consultoria
-        </h1>
+        </Heading>
 
         {/* Color Palette Section */}
         <section className="mb-16">
-          <h2 className="font-maven text-h2 text-neutral-900 mb-6">
+          <Heading level={2} className="mb-6">
             Paleta de Cores
-          </h2>
+          </Heading>
 
           {/* Primary Colors */}
           <div className="mb-8">
@@ -277,9 +281,9 @@ export default function StyleGuidePage() {
 
         {/* Typography Section */}
         <section className="mb-16">
-          <h2 className="font-maven text-h2 text-neutral-900 mb-6">
+          <Heading level={2} className="mb-6">
             Tipografia
-          </h2>
+          </Heading>
 
           <div className="space-y-6">
             <TypographyExample
@@ -340,43 +344,87 @@ export default function StyleGuidePage() {
           </div>
         </section>
 
+        {/* Glass Components */}
+        <section className="mb-16">
+          <Heading level={2} className="mb-6">
+            Glass Components
+          </Heading>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <GlassContainer overlay className="min-h-[200px]">
+              <Heading level={3} className="text-neutral-900">
+                Blocos com profundidade
+              </Heading>
+              <Text>
+                Use o GlassContainer para agrupar seções com blur e iluminação
+                suave. Ele aceita overlay animado e variações de padding.
+              </Text>
+              <Button trailingIcon={<ArrowRight size={16} />}>
+                Call to action
+              </Button>
+            </GlassContainer>
+            <GlassCard
+              eyebrow="Destaque"
+              title="GlassCard"
+              subtitle="Cartão com header e footer"
+              footer={
+                <Button variant="secondary" size="sm">
+                  Saiba mais
+                </Button>
+              }
+            >
+              <Text>
+                Use o GlassCard para conteúdos com header/footer opcionais. O
+                hover levanta o card e mantém foco visível para acessibilidade.
+              </Text>
+            </GlassCard>
+          </div>
+        </section>
+
         {/* Components Section */}
         <section className="mb-16">
-          <h2 className="font-maven text-h2 text-neutral-900 mb-6">
+          <Heading level={2} className="mb-6">
             Componentes
-          </h2>
+          </Heading>
 
           {/* Buttons */}
           <div className="mb-12">
-            <h3 className="font-maven text-h3 text-neutral-800 mb-4">Botões</h3>
+            <Heading level={3} className="mb-4 text-neutral-800">
+              Botões
+            </Heading>
             <div className="space-y-6">
               <div>
-                <h4 className="font-montserrat text-body-small text-neutral-600 mb-3">
+                <Text className="text-body-small text-neutral-600 mb-3">
                   Variantes
-                </h4>
+                </Text>
                 <div className="flex flex-wrap gap-4">
-                  <Button variant="primary">Botão Primário</Button>
+                  <Button
+                    variant="primary"
+                    trailingIcon={<ArrowRight size={16} />}
+                  >
+                    Botão Primário
+                  </Button>
                   <Button variant="secondary">Botão Secundário</Button>
                   <Button variant="ghost">Botão Ghost</Button>
                 </div>
               </div>
               <div>
-                <h4 className="font-montserrat text-body-small text-neutral-600 mb-3">
+                <Text className="text-body-small text-neutral-600 mb-3">
                   Tamanhos
-                </h4>
+                </Text>
                 <div className="flex flex-wrap items-center gap-4">
                   <Button size="sm">Pequeno</Button>
-                  <Button size="default">Padrão</Button>
+                  <Button size="md">Padrão</Button>
                   <Button size="lg">Grande</Button>
                 </div>
               </div>
               <div>
-                <h4 className="font-montserrat text-body-small text-neutral-600 mb-3">
+                <Text className="text-body-small text-neutral-600 mb-3">
                   Estados
-                </h4>
+                </Text>
                 <div className="flex flex-wrap gap-4">
                   <Button>Normal</Button>
                   <Button disabled>Desabilitado</Button>
+                  <Button isLoading>Carregando</Button>
                 </div>
               </div>
             </div>

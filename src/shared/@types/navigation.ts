@@ -69,4 +69,3 @@ export interface FooterContent {
     stateRegistration?: string
   }
 }
-

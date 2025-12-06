@@ -39,4 +39,3 @@ Techspec: Integration Points (Google Analytics), Development Sequencing (Step 6:
 - src/app/sitemap.ts, src/app/robots.ts
 - Page files with metadata exports
 - next.config.js (if needed for perf tweaks)
-

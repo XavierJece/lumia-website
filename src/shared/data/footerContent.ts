@@ -93,4 +93,3 @@ export const footerContent: FooterContent = {
     stateRegistration: 'Inscrição Estadual: 000.000.000.000',
   },
 }
-

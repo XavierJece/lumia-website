@@ -39,4 +39,3 @@ Implement the global shell: header/nav, footer, route grouping, metadata default
 - src/app/layout.tsx, src/app/(marketing)/layout.tsx, src/app/(blog)/layout.tsx (if used)
 - src/shared/components/layout/Header.tsx, Footer.tsx
 - src/shared/styles/app/globals.css (global nav styles if needed)
-

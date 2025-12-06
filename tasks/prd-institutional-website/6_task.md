@@ -36,5 +36,4 @@ PRD: FR2.1–FR2.3 (Services Hub). Techspec: Development Sequencing (Step 3: Cor
 ## Relevant Files
 
 - src/app/(marketing)/services/page.tsx (or segmented sections)
-- src/shared/components/services/* (solve-now, start-here, services-table)
-
+- src/shared/components/services/\* (solve-now, start-here, services-table)

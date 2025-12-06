@@ -57,4 +57,3 @@ export const headerContent: HeaderContent = {
     href: 'https://wa.me/5511999999999',
   },
 }
-

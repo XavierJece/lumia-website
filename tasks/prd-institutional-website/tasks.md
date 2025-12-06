@@ -20,7 +20,7 @@ Task breakdown for delivering the Lumia institutional website per PRD/techspec: 
 
 ## Tarefas
 
-- [ ] 1.0 Project setup & foundations (depends: —)
+- [x] 1.0 Project setup & foundations (depends: —)
 - [ ] 2.0 Design system (glassmorphism UI atoms/molecules) (depends: 1.0)
 - [ ] 3.0 Prismic integration (client, preview, ISR webhook) (depends: 1.0)
 - [ ] 4.0 Global layout & navigation (header, footer, metadata, pt-BR) (depends: 1.0, uses 2.0)

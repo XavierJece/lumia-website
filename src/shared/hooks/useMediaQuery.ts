@@ -53,4 +53,3 @@ export function useIsLarge() {
 export function useIsXLarge() {
   return useMediaQuery('(min-width: 1280px)')
 }
-

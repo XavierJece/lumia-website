@@ -36,5 +36,4 @@ PRD: FR5.1–FR5.2 (About Lumia). Techspec: Development Sequencing (Step 3: Core
 ## Relevant Files
 
 - src/app/(marketing)/about/page.tsx
-- src/shared/components/about/* (team grid, certifications grid)
-
+- src/shared/components/about/\* (team grid, certifications grid)

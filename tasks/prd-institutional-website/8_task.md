@@ -37,6 +37,5 @@ PRD: FR3.1–FR3.4 (Blog & Content Hub). Techspec: Integration Points (Prismic),
 
 - src/app/(blog)/page.tsx
 - src/app/(blog)/[slug]/page.tsx
-- src/shared/components/blog/* (post cards, filters, share buttons)
+- src/shared/components/blog/\* (post cards, filters, share buttons)
 - src/shared/lib/prismicio.ts (consumption)
-

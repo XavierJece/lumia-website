@@ -14,12 +14,14 @@ The project uses node version 20.0.0. To install this version, we recommend usin
 
 To make it easier to manage node versions on the machine, we use a version manager. **NVM** is recommended for this project.
 
- **Linux version (Ubuntu) and MAC** [Documentation](https://github.com/nvm-sh/nvm)
- ```bash
+**Linux version (Ubuntu) and MAC** [Documentation](https://github.com/nvm-sh/nvm)
+
+```bash
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 #OR
 $ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
- ```
+```
+
 **Windows version** [Documentation](https://github.com/coreybutler/nvm-windows)
 
 #### Node package manager
@@ -58,7 +60,6 @@ $ pnpm i
 
 The environment variables are already in the project in the file `.env.local`.
 
-
 ### Start local
 
 ```bash
@@ -71,8 +72,7 @@ $ make dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
 ## More information
 
- - [Changelog](./CHANGELOG.md)
- - [Contributing](./CONTRIBUTING.md)
+- [Changelog](./CHANGELOG.md)
+- [Contributing](./CONTRIBUTING.md)

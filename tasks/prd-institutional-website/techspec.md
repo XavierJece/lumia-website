@@ -52,18 +52,18 @@ graph TD
 ```typescript
 // Domain definition for contact form data
 export interface IContactFormData {
-  name: string;
-  company?: string;
-  phone: string; // Format: +55...
-  intent: 'URGENT' | 'PLANNING' | 'GENERAL'; // Maps to "Solve Now" vs "Start Here"
-  serviceType?: string; // e.g., "Licenciamento", "Multa"
-  message?: string;
+  name: string
+  company?: string
+  phone: string // Format: +55...
+  intent: 'URGENT' | 'PLANNING' | 'GENERAL' // Maps to "Solve Now" vs "Start Here"
+  serviceType?: string // e.g., "Licenciamento", "Multa"
+  message?: string
 }
 
 // Interface for the WhatsApp link generator service
 export interface IWhatsAppService {
-  generateLink(data: IContactFormData): string;
-  formatMessage(data: IContactFormData): string;
+  generateLink(data: IContactFormData): string
+  formatMessage(data: IContactFormData): string
 }
 ```
 
@@ -72,26 +72,26 @@ export interface IWhatsAppService {
 ```typescript
 // Simplified Prismic Document structure for Blog Posts
 export interface IBlogPost {
-  uid: string;
+  uid: string
   data: {
-    title: string;
-    subtitle: string;
+    title: string
+    subtitle: string
     main_image: {
-      url: string;
-      alt: string;
-    };
-    content: any[]; // Rich Text Structure
-    category: 'Licensing' | 'Regularization';
-    published_date: string;
+      url: string
+      alt: string
+    }
+    content: any[] // Rich Text Structure
+    category: 'Licensing' | 'Regularization'
+    published_date: string
     author: {
-      id: string;
+      id: string
       data: {
-        name: string;
-        role: string;
-        avatar: { url: string };
-      };
-    };
-  };
+        name: string
+        role: string
+        avatar: { url: string }
+      }
+    }
+  }
 }
 ```
 
@@ -119,22 +119,26 @@ The application primarily uses Next.js Route Handlers for specific server-side l
 ## Integration Points
 
 ### Prismic CMS
+
 - **Library:** `@prismicio/client`, `@prismicio/next`, `@prismicio/react`
 - **Auth:** Public API for reads (unless private repo is configured, requires `PRISMIC_ACCESS_TOKEN`).
 - **Error Handling:** Try/catch blocks in `getStaticProps` (Page generation time) or `generateMetadata`. Fallback to 404 for missing documents.
 
 ### WhatsApp
+
 - **Type:** External Link construction (Protocol Handler).
 - **Format:** `https://wa.me/${PHONE}?text=${ENCODED_MESSAGE}`
 - **Logic:** Client-side string manipulation. No API key required.
 
 ### Google Analytics
+
 - **Library:** `@next/third-parties/google`
 - **Integration:** Component-based `<GoogleAnalytics gaId="..." />` in Root Layout.
 
 ## Testing Approach
 
 ### Unit Tests (Vitest)
+
 - **Components:**
   - `WhatsAppLinkGenerator`: Verify correct string encoding and formatting of message based on `IContactFormData`.
   - `ContactForm`: Test validation rules (Zod schema) for required fields (Phone, Name).
@@ -142,6 +146,7 @@ The application primarily uses Next.js Route Handlers for specific server-side l
 - **Mocking:** Mock `useRouter` and Prismic client for component tests.
 
 ### Integration Tests
+
 - **Flows:**
   - Form Submission: User fills "Solve Now" form -> Clicks Submit -> `window.open` is called with correct WhatsApp URL.
   - Blog Navigation: List page loads -> Click article -> Article detail loads.
@@ -175,6 +180,7 @@ The application primarily uses Next.js Route Handlers for specific server-side l
     - Google Analytics setup.
 
 ### Technical Dependencies
+
 - **Prismic Repository:** Access to `lumia-eng` required for content modeling.
 - **Assets:** High-quality icons/logos for "Success Cases" (placeholder strategy required if not ready).
 - **Environment Variables:** `NEXT_PUBLIC_WHATSAPP_NUMBER` setup in Vercel/`.env`.
@@ -205,6 +211,7 @@ The application primarily uses Next.js Route Handlers for specific server-side l
 ### Standards Compliance
 
 This specification complies with the following workspace rules:
+
 - **@.cursor/rules/code-standards.mdc**: TypeScript usage, Functional Components.
 - **@.cursor/rules/performance.mdc**: Use of Next.js Image, Font optimization, and SSG.
 - **@.cursor/rules/project-structure.mdc**: Feature-based or Atomic organization in `src/shared`.
@@ -216,4 +223,3 @@ This specification complies with the following workspace rules:
 - `src/shared/components/forms/ContactForm.tsx` (New)
 - `src/lib/prismicio.ts` (New)
 - `src/services/whatsapp.ts` (New)
-

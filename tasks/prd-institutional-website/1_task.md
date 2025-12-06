@@ -38,5 +38,4 @@ Reference techspec: Executive Summary, System Architecture, Development Sequenci
 - package.json, pnpm-lock.yaml (**YOU MUST NOT** edit these files directly.)
 - tailwind.config.ts, postcss.config.js, src/shared/styles/globals.css, src/shared/styles/colors.ts, src/shared/styles/fonts.ts
 - src/app/layout.tsx
-- .eslintrc.*, .prettierrc.*, .husky/*
-
+- .eslintrc._, .prettierrc._, .husky/\*

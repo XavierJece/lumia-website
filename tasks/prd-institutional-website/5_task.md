@@ -36,6 +36,5 @@ Reference PRD: FR1.1–FR1.4 (Home page). Techspec: Development Sequencing (Step
 ## Relevant Files
 
 - src/app/(marketing)/page.tsx (or equivalent home route)
-- src/app/(marketing)/components/home/* (hero, services, metrics, social proof) - for exclusive components page
+- src/app/(marketing)/components/home/\* (hero, services, metrics, social proof) - for exclusive components page
 - Assets/icons referenced by services/metrics
-

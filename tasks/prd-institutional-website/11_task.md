@@ -35,7 +35,6 @@ Techspec: Testing Approach (Unit and Integration Tests), Known Risks (performanc
 
 ## Relevant Files
 
-- tests/**/* or __tests__/*
+- tests/\*_/_ or **tests**/\*
 - src/shared/services/whatsapp.ts, src/shared/components/forms/ContactForm.tsx
 - Page components under src/app/** and shared components under src/shared/components/**
-

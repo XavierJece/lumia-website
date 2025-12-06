@@ -38,4 +38,3 @@ Reference techspec: System Architecture (Design System), Implementation Design (
 - tailwind.config.ts
 - src/shared/components/ui/GlassCard.tsx, GlassContainer.tsx, Button.tsx, typography helpers
 - src/shared/styles/globals.css (utility classes)
-

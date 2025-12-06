@@ -115,7 +115,7 @@ export interface GlassCardProps
   footer?: React.ReactNode
 }
 
-const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
+export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
   (
     {
       className,
@@ -175,5 +175,3 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
 )
 
 GlassCard.displayName = 'GlassCard'
-
-export default GlassCard

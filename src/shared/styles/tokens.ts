@@ -28,8 +28,10 @@ export const spacingTokens = {
 } as const
 
 export const glassTokens = {
-  surface: 'bg-white-essential/65 dark:bg-secondary-green/50',
-  border: 'border border-white/25 dark:border-white/15',
+  // Increased opacity for better legibility (was /65)
+  surface: 'bg-white-essential/80 dark:bg-secondary-green/70',
+  // Increased border opacity for better definition (was /25)
+  border: 'border border-white/40 dark:border-white/20',
   shadow: shadowTokens.glass,
   overlay: 'bg-glass-overlay bg-[length:200%_200%] animate-gradient-move',
 } as const

@@ -23,11 +23,19 @@ const buttonStyles = tv({
         spinner: 'border-white/70 border-t-white',
       },
       secondary: {
-        base: 'bg-green-200 text-green-900 hover:bg-green-300 active:bg-green-300 shadow-outline',
+        base: 'bg-green-200 text-green-800 hover:bg-green-300 active:bg-green-300 shadow-outline',
         spinner: 'border-green-800/60 border-t-green-800',
+      },
+      outline: {
+        base: 'border-2 border-primary-green text-primary-green bg-transparent hover:bg-green-50 active:bg-green-100',
+        spinner: 'border-primary-green/70 border-t-primary-green',
       },
       ghost: {
         base: 'bg-transparent text-primary-green hover:bg-neutral-100 active:bg-neutral-200',
+        spinner: 'border-primary-green/70 border-t-primary-green',
+      },
+      link: {
+        base: 'text-primary-green underline-offset-4 hover:underline p-0 h-auto',
         spinner: 'border-primary-green/70 border-t-primary-green',
       },
     },
@@ -39,7 +47,7 @@ const buttonStyles = tv({
         base: 'h-10 px-4',
       },
       lg: {
-        base: 'h-11 px-6 text-body-large',
+        base: 'h-11 px-6 ',
       },
       icon: {
         base: 'h-10 w-10 p-0',

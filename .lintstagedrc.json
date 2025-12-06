@@ -1,7 +1,4 @@
 {
-  "*.{js,jsx,ts,tsx}": [
-    "pnpm lint:eslint:check --file",
-    "pnpm lint:prettier:write"
-  ],
+  "*.{js,jsx,ts,tsx}": ["pnpm lint:eslint:check", "pnpm lint:prettier:write"],
   "*.{css,md,mdx,json}": ["pnpm lint:prettier:write"]
 }

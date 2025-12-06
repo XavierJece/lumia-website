@@ -1,8 +1,7 @@
 {
-  "*.tsx": [
-    "eslint"
+  "*.{js,jsx,ts,tsx}": [
+    "pnpm lint:eslint:check --file",
+    "pnpm lint:prettier:write"
   ],
-  "*.html": [
-    "eslint"
-  ]
+  "*.{css,md,mdx,json}": ["pnpm lint:prettier:write"]
 }

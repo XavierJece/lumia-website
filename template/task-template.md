@@ -1,10 +1,10 @@
 # Task X.0: [Main Task Title]
 
-<critical>Read the prd.md and techspec.md files in this folder. If you do not read these files, your task will be invalidated.</critical>
+<critical>Read the prd.md and techspec.md files in this folder. If you do not read these files, your task will be invalidated</critical>
 
 ## Overview
 
-[Brief description of the task]
+[Brief task description]
 
 <requirements>
 [List of mandatory requirements]
@@ -17,11 +17,11 @@
 
 ## Implementation Details
 
-[Relevant sections of the technical spec **NO NEED TO SHOW THE ENTIRE IMPLEMENTATION, JUST REFER TO techspec.md**]
+[Relevant sections from the technical spec **YOU DO NOT NEED TO SHOW THE ENTIRE IMPLEMENTATION, JUST REFERENCE THE techspec.md**]
 
 ## Success Criteria
 
-- [Measurable results]
+- [Measurable outcomes]
 - [Quality requirements]
 
 ## Relevant Files

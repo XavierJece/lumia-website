@@ -1,29 +1,123 @@
-# Task X.0: [Main Task Title]
+# Technical Specification Template
 
-<critical>Read the prd.md and techspec.md files in this folder. If you do not read these files, your task will be invalidated.</critical>
+## Executive Summary
 
-## Overview
+[Provide a brief technical overview of the solution approach. Summarize the main architectural decisions and implementation strategy in 1-2 paragraphs.]
 
-[Brief description of the task]
+## System Architecture
 
-<requirements>
-[List of mandatory requirements]
-</requirements>
+### Component Overview
 
-## Subtasks
+[Brief description of the main components and their responsibilities:
 
-- [ ] X.1 [Subtask description]
-- [ ] X.2 [Subtask description]
+- Component names and primary functions
+- Key relationships between components
+- Data flow overview]
 
-## Implementation Details
+## Implementation Design
 
-[Relevant sections of the technical spec **NO NEED TO SHOW THE ENTIRE IMPLEMENTATION, JUST REFER TO techspec.md**]
+### Main Interfaces
 
-## Success Criteria
+[Define main service interfaces (≤20 lines per example):
 
-- [Measurable results]
-- [Quality requirements]
+```go
+// Example interface definition
+type ServiceName interface {
+    MethodName(ctx context.Context, input Type) (output Type, error)
+}
+```
 
-## Relevant Files
+]
 
-- [Relevant files for this task]
+### Data Models
+
+[Define essential data structures:
+
+- Main domain entities (if applicable)
+- Request/response types
+- Database schemas (if applicable)]
+
+### API Endpoints
+
+[List API endpoints if applicable:
+
+- Method and path (e.g., `POST /api/v0/resource`)
+- Brief description
+- Request/response format references]
+
+## Integration Points
+
+[Include only if functionality requires external integrations:
+
+- External services or APIs
+- Authentication requirements
+- Error handling approach]
+
+## Testing Approach
+
+### Unit Tests
+
+[Describe unit testing strategy:
+
+- Main components to test
+- Mock requirements (external services only)
+- Critical test scenarios]
+
+### Integration Tests
+
+[If needed, describe integration tests:
+
+- Components to test together
+- Test data requirements]
+
+## Development Sequencing
+
+### Build Order
+
+[Define implementation sequence:
+
+1. First component/functionality (why first)
+2. Second component/functionality (dependencies)
+3. Subsequent components
+4. Integration and testing]
+
+### Technical Dependencies
+
+[List any blocking dependencies:
+
+- Required infrastructure
+- External service availability]
+
+## Monitoring and Observability
+
+[Define monitoring approach using existing infrastructure:
+
+- Metrics to expose (Prometheus format)
+- Key logs and log levels
+- Integration with existing Grafana dashboards
+
+## Technical Considerations
+
+### Key Decisions
+
+[Document important technical decisions:
+
+- Approach choice and justification
+- Trade-offs considered
+- Alternatives rejected and why]
+
+### Known Risks
+
+[Identify technical risks:
+
+- Potential challenges
+- Mitigation approaches
+- Areas needing research]
+
+### Standards Compliance
+
+[Research the rules in the @.cursor/rules folder that apply to this techspec and list them below:]
+
+### Relevant Files
+
+[List relevant files here]

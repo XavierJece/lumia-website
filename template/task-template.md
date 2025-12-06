@@ -1,6 +1,6 @@
 # Task X.0: [Main Task Title]
 
-<critical>Read the prd.md and techspec.md files in this folder. If you do not read these files, your task will be invalidated</critical>
+<critical>Read the prd.md and techspec.md files in this folder. **If you do not read these files, your task will be invalidated**</critical>
 
 ## Overview
 

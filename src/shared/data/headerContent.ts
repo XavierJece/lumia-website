@@ -6,54 +6,26 @@ export const headerContent: HeaderContent = {
     href: '/',
   },
   navItems: [
+    { label: 'Home', href: '/' },
     {
       label: 'Serviços',
       dropdown: [
-        { label: 'Licenças Ambientais', href: '/servicos/licencas-ambientais' },
-        { label: 'Licenças Sanitárias', href: '/servicos/licencas-sanitarias' },
-        { label: 'Planos de Gestão', href: '/servicos/planos-gestao' },
-        { label: 'Laudos Técnicos', href: '/servicos/laudos-tecnicos' },
-        { label: 'Regularizações', href: '/servicos/regularizacoes' },
-        { label: 'IBAMA', href: '/servicos/ibama' },
-        { label: 'Segurança Civil', href: '/servicos/seguranca-civil' },
+        { label: 'Solve Now (Urgente)', href: '/servicos/urgente' },
+        { label: 'Start Here (Planejamento)', href: '/servicos/planejamento' },
+        { label: 'Tabela de Serviços', href: '/servicos' },
       ],
     },
-    {
-      label: 'Para Seu Negócio',
-      dropdown: [
-        { label: 'Farmácias & Retail', href: '/segmentos/farmacias' },
-        { label: 'Clínicas & Healthcare', href: '/segmentos/clinicas' },
-        { label: 'Indústrias', href: '/segmentos/industrias' },
-        { label: 'Construção', href: '/segmentos/construcao' },
-        { label: 'Ver todos', href: '/segmentos' },
-      ],
-    },
-    {
-      label: 'Aprenda',
-      dropdown: [
-        { label: 'Blog', href: '/blog' },
-        { label: 'FAQ', href: '/faq' },
-        { label: 'Casos de Sucesso', href: '/casos-de-sucesso' },
-        { label: 'Glossário', href: '/glossario' },
-      ],
-    },
-    {
-      label: 'Sobre',
-      dropdown: [
-        { label: 'Quem Somos', href: '/sobre' },
-        { label: 'Garantias', href: '/garantias' },
-        { label: 'Equipe', href: '/equipe' },
-        { label: 'Contato', href: '/contato' },
-      ],
-    },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Sobre', href: '/sobre' },
+    { label: 'Contato', href: '/contato' },
   ],
-  searchPlaceholder: 'Buscar...',
+  searchPlaceholder: 'Buscar conteúdos e serviços',
   ctaPrimary: {
-    text: 'Orçamento Rápido',
-    href: '/orcamento',
+    text: 'Falar no WhatsApp',
+    href: 'https://wa.me/5511947305880',
   },
   ctaSecondary: {
-    text: 'WhatsApp',
-    href: 'https://wa.me/5511999999999',
+    text: 'Orçamento Rápido',
+    href: '/orcamento',
   },
 }

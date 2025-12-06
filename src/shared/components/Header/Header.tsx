@@ -8,6 +8,16 @@ import { cn } from '~/shared/components/shadcn'
 import { Logo } from '../Logo/Logo'
 import { Button } from '../atoms/ui/button'
 import { Input } from '../atoms/ui/input'
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from '../ui/navigation-menu'
 
 export interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
   content?: HeaderContent
@@ -23,9 +33,26 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
 
     const defaultContent: HeaderContent = {
       logo: { text: 'LUMIA', href: '/' },
-      navItems: [],
-      ctaPrimary: { text: 'Orçamento Rápido', href: '/orcamento' },
-      ctaSecondary: { text: 'WhatsApp', href: 'https://wa.me/' },
+      navItems: [
+        { label: 'Home', href: '/' },
+        {
+          label: 'Serviços',
+          dropdown: [
+            { label: 'Solve Now', href: '/servicos/urgente' },
+            { label: 'Start Here', href: '/servicos/planejamento' },
+            { label: 'Tabela completa', href: '/servicos' },
+          ],
+        },
+        { label: 'Blog', href: '/blog' },
+        { label: 'Sobre', href: '/sobre' },
+        { label: 'Contato', href: '/contato' },
+      ],
+      searchPlaceholder: 'Buscar conteúdos e serviços',
+      ctaPrimary: {
+        text: 'Falar no WhatsApp',
+        href: 'https://wa.me/5511947305880',
+      },
+      ctaSecondary: { text: 'Orçamento Rápido', href: '/orcamento' },
     }
 
     const headerContent = content || defaultContent
@@ -74,6 +101,7 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
             {isMobile ? (
               <div>
                 <button
+                  type="button"
                   onClick={() => handleDropdownToggle(item.label)}
                   className="flex items-center justify-between w-full px-4 py-2 text-base font-medium text-neutral-800 hover:text-primary-green transition-colors"
                   aria-expanded={activeDropdown === item.label}
@@ -107,9 +135,12 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
             ) : (
               <>
                 <button
+                  type="button"
                   className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-neutral-800 hover:text-primary-green transition-colors"
                   onMouseEnter={() => setActiveDropdown(item.label)}
                   onMouseLeave={() => setActiveDropdown(null)}
+                  onFocus={() => setActiveDropdown(item.label)}
+                  onBlur={() => setActiveDropdown(null)}
                   aria-haspopup="true"
                   aria-expanded={activeDropdown === item.label}
                 >
@@ -161,12 +192,16 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
       <header
         ref={ref}
         className={cn(
-          'sticky top-0 z-50 w-full border-b border-neutral-200 bg-white',
+          'sticky top-0 z-50 w-full border-b border-white/40 bg-white/80 backdrop-blur-lg',
+          'shadow-glass supports-[backdrop-filter]:bg-white/70',
           className,
         )}
         {...props}
       >
-        <nav className="container mx-auto px-4 lg:px-6">
+        <nav
+          className="container mx-auto px-4 lg:px-6"
+          aria-label="Navegação principal"
+        >
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link
@@ -178,51 +213,93 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
-              {headerContent.navItems.map((item) => (
-                <NavItem key={item.label} item={item} />
-              ))}
-            </div>
+            <NavigationMenu
+              aria-label="Navegação principal desktop"
+              className="hidden flex-1 justify-center lg:flex"
+            >
+              <NavigationMenuList>
+                {headerContent.navItems.map((item) =>
+                  item.dropdown && item.dropdown.length > 0 ? (
+                    <NavigationMenuItem key={item.label}>
+                      <NavigationMenuTrigger>
+                        {item.label}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid gap-2 p-1 sm:w-[280px]">
+                          {item.dropdown.map((dropdownItem) => (
+                            <li key={dropdownItem.href}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  href={dropdownItem.href}
+                                  className="block rounded-lg px-3 py-2 text-sm text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-primary-green"
+                                >
+                                  {dropdownItem.label}
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  ) : (
+                    <NavigationMenuItem key={item.label}>
+                      <NavigationMenuLink
+                        asChild
+                        className={cn(
+                          navigationMenuTriggerStyle,
+                          'bg-transparent hover:bg-neutral-100',
+                        )}
+                      >
+                        <Link href={item.href || '#'}>{item.label}</Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  ),
+                )}
+              </NavigationMenuList>
+              <NavigationMenuIndicator className="hidden sm:flex" />
+            </NavigationMenu>
 
             {/* Right Side Actions */}
             <div className="flex items-center gap-2 lg:gap-4">
               {/* Search - Desktop */}
               <div className="hidden md:flex items-center">
-                {isSearchOpen ? (
-                  <div className="flex items-center gap-2">
-                    <Input
-                      type="search"
-                      placeholder={
-                        headerContent.searchPlaceholder || 'Buscar...'
+                <div
+                  className={cn(
+                    'flex items-center gap-2 overflow-hidden transition-all duration-300 ease-in-out',
+                    isSearchOpen ? 'w-64 opacity-100' : 'w-0 opacity-0',
+                  )}
+                >
+                  <Input
+                    type="search"
+                    placeholder={headerContent.searchPlaceholder || 'Buscar...'}
+                    className="h-9 bg-white/50 backdrop-blur-sm"
+                    autoFocus={isSearchOpen}
+                    onBlur={(e) => {
+                      if (!e.relatedTarget) {
+                        setIsSearchOpen(false)
                       }
-                      className="w-64 h-9"
-                      autoFocus
-                      onBlur={() => setIsSearchOpen(false)}
-                    />
-                    <button
-                      onClick={() => setIsSearchOpen(false)}
-                      className="p-1 text-neutral-600 hover:text-primary-green"
-                      aria-label="Fechar busca"
-                    >
-                      <X size={20} />
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => setIsSearchOpen(true)}
-                    className="p-2 text-neutral-600 hover:text-primary-green transition-colors"
-                    aria-label="Abrir busca"
-                  >
+                    }}
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsSearchOpen(!isSearchOpen)}
+                  className="p-2 text-neutral-600 hover:text-primary-green transition-colors"
+                  aria-label={isSearchOpen ? 'Fechar busca' : 'Abrir busca'}
+                >
+                  {isSearchOpen ? (
+                    <X size={20} weight="bold" />
+                  ) : (
                     <MagnifyingGlass size={20} weight="bold" />
-                  </button>
-                )}
+                  )}
+                </button>
               </div>
 
               {/* CTAs - Desktop */}
               <div className="hidden md:flex items-center gap-3">
                 <Button
                   asChild
-                  className="bg-[#10B981] hover:bg-[#0ea572] text-white"
+                  className="bg-primary-green hover:bg-green-600 text-white shadow-glass rounded-full px-6"
                 >
                   <Link href={headerContent.ctaPrimary.href}>
                     {headerContent.ctaPrimary.text}
@@ -231,7 +308,7 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
                 <Button
                   asChild
                   variant="outline"
-                  className="border-[#3B82F6] text-[#3B82F6] hover:bg-blue-50"
+                  className="border-horizon-green text-horizon-green hover:bg-neutral-50 rounded-full px-6"
                 >
                   <Link
                     href={headerContent.ctaSecondary.href}
@@ -245,6 +322,7 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
 
               {/* Mobile Search Icon */}
               <button
+                type="button"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
                 className="md:hidden p-2 text-neutral-600 hover:text-primary-green transition-colors"
                 aria-label="Buscar"
@@ -254,10 +332,12 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
 
               {/* Mobile Menu Toggle */}
               <button
+                type="button"
                 onClick={toggleMobileMenu}
                 className="lg:hidden p-2 text-neutral-600 hover:text-primary-green transition-colors"
                 aria-label="Menu"
                 aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
               >
                 {isMobileMenuOpen ? (
                   <X size={24} weight="bold" />
@@ -292,6 +372,8 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
             />
             {/* Drawer */}
             <div
+              id="mobile-menu"
+              data-testid="mobile-menu"
               className={cn(
                 'fixed top-16 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto lg:hidden',
                 'transform transition-transform duration-300 ease-in-out',
@@ -310,7 +392,7 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
                 <div className="mt-8 space-y-3">
                   <Button
                     asChild
-                    className="w-full bg-[#10B981] hover:bg-[#0ea572] text-white"
+                    className="w-full bg-primary-green hover:bg-green-600 text-white shadow-glass"
                   >
                     <Link href={headerContent.ctaPrimary.href}>
                       {headerContent.ctaPrimary.text}
@@ -319,7 +401,7 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full border-[#3B82F6] text-[#3B82F6] hover:bg-blue-50"
+                    className="w-full border-horizon-green text-horizon-green hover:bg-neutral-50"
                   >
                     <Link
                       href={headerContent.ctaSecondary.href}

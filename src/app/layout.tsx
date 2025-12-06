@@ -30,8 +30,13 @@ export default function RootLayout({
       lang="pt-BR"
     >
       <body className="flex min-h-screen flex-col bg-white-essential text-neutral-900 antialiased">
+        <a className="skip-link" href="#main-content">
+          Pular para o conteúdo principal
+        </a>
         <Header content={headerContent} />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer content={footerContent} />
       </body>
     </html>

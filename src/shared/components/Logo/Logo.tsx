@@ -17,26 +17,24 @@ const getLogoPath = (
   variant: LogoVariant,
   colorScheme: LogoColorScheme,
 ): string => {
-  const variantMap = {
-    horizontal: 'Line Horizontal',
-    vertical: 'Line Vertical',
-    symbol: '',
-  }
-
-  const colorMap = {
-    light: 'Claro',
-    dark: 'Escuro',
-    color: 'Cor',
-  }
-
-  const variantName = variantMap[variant]
-  const colorName = colorMap[colorScheme]
-
   if (variant === 'symbol') {
-    return `/logos/Logo ${colorName}PNG.png`
+    return '/logos/a.png'
   }
 
-  return `/logos/Logo ${variantName} ${colorName}PNG.png`
+  if (variant === 'horizontal') {
+    if (colorScheme === 'color') return '/logos/horizontal_line_color_logo.svg'
+    if (colorScheme === 'dark') return '/logos/horizontal_line_dark_logo.svg'
+    if (colorScheme === 'light') return '/logos/horizontal_line_light_logo.svg'
+  }
+
+  if (variant === 'vertical') {
+    if (colorScheme === 'color') return '/logos/vertical_line_color_logo.svg'
+    if (colorScheme === 'dark') return '/logos/vertical_line_dark_logo.svg.svg'
+    if (colorScheme === 'light') return '/logos/vertical_line_light_logo.svg'
+  }
+
+  // Fallback
+  return '/logos/color-logo.svg'
 }
 
 const Logo = React.forwardRef<HTMLImageElement, LogoProps>(

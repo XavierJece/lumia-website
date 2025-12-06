@@ -1,0 +1,242 @@
+---
+description: 'Lumia Consulting brand design system - React/NextJS institutional website guidelines'
+globs:
+  [
+    '**/*.tsx',
+    '**/*.jsx',
+    '**/*.ts',
+    '**/*.js',
+    '**/*.css',
+    '**/*.scss',
+    '**/*.module.css',
+  ]
+---
+
+# Lumia Consulting Design System
+
+## Logo Usage Guidelines
+
+- **Primary Logo**: Use `color_logo.svg` for most applications
+- **Background Adaptations**:
+  - Dark backgrounds: Use `light_logo.svg`
+  - Light backgrounds: Use `dark_logo.svg`
+- **Layout Variations**:
+  - Horizontal layout for headers/navigation
+  - Vertical layout for mobile/sidebars
+- **Icon Usage**: `a.svg` for favicon and small icon applications
+- **Important**: Always request SVG vector versions for production use
+
+## Core Color System
+
+### Primary Brand Colors
+
+- **Primary Green** (`#10763e`): Primary buttons, main links, highlight elements
+- **Horizon Green** (`#003a33`): Headers, footers, dark elements
+- **Light Yellow** (`#d2d658`): Icons, highlights, decorative elements (NOT for text)
+- **Essential White** (`#fffbf7`): Main backgrounds, light surfaces
+
+### Accessible Color Usage Rules
+
+#### ✅ APPROVED Text Color Combinations:
+
+1. **Excellent Contrast (12.6:1)**:
+
+   - `#21211d` on `#fffbf7` (main text)
+   - `#fffbf7` on `#003a33` (dark backgrounds)
+
+2. **Minimum WCAG AA (4.5:1+)**:
+   - `#10763e` on `#fffbf7`
+   - `#93963f` on `#fffbf7`
+   - `#7e8036` on `#fffbf7`
+
+#### ❌ PROHIBITED Text Color Combinations:
+
+- `#d2d658` on `#fffbf7` (1.4:1 contrast) - decorative only
+- `#e8f5e9` on `#fffbf7` (1.2:1 contrast) - background only
+- Any yellow tones below Yellow 800 for text
+
+### Semantic State Colors
+
+- **Success**: `#2e7d32` - confirmations, positive states
+- **Warning**: `#ff9800` - medium alerts, warnings
+- **Error**: `#d32f2f` - errors, critical states
+- **Information**: `#1976d2` - info, neutral states
+
+## Component-Specific Color Rules
+
+### Buttons
+
+```css
+/* Primary Button */
+.primary-btn {
+  background: #10763e;
+  color: #fffbf7;
+}
+.primary-btn:hover {
+  background: #0e5e32;
+}
+.primary-btn:active {
+  background: #0c4726;
+}
+
+/* Secondary Button */
+.secondary-btn {
+  background: #a5d6a7;
+  color: #092f19;
+}
+.secondary-btn:hover {
+  background: #81c784;
+}
+```
+
+### Forms & Inputs
+
+- **Input Background**: `#fffbf7`
+- **Input Border**: `#e0dcd8`
+- **Input Focus Border**: `#81c784`
+- **Placeholder Text**: `#bdb9b5`
+- **Error State**: Border `#d32f2f`, background `#ffebee`
+
+### Typography System
+
+#### Font Families
+
+- **Headings**: "Maven", sans-serif
+- **Body Text**: "Montserrat", sans-serif
+- **Code**: "Roboto Mono", monospace
+
+#### Desktop Type Scale (Mobile-first approach)
+
+```css
+:root {
+  /* Desktop sizes */
+  --h1: 3rem; /* 48px */
+  --h2: 2.25rem; /* 36px */
+  --h3: 1.875rem; /* 30px */
+  --h4: 1.5rem; /* 24px */
+  --h5: 1.25rem; /* 20px */
+  --h6: 1.125rem; /* 18px */
+  --body-base: 1rem; /* 16px */
+  --body-large: 1.125rem; /* 18px */
+  --body-small: 0.875rem; /* 14px */
+  --caption: 0.75rem; /* 12px */
+}
+```
+
+#### Heading Hierarchy Rules
+
+1. **One H1 per page** - main title only
+2. **Don't skip heading levels** (H1 → H2 → H3, not H1 → H3)
+3. **Mobile adjustments**: Reduce heading sizes proportionally
+
+#### Text Colors by Element
+
+- **Main Titles**: `#21211d` (Gray 900)
+- **Subtitles**: `#42423e` (Gray 800)
+- **Body Text**: `#61615d` (Gray 700)
+- **Secondary Text**: `#75716d` (Gray 600)
+- **Text on Dark Backgrounds**: `#fffbf7`
+- **Links**: `#10763e`, hover: `#0e5e32`
+
+### Layout & Spacing Guidelines
+
+#### Section Backgrounds
+
+- **Header/Footer**: `#003a33` with `#fffbf7` text
+- **Main Content**: `#fffbf7` background
+- **Card Backgrounds**: `#fffbf7` or `#f8f5f2` for hover
+- **Testimonial Sections**: `#f8f5f2` background
+
+#### Spacing System
+
+```css
+/* Use consistent spacing scale */
+--spacing-xs: 0.25rem; /* 4px */
+--spacing-sm: 0.5rem; /* 8px */
+--spacing-md: 1rem; /* 16px */
+--spacing-lg: 1.5rem; /* 24px */
+--spacing-xl: 2rem; /* 32px */
+--spacing-2xl: 3rem; /* 48px */
+```
+
+### Interactive States & Animations
+
+#### Hover States
+
+- **Primary Elements**: Darken by 20% (Green 500 → Green 600)
+- **Secondary Elements**: Use Green 200 → Green 300
+- **Cards**: Light background shift (`#fffbf7` → `#f8f5f2`)
+- **Links**: Underline on hover, color change to `#0e5e32`
+
+#### Loading & Disabled States
+
+- **Loading Buttons**: 80% opacity with spinner
+- **Disabled Buttons**: `#bdb9b5` background, `#75716d` text, 50% opacity
+- **Skeleton Loaders**: `#f8f5f2` background with pulse animation
+
+### Accessibility Requirements (MUST FOLLOW)
+
+#### Color Contrast Rules
+
+1. **Normal Text**: Minimum 4.5:1 contrast ratio
+2. **Large Text (18px+)**: Minimum 3:1 contrast ratio
+3. **Interactive Elements**: Clear hover/focus states
+4. **Focus Indicators**: Visible outline with `#81c784`
+
+#### Typography Accessibility
+
+1. **Line Height**: Minimum 1.5 for body text, ideal 1.6-1.7
+2. **Line Length**: 45-75 characters per line
+3. **Responsive Text**: Scale appropriately on mobile
+4. **No Justified Text** - always left-aligned
+
+### Implementation Examples for React/NextJS
+
+#### CSS Variables Setup
+
+```css
+/* styles/globals.css or design-tokens.css */
+:root {
+  /* Primary Colors */
+  --primary-green: #10763e;
+  --horizon-green: #003a33;
+  --light-yellow: #d2d658;
+  --essential-white: #fffbf7;
+
+  /* Semantic Colors */
+  --success: #2e7d32;
+  --warning: #ff9800;
+  --error: #d32f2f;
+  --info: #1976d2;
+
+  /* Typography */
+  --font-heading: 'Maven', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+```
+
+## Quick Reference Cheat Sheet
+
+### DOs:
+
+- Use SVG logos when possible
+- Maintain 4.5:1 contrast for text
+- Use Maven for headings, Montserrat for body
+- Follow the heading hierarchy (H1 → H2 → H3)
+- Use Essential White (#fffbf7) as main background
+
+### DON'Ts:
+
+- Use Light Yellow (#d2d658) for text
+- Skip heading levels in hierarchy
+- Use justified text alignment
+- Use PNG logos in production without vector fallback
+- Use colors with less than 4.5:1 contrast for text
+
+### Critical Accessibility Checks:
+
+1. Text on Primary Green buttons must be Essential White
+2. Text on dark backgrounds must be Essential White
+3. Focus states must be clearly visible
+4. Interactive elements must have hover states
+5. Loading states must maintain accessibility

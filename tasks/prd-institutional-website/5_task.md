@@ -16,11 +16,11 @@ Build the high-conversion home page featuring the value proposition, dual CTAs, 
 
 ## Subtasks
 
-- [ ] 5.1 Implement hero section with headline, subcopy, and dual CTAs using design system buttons.
-- [ ] 5.2 Build Featured Services grid/cards with icons and short descriptions.
-- [ ] 5.3 Build Impact Metrics with animated or stat display; ensure accessibility for numbers.
-- [ ] 5.4 Add social proof/portfolio teaser section and footer CTA alignment.
-- [ ] 5.5 Testing: snapshot/render tests for sections; manual responsive check (mobile/tablet/desktop).
+- [x] 5.1 Implement hero section with headline, subcopy, and dual CTAs using design system buttons.
+- [x] 5.2 Build Featured Services grid/cards with icons and short descriptions.
+- [x] 5.3 Build Impact Metrics with animated or stat display; ensure accessibility for numbers.
+- [x] 5.4 Add social proof/portfolio teaser section and footer CTA alignment.
+- [x] 5.5 Testing: snapshot/render tests for sections; manual responsive check (mobile/tablet/desktop).
 
 ## Implementation Details
 

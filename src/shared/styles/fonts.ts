@@ -1,7 +1,7 @@
-import { Maven_Pro, Montserrat } from 'next/font/google'
+import { Maven_Pro as MavenPro, Montserrat } from 'next/font/google'
 
 // Maven Pro - Primary font for headings
-export const mavenFonts = Maven_Pro({
+export const mavenFonts = MavenPro({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-maven',

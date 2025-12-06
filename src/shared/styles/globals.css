@@ -1,4 +1,62 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply border-neutral-300;
+  }
+
+  body {
+    background: var(--essential-white);
+    color: var(--neutral-900);
+    font-family: var(--font-montserrat), sans-serif;
+    @apply antialiased;
+  }
+
+  a {
+    @apply text-primary-green underline-offset-4 transition-colors duration-150;
+  }
+
+  a:hover {
+    @apply text-green-600;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-maven), sans-serif;
+    @apply text-neutral-900;
+  }
+
+  p {
+    @apply text-neutral-700 leading-relaxed;
+  }
+
+  ::selection {
+    background: rgba(16, 118, 62, 0.14);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .glass-surface {
+    background: var(--glass-bg);
+    box-shadow: var(--glass-shadow);
+    border: 1px solid var(--glass-border);
+    @apply backdrop-blur-lg rounded-glass;
+  }
+
+  .section-shell {
+    @apply w-full max-w-6xl px-6 py-12 lg:py-16;
+  }
+}

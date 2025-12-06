@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     template: '%s | LUMIA',
     default: 'LUMIA',
   },
-  description: 'Melhor serviço para você!',
+  description:
+    'Consultoria e engenharia ambiental com foco em alta performance, compliance e agilidade.',
   openGraph: {
     images: '/opengraph-image.png',
   },
@@ -26,9 +27,9 @@ export default function RootLayout({
   return (
     <html
       className={`${mavenFonts.variable} ${montserratFonts.variable}`}
-      lang="pt-br"
+      lang="pt-BR"
     >
-      <body className="flex flex-col min-h-screen">
+      <body className="flex min-h-screen flex-col bg-white-essential text-neutral-900 antialiased">
         <Header content={headerContent} />
         <main className="flex-1">{children}</main>
         <Footer content={footerContent} />

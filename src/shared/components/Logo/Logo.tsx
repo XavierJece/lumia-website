@@ -59,6 +59,7 @@ const Logo = React.forwardRef<HTMLImageElement, LogoProps>(
 
     return (
       <Image
+        ref={ref}
         src={logoPath}
         alt={altText}
         width={width || defaultWidth}

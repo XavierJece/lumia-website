@@ -16,11 +16,11 @@ Implement the services hub segmented by urgency: “Solve Now” for fines/urgen
 
 ## Subtasks
 
-- [ ] 6.1 Build Solve Now section/cards with CTA pointing to contact/WhatsApp.
-- [ ] 6.2 Build Start Here section with step-by-step guide and supportive CTA.
-- [ ] 6.3 Implement master services table with columns (service, description, deadline/ETA, CTA).
-- [ ] 6.4 Wire links from header/nav and internal anchors to these sections.
-- [ ] 6.5 Testing: render/snapshot tests; check responsiveness and CTA targets.
+- [x] 6.1 Build Solve Now section/cards with CTA pointing to contact/WhatsApp.
+- [x] 6.2 Build Start Here section with step-by-step guide and supportive CTA.
+- [x] 6.3 Implement master services table with columns (service, description, deadline/ETA, CTA).
+- [x] 6.4 Wire links from header/nav and internal anchors to these sections.
+- [x] 6.5 Testing: render/snapshot tests; check responsiveness and CTA targets.
 
 ## Implementation Details
 

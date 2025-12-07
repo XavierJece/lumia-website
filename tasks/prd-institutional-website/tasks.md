@@ -26,7 +26,7 @@ Task breakdown for delivering the Lumia institutional website per PRD/techspec: 
 - [x] 4.0 Global layout & navigation (header, footer, metadata, pt-BR) (depends: 1.0, uses 2.0)
 - [x] 5.0 Home page (hero, featured services, impact metrics, social proof) (depends: 2.0, 4.0)
 - [x] 6.0 Services hub (Solve Now, Start Here, master services table) ⏐ (depends: 2.0, 4.0)
-- [ ] 7.0 About page (team grid, certifications) ⏐ (depends: 2.0, 4.0)
+- [x] 7.0 About page (team grid, certifications) ⏐ (depends: 2.0, 4.0)
 - [ ] 8.0 Blog & content hub (listing, filters, post detail) ⏐ (depends: 3.0, 4.0; UI uses 2.0)
 - [ ] 9.0 Smart contact system (floating WhatsApp, smart forms, quick channels) (depends: 2.0, 4.0)
 - [ ] 10.0 Analytics, SEO, performance (GA, sitemap/robots, metadata, CWV checks) ⏐ (depends: 4.0; aligns with 5.0–9.0)

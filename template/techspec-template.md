@@ -94,7 +94,7 @@ type ServiceName interface {
 
 - Metrics to expose (Prometheus format)
 - Key logs and log levels
-- Integration with existing Grafana dashboards
+- Integration with existing Grafana dashboards]
 
 ## Technical Considerations
 

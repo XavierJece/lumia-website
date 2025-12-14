@@ -17,44 +17,44 @@ Create a new SolutionsGrid component displaying 3 solution cards that link to sp
 
 ## Subtasks
 
-- [ ] 4.1 Create SolutionsGrid.tsx component file
+- [x] 4.1 Create SolutionsGrid.tsx component file
 
   - Create at `src/app/(marketing)/components/home/SolutionsGrid.tsx`
   - Export as default component
   - Add section id="solucoes" for anchor navigation
 
-- [ ] 4.2 Implement solution card structure
+- [x] 4.2 Implement solution card structure
 
   - Icon/shape at top (using Lucide icons)
   - Title in Verde Horizonte
   - Description in gray (1-2 lines)
   - "Saiba mais" link with arrow in Verde Floresta
 
-- [ ] 4.3 Add solutions data
+- [x] 4.3 Add solutions data
 
   - Licenciamento Ambiental para Indústrias → `/solucoes/licenciamento-industrial`
   - Regularização de Emergência e Defesa → `/solucoes/regularizacao-emergencia`
   - Assessoria Contínua para Empresas → `/solucoes/assessoria-continua`
 
-- [ ] 4.4 Style cards with brand patterns
+- [x] 4.4 Style cards with brand patterns
 
   - White background (Branco Essencial)
   - Subtle shadow and rounded corners
   - Consider using GlassCard or similar existing component
   - Icon with Amarelo Luz accent
 
-- [ ] 4.5 Implement responsive layout
+- [x] 4.5 Implement responsive layout
 
   - Desktop: 3-column grid
   - Tablet: 2-column grid or 3-column
   - Mobile: Single column stack
 
-- [ ] 4.6 Add section header
+- [x] 4.6 Add section header
 
   - Title: "Soluções para o seu desafio." in Verde Horizonte
   - Optional subtitle in gray
 
-- [ ] 4.7 Write unit tests
+- [x] 4.7 Write unit tests
   - Test all 3 cards render
   - Test links navigate to correct paths
   - Test card content displays correctly
@@ -100,13 +100,13 @@ const solutions: ISolutionCard[] = [
 
 ## Success Criteria
 
-- [ ] Component renders 3 solution cards
-- [ ] Each card displays icon, title, description, and "Saiba mais" link
-- [ ] Links navigate to correct solution page paths
-- [ ] Section has id="solucoes" that works with Hero anchor
-- [ ] Layout is 3 columns on desktop, stacks on mobile
-- [ ] Card styling matches brand (white bg, shadow, rounded corners)
-- [ ] Unit tests pass
+- [x] Component renders 3 solution cards
+- [x] Each card displays icon, title, description, and "Saiba mais" link
+- [x] Links navigate to correct solution page paths
+- [x] Section has id="solucoes" that works with Hero anchor
+- [x] Layout is 3 columns on desktop, stacks on mobile
+- [x] Card styling matches brand (white bg, shadow, rounded corners)
+- [x] Unit tests pass
 
 ## Relevant Files
 

@@ -20,7 +20,7 @@ const glassCardStyles = tv({
       'transition-all duration-200',
     ],
     header: 'flex items-start gap-3 border-b border-white/15 text-neutral-900',
-    body: 'flex flex-col gap-3 text-neutral-700',
+    body: 'flex flex-col gap-3 text-neutral-700 flex-1',
     footer: 'flex items-center justify-between gap-3 border-t border-white/15',
     eyebrow:
       'text-caption font-semibold uppercase tracking-wide text-green-700',
@@ -147,11 +147,10 @@ export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
       tone,
       blur,
       divider,
-      class: className,
     })
 
     return (
-      <div ref={ref} className={base()} {...props}>
+      <div ref={ref} className={base({ class: className })} {...props}>
         {(eyebrow || title || subtitle) && (
           <div className={header()}>
             <div className="flex flex-col gap-1">

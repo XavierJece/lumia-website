@@ -18,37 +18,38 @@ Enhance the existing Hero component with new headline, subheadline, dual CTAs (W
 
 ## Subtasks
 
-- [ ] 2.1 Update headline and subheadline content
+- [x] 2.1 Update headline and subheadline content
 
   - Headline: "Conformidade Ambiental sem Burocracia: Agilidade e Clareza para Sua Empresa."
   - Ensure headline uses `<h1>` tag
   - Subheadline explaining value proposition
 
-- [ ] 2.2 Implement dual CTA buttons
+- [x] 2.2 Implement dual CTA buttons
 
   - Primary (Yellow): "Fale com um Especialista" → WhatsApp link from constants.ts
-  - Secondary (Outlined): "Ver Nossas Soluções" → anchor to `#solucoes`
+  - Secondary (Outlined): "Ver Nossas Soluções" → anchor to `#solucoes` (Updated to `/solucoes` per user request)
   - Use existing buttonVariants from design system
 
-- [ ] 2.3 Add scroll cue indicator
+- [x] 2.3 Add scroll cue indicator
 
   - Subtle animated arrow/chevron in Amarelo Luz
   - Include proper aria-label for accessibility
   - Visible on both desktop and mobile
+  - Added click-to-scroll functionality
 
-- [ ] 2.4 Apply brand styling and background
+- [x] 2.4 Apply brand styling and background
 
   - Use Verde Horizonte/white color scheme
-  - Consider optional pattern SVG background (pattern_1.svg, pattern_2.svg, or pattern_3.svg)
+  - Consider optional pattern SVG background (pattern_1.svg, pattern_2.svg, or pattern_3.svg) (Removed per user request)
   - Ensure sufficient contrast for readability
 
-- [ ] 2.5 Ensure responsive behavior
+- [x] 2.5 Ensure responsive behavior
 
   - Mobile-first layout
   - Touch targets ≥44px for CTAs
   - Proper spacing on all breakpoints
 
-- [ ] 2.6 Write unit tests
+- [x] 2.6 Write unit tests
   - Test H1 tag presence
   - Test WhatsApp CTA contains preset message
   - Test secondary CTA anchors correctly
@@ -81,13 +82,13 @@ Refer to `techspec.md` for:
 
 ## Success Criteria
 
-- [ ] Hero displays new headline in H1 tag
-- [ ] Primary CTA links to WhatsApp with correct preset message
-- [ ] Secondary CTA scrolls to #solucoes section when clicked
-- [ ] Scroll indicator is visible and accessible
-- [ ] Component renders correctly on mobile (375px) and desktop (1440px)
-- [ ] All colors match brand palette
-- [ ] Unit tests pass
+- [x] Hero displays new headline in H1 tag
+- [x] Primary CTA links to WhatsApp with correct preset message
+- [x] Secondary CTA scrolls to #solucoes section when clicked (Updated to link to page)
+- [x] Scroll indicator is visible and accessible
+- [x] Component renders correctly on mobile (375px) and desktop (1440px)
+- [x] All colors match brand palette
+- [x] Unit tests pass
 
 ## Relevant Files
 

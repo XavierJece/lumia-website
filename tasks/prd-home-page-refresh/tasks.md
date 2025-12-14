@@ -39,7 +39,7 @@ Before starting implementation:
   - Create shared TypeScript interfaces (types.ts)
   - _File: `01_task.md`_
 
-- [ ] **2.0 Hero Section Enhancement** ⏐
+- [x] **2.0 Hero Section Enhancement** ⏐
 
   - Modify Hero.tsx with new headline/subheadline
   - Implement dual CTAs (WhatsApp primary + anchor secondary)

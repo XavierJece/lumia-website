@@ -16,31 +16,31 @@ Create the animation infrastructure required for the Methodology section timelin
 
 ## Subtasks
 
-- [ ] 5.1 Create hooks directory structure
+- [x] 5.1 Create hooks directory structure
 
   - Create `src/app/(marketing)/components/home/hooks/` directory
   - This will house animation-related hooks
 
-- [ ] 5.2 Implement useScrollProgress hook
+- [x] 5.2 Implement useScrollProgress hook
 
   - Create `useScrollProgress.ts` in hooks directory
   - Track scroll progress as a value from 0 to 1
   - Accept a ref to the container element
-  - Return progress value and isInView boolean
+  - Return progress value and isComplete boolean
 
-- [ ] 5.3 Implement reduced-motion detection
+- [x] 5.3 Implement reduced-motion detection
 
   - Use `prefers-reduced-motion` media query
   - Create helper to check user preference
   - Provide fallback behavior when reduced motion is preferred
 
-- [ ] 5.4 Document Framer Motion usage patterns
+- [x] 5.4 Document Framer Motion usage patterns
 
   - Use `LazyMotion` with `domAnimation` features
   - Use `m` instead of `motion` for tree-shaking
   - Set `viewport={{ once: true }}` for one-time animations
 
-- [ ] 5.5 Write unit tests
+- [x] 5.5 Write unit tests
   - Test hook returns progress value
   - Test reduced-motion preference detection
   - Mock IntersectionObserver for testing
@@ -105,13 +105,13 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 
 ## Success Criteria
 
-- [ ] useScrollProgress hook is created and exported
-- [ ] Hook correctly tracks scroll progress (0 to 1)
-- [ ] Reduced-motion preference is detected
-- [ ] LazyMotion pattern is documented for use in Methodology
-- [ ] No additional bundle size beyond domAnimation features (~16KB)
-- [ ] Unit tests pass
-- [ ] TypeScript types are correctly defined
+- [x] useScrollProgress hook is created and exported
+- [x] Hook correctly tracks scroll progress (0 to 1)
+- [x] Reduced-motion preference is detected
+- [x] LazyMotion pattern is documented for use in Methodology
+- [x] No additional bundle size beyond domAnimation features (~16KB)
+- [x] Unit tests pass
+- [x] TypeScript types are correctly defined
 
 ## Relevant Files
 

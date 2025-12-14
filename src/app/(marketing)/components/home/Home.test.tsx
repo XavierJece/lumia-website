@@ -34,11 +34,26 @@ describe('Home Page Components', () => {
   })
 
   describe('ImpactMetrics', () => {
-    it('renders key metrics', () => {
+    it('renders key metrics with correct values and labels', () => {
       render(<ImpactMetrics />)
-      expect(screen.getByText(/Projetos Licenciados/i)).toBeInTheDocument()
-      expect(screen.getByText(/\+500/i)).toBeInTheDocument()
-      expect(screen.getByText(/Economia Gerada/i)).toBeInTheDocument()
+      expect(screen.getByText(/Especialistas técnicos/i)).toBeInTheDocument()
+      expect(screen.getByText('15')).toBeInTheDocument()
+      expect(screen.getAllByText('+')).toHaveLength(3)
+      expect(screen.getByText(/Clientes em conformidade/i)).toBeInTheDocument()
+      expect(screen.getByText('280')).toBeInTheDocument()
+      expect(
+        screen.getByText(/Processos administrativos gerenciados/i),
+      ).toBeInTheDocument()
+      expect(screen.getByText('1.200')).toBeInTheDocument()
+      expect(screen.getByText(/Satisfação dos clientes/i)).toBeInTheDocument()
+      expect(screen.getByText('98')).toBeInTheDocument()
+      expect(screen.getByText('%')).toBeInTheDocument()
+    })
+
+    it('renders icons for each metric', () => {
+      const { container } = render(<ImpactMetrics />)
+      const svgs = container.querySelectorAll('svg')
+      expect(svgs.length).toBeGreaterThanOrEqual(4)
     })
   })
 })

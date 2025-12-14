@@ -1,40 +1,59 @@
 import React from 'react'
-import GlassContainer from '~/shared/components/ui/GlassContainer'
+import { Users, Building2, FileCheck, ThumbsUp } from 'lucide-react'
+import { IMetricCard } from './types'
 
-const metrics = [
-  { id: 1, name: 'Projetos Licenciados', value: '+500' },
-  { id: 2, name: 'Clientes Atendidos', value: '+200' },
-  { id: 3, name: 'Anos de Experiência', value: '10+' },
-  { id: 4, name: 'Economia Gerada', value: 'R$ 5M+' },
+const metrics: IMetricCard[] = [
+  { id: 1, value: '15+', label: 'Especialistas técnicos', icon: Users },
+  { id: 2, value: '280+', label: 'Clientes em conformidade', icon: Building2 },
+  {
+    id: 3,
+    value: '1.200+',
+    label: 'Processos administrativos gerenciados',
+    icon: FileCheck,
+  },
+  { id: 4, value: '98%', label: 'Satisfação dos clientes', icon: ThumbsUp },
 ]
 
 export function ImpactMetrics() {
   return (
-    <div className="py-12 sm:py-16">
+    <section className="bg-white-essential py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <GlassContainer
-          tone="dark"
-          padding="lg"
-          interactive={false}
-          className="mx-auto max-w-none"
-        >
-          <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-4">
-            {metrics.map((metric) => (
+        <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
+          {metrics.map((metric) => {
+            // Split value into number and symbol if possible to color them differently
+            // Logic: Assume symbol is the last character if it is '+' or '%'
+            const hasSymbol =
+              metric.value.endsWith('+') || metric.value.endsWith('%')
+            const numberPart = hasSymbol
+              ? metric.value.slice(0, -1)
+              : metric.value
+            const symbolPart = hasSymbol ? metric.value.slice(-1) : ''
+
+            return (
               <div
                 key={metric.id}
-                className="mx-auto flex max-w-xs flex-col gap-y-4"
+                className="flex flex-col items-center gap-y-4 text-center"
               >
-                <dt className="text-base leading-7 text-green-100">
-                  {metric.name}
-                </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                  {metric.value}
-                </dd>
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-neutral-100">
+                  <metric.icon
+                    className="h-6 w-6 text-horizon-green"
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className="flex flex-col gap-y-1">
+                  <dd className="text-4xl font-bold tracking-tight text-primary-green sm:text-5xl">
+                    {numberPart}
+                    <span className="text-light-yellow">{symbolPart}</span>
+                  </dd>
+                  <dt className="text-base leading-7 text-neutral-600">
+                    {metric.label}
+                  </dt>
+                </div>
               </div>
-            ))}
-          </dl>
-        </GlassContainer>
+            )
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

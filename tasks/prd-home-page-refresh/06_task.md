@@ -19,26 +19,26 @@ Enhance the Methodology section with a central illustration, an animated 4-step 
 
 ## Subtasks
 
-- [ ] 6.1 Add section header
+- [x] 6.1 Add section header ✅
 
   - Title: "Nós facilitamos o diálogo. Você foca no seu negócio."
   - Subtitle explaining mediation role
   - Use H2 for section title
 
-- [ ] 6.2 Add operating diagram illustration
+- [x] 6.2 Add operating diagram illustration ✅
 
   - Use `/images/operating_diagram.svg`
   - Include detailed alt text (see prd.md)
   - Responsive sizing
 
-- [ ] 6.3 Implement timeline structure
+- [x] 6.3 Implement timeline structure ✅
 
   - Green guide line (Verde Horizonte #003a33) as base
   - Yellow progress line (Amarelo Luz #d2d658) on top
   - Desktop: horizontal layout with alternating above/below cards
   - Mobile: vertical layout with cards to the right
 
-- [ ] 6.4 Create step cards (4 steps)
+- [x] 6.4 Create step cards (4 steps) ✅
 
   - Step 1: Diagnóstico & Estratégia
   - Step 2: Tradução & Preparação
@@ -46,26 +46,26 @@ Enhance the Methodology section with a central illustration, an animated 4-step 
   - Step 4: Conformidade Concluída
   - Each includes: numbered circle, title, description, diferencial
 
-- [ ] 6.5 Implement scroll-triggered animation
+- [x] 6.5 Implement scroll-triggered animation ✅
 
   - Use useScrollProgress hook from Task 5.0
   - Progress line fills as user scrolls
   - Cards fade in when progress reaches their position
   - Use LazyMotion with domAnimation
 
-- [ ] 6.6 Add reduced-motion fallback
+- [x] 6.6 Add reduced-motion fallback ✅
 
   - Check prefers-reduced-motion preference
   - Show all content immediately without animation
   - Maintain visual structure
 
-- [ ] 6.7 Add final CTA
+- [x] 6.7 Add final CTA ✅
 
   - Text: "Fale com um de nossos especialistas"
   - Primary button style (Amarelo Luz with dark text)
   - Link to WhatsApp from constants.ts
 
-- [ ] 6.8 Write unit tests
+- [x] 6.8 Write unit tests ✅
   - Test all 4 steps render with correct order
   - Test reduced-motion behavior
   - Test final CTA links to WhatsApp
@@ -137,15 +137,15 @@ Card 1    Card 2    Card 3    Card 4
 
 ## Success Criteria
 
-- [ ] Section displays with correct header and illustration
-- [ ] All 4 timeline steps render in correct order
-- [ ] Progress line animates on scroll (yellow fills over green)
-- [ ] Cards animate in sequence as progress reaches them
-- [ ] Reduced-motion users see all content without animation
-- [ ] Final CTA links to WhatsApp correctly
-- [ ] Illustration has descriptive alt text
-- [ ] Layout adapts properly for mobile (vertical timeline)
-- [ ] Unit tests pass
+- [x] Section displays with correct header and illustration ✅
+- [x] All 4 timeline steps render in correct order ✅
+- [x] Progress line animates on scroll (yellow fills over green) ✅
+- [x] Cards animate in sequence as progress reaches them ✅
+- [x] Reduced-motion users see all content without animation ✅
+- [x] Final CTA links to WhatsApp correctly ✅
+- [x] Illustration has descriptive alt text ✅
+- [x] Layout adapts properly for mobile (vertical timeline) ✅
+- [x] Unit tests pass ✅
 
 ## Relevant Files
 

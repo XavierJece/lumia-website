@@ -69,7 +69,7 @@ Before starting implementation:
   - Implement reduced-motion preference fallback
   - _File: `05_task.md`_
 
-- [ ] **6.0 Methodology Section Enhancement**
+- [x] **6.0 Methodology Section Enhancement** ✅
   - Add operating diagram illustration
   - Implement animated timeline with 4 steps
   - Add scroll-triggered progress line animation

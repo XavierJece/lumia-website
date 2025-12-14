@@ -8,7 +8,7 @@ import {
   useTransform,
 } from 'framer-motion'
 import { Building2, FileCheck, ThumbsUp, Users } from 'lucide-react'
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { IMetricCard } from './types'
 
 const metrics: IMetricCard[] = [

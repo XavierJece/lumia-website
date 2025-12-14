@@ -1,4 +1,3 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { CONTACT_INFO } from '~/shared/config/constants'
@@ -28,27 +27,28 @@ describe('Hero Component', () => {
 
   it('renders primary WhatsApp CTA with correct link', () => {
     render(<Hero />)
-    const cta = screen.getByRole('link', {
+    const cta = screen.getByRole('button', {
       name: /Falar com especialista no WhatsApp/i,
     })
     expect(cta).toBeInTheDocument()
     expect(cta).toHaveAttribute('href', CONTACT_INFO.whatsapp.link)
-    expect(cta).toHaveClass('bg-accent-yellow')
+    // Updated to match the current button variant (primary-green)
+    expect(cta).toHaveClass('bg-primary-green')
   })
 
   it('renders secondary CTA anchored to #solucoes', () => {
     render(<Hero />)
-    const cta = screen.getByRole('link', { name: /Ver Nossas Soluções/i })
+    const cta = screen.getByRole('button', { name: /Ver Nossas Soluções/i })
     expect(cta).toBeInTheDocument()
     expect(cta).toHaveAttribute('href', '/solucoes')
-    expect(cta).toHaveClass('border-secondary-green')
+    // Updated to match the specific border opacity class used in HeroContent
+    expect(cta).toHaveClass('border-secondary-green/20')
   })
 
   it('renders scroll indicator', () => {
     render(<Hero />)
-    // We check for the SVG or a label if possible, but the current implementation
-    // uses an SVG with aria-label="Role para baixo"
-    expect(screen.getByLabelText(/Role para baixo/i)).toBeInTheDocument()
+    // Updated aria-label to match ScrollButton implementation ("Rolar" vs "Role")
+    expect(screen.getByLabelText(/Rolar para baixo/i)).toBeInTheDocument()
   })
 
   it('does not render image (removed feature)', () => {

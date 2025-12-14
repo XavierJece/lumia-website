@@ -1,78 +1,447 @@
-import React from 'react'
-import { ClipboardCheck, Lightbulb, Hammer, CheckCircle } from 'lucide-react'
+'use client'
 
-const steps = [
+import {
+  LazyMotion,
+  domAnimation,
+  m,
+  useTransform,
+  type MotionValue,
+} from 'framer-motion'
+import { CheckCircle, FileText, Search, Users } from 'lucide-react'
+import Image from 'next/image'
+import { useRef } from 'react'
+
+import { Button } from '~/shared/components/atoms/ui/button'
+import { CONTACT_INFO } from '~/shared/config/constants'
+
+import { useReducedMotion, useScrollProgress } from './hooks/useScrollProgress'
+import type { IMethodologyStep } from './types'
+
+const steps: IMethodologyStep[] = [
   {
     id: 1,
-    title: 'Diagnóstico',
+    title: 'Diagnóstico & Estratégia',
     description:
-      'Analisamos a situação atual da sua empresa e identificamos todas as necessidades legais.',
-    icon: ClipboardCheck,
+      'Mapeamos todos os requisitos legais aplicáveis ao seu negócio com um diagnóstico transparente e sem custos ocultos.',
+    diferencial:
+      'Utilizamos nosso banco de dados de processos semelhantes para definir a estratégia mais rápida e segura desde o início.',
+    icon: Search,
   },
   {
     id: 2,
-    title: 'Planejamento',
+    title: 'Tradução & Preparação',
     description:
-      'Definimos a melhor estratégia e cronograma para regularização com menor impacto na operação.',
-    icon: Lightbulb,
+      'Convertemos exigências técnicas em documentação clara e organizamos todo o necessário para submissão.',
+    diferencial:
+      'Nossa equipe multidisciplinar elimina idas e vindas com órgãos reguladores.',
+    icon: FileText,
   },
   {
     id: 3,
-    title: 'Execução',
+    title: 'Mediação & Gestão',
     description:
-      'Elaboramos todos os laudos, projetos e documentos técnicos necessários.',
-    icon: Hammer,
+      'Representamos sua empresa junto aos órgãos ambientais, gerenciando prazos e comunicações.',
+    diferencial: 'Relacionamento consolidado com órgãos agiliza aprovações.',
+    icon: Users,
   },
   {
     id: 4,
-    title: 'Entrega e Acompanhamento',
+    title: 'Conformidade Concluída',
     description:
-      'Protocolamos os processos e monitoramos até a emissão da licença definitiva.',
+      'Entregamos sua licença ou regularização com toda documentação organizada para futuras renovações.',
+    diferencial:
+      'Você recebe um dossiê completo para gestão contínua da conformidade.',
     icon: CheckCircle,
   },
 ]
 
-export function Methodology() {
+interface IStepCardProps {
+  step: IMethodologyStep
+  index: number
+  progress: MotionValue<number>
+  prefersReducedMotion: boolean
+}
+
+function StepCard({
+  step,
+  index,
+  progress,
+  prefersReducedMotion,
+}: IStepCardProps) {
+  const stepThreshold = index / steps.length
+  const stepEndThreshold = (index + 1) / steps.length
+
+  // Card fades in when progress reaches its position
+  const opacity = useTransform(
+    progress,
+    [stepThreshold, stepThreshold + 0.1],
+    [0, 1],
+  )
+
+  const translateY = useTransform(
+    progress,
+    [stepThreshold, stepThreshold + 0.1],
+    [20, 0],
+  )
+
+  // Circle fill animation
+  const circleFill = useTransform(
+    progress,
+    [stepThreshold, stepEndThreshold],
+    ['rgb(0, 58, 51)', 'rgb(210, 214, 88)'],
+  )
+
+  const isAbove = index % 2 === 0
+
   return (
-    <section className="py-24 bg-neutral-50 relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl font-maven">
-            Como Trabalhamos
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-neutral-600">
-            Nossa metodologia garante uma{' '}
-            <strong className="text-primary-green">
-              Solução Personalizada
-            </strong>{' '}
-            para cada cliente, com transparência em todas as etapas.
-          </p>
+    <div
+      className={`relative flex flex-col items-center lg:w-1/4 ${
+        isAbove ? 'lg:order-first' : 'lg:order-last'
+      }`}
+    >
+      {/* Mobile: Horizontal connector line */}
+      <div className="absolute left-8 top-4 h-0.5 w-6 bg-horizon-green lg:hidden" />
+
+      {/* Desktop: Vertical connector line */}
+      <div
+        className={`hidden lg:block absolute left-1/2 -translate-x-1/2 w-0.5 h-8 bg-horizon-green ${
+          isAbove ? 'bottom-0 translate-y-full' : 'top-0 -translate-y-full'
+        }`}
+      />
+
+      {/* Numbered circle */}
+      <m.div
+        className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-horizon-green shadow-sm mb-4"
+        style={
+          prefersReducedMotion
+            ? { backgroundColor: 'rgb(210, 214, 88)' }
+            : { backgroundColor: circleFill }
+        }
+      >
+        <span className="text-xl font-bold text-horizon-green">{step.id}</span>
+      </m.div>
+
+      {/* Card content */}
+      <m.div
+        className="text-center px-4"
+        style={
+          prefersReducedMotion
+            ? { opacity: 1, y: 0 }
+            : { opacity, y: translateY }
+        }
+      >
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <step.icon className="h-5 w-5 text-primary-green" />
+          <h3 className="text-lg font-semibold text-neutral-900 font-maven">
+            {step.title}
+          </h3>
         </div>
+        <p className="text-sm text-neutral-600 mb-3">{step.description}</p>
+        <p className="text-sm italic text-primary-green font-medium">
+          {step.diferencial}
+        </p>
+      </m.div>
+    </div>
+  )
+}
 
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 relative">
-            {/* Connecting line for desktop */}
-            <div className="hidden lg:block absolute top-8 left-0 w-full h-0.5 bg-neutral-200 -z-10" />
+interface ITimelineProgressProps {
+  progress: MotionValue<number>
+  prefersReducedMotion: boolean
+}
 
-            {steps.map((step, index) => (
-              <div
-                key={step.id}
-                className="relative flex flex-col items-center text-center"
+interface IStepMarkerProps {
+  stepId: number
+  index: number
+  progress: MotionValue<number>
+  prefersReducedMotion: boolean
+}
+
+function StepMarker({
+  stepId,
+  index,
+  progress,
+  prefersReducedMotion,
+}: IStepMarkerProps) {
+  const markerPosition = index / (steps.length - 1)
+  const markerFill = useTransform(
+    progress,
+    [markerPosition - 0.1, markerPosition],
+    ['rgb(0, 58, 51)', 'rgb(210, 214, 88)'],
+  )
+
+  return (
+    <m.div
+      key={stepId}
+      className="w-3 h-3 rounded-full border-2 border-horizon-green"
+      style={{
+        backgroundColor: prefersReducedMotion
+          ? 'rgb(210, 214, 88)'
+          : markerFill,
+      }}
+    />
+  )
+}
+
+function TimelineProgress({
+  progress,
+  prefersReducedMotion,
+}: ITimelineProgressProps) {
+  const scaleX = useTransform(progress, [0, 1], [0, 1])
+
+  return (
+    <div className="relative w-full h-1 my-8 hidden lg:block">
+      {/* Green base line */}
+      <div className="absolute inset-0 bg-horizon-green rounded-full" />
+      {/* Yellow progress line */}
+      <m.div
+        className="absolute inset-0 bg-light-yellow rounded-full origin-left"
+        style={prefersReducedMotion ? { scaleX: 1 } : { scaleX }}
+      />
+      {/* Step markers */}
+      <div className="absolute inset-0 flex justify-between items-center px-[12.5%]">
+        {steps.map((step, index) => (
+          <StepMarker
+            key={step.id}
+            stepId={step.id}
+            index={index}
+            progress={progress}
+            prefersReducedMotion={prefersReducedMotion}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function MobileTimeline({
+  progress,
+  prefersReducedMotion,
+}: ITimelineProgressProps) {
+  const scaleY = useTransform(progress, [0, 1], [0, 1])
+
+  return (
+    <div className="relative lg:hidden">
+      {/* Vertical line container */}
+      <div className="absolute left-8 top-0 bottom-0 w-1">
+        {/* Green base line */}
+        <div className="absolute inset-0 bg-horizon-green rounded-full" />
+        {/* Yellow progress line */}
+        <m.div
+          className="absolute inset-0 bg-light-yellow rounded-full origin-top"
+          style={prefersReducedMotion ? { scaleY: 1 } : { scaleY }}
+        />
+      </div>
+
+      {/* Step cards */}
+      <div className="space-y-12 pl-20">
+        {steps.map((step, index) => (
+          <MobileStepCard
+            key={step.id}
+            step={step}
+            index={index}
+            progress={progress}
+            prefersReducedMotion={prefersReducedMotion}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+interface IMobileStepCardProps {
+  step: IMethodologyStep
+  index: number
+  progress: MotionValue<number>
+  prefersReducedMotion: boolean
+}
+
+function MobileStepCard({
+  step,
+  index,
+  progress,
+  prefersReducedMotion,
+}: IMobileStepCardProps) {
+  const stepThreshold = index / steps.length
+  const stepEndThreshold = (index + 1) / steps.length
+
+  const opacity = useTransform(
+    progress,
+    [stepThreshold, stepThreshold + 0.15],
+    [0, 1],
+  )
+
+  const translateX = useTransform(
+    progress,
+    [stepThreshold, stepThreshold + 0.15],
+    [20, 0],
+  )
+
+  const circleFill = useTransform(
+    progress,
+    [stepThreshold, stepEndThreshold],
+    ['rgb(0, 58, 51)', 'rgb(210, 214, 88)'],
+  )
+
+  return (
+    <div className="relative">
+      {/* Circle marker */}
+      <m.div
+        className="absolute -left-12 top-0 flex h-10 w-10 items-center justify-center rounded-full border-2 border-horizon-green shadow-sm"
+        style={
+          prefersReducedMotion
+            ? { backgroundColor: 'rgb(210, 214, 88)' }
+            : { backgroundColor: circleFill }
+        }
+      >
+        <span className="text-sm font-bold text-horizon-green">{step.id}</span>
+      </m.div>
+
+      {/* Card content */}
+      <m.div
+        className="bg-white-essential rounded-lg p-4 shadow-sm border border-neutral-100"
+        style={
+          prefersReducedMotion
+            ? { opacity: 1, x: 0 }
+            : { opacity, x: translateX }
+        }
+      >
+        <div className="flex items-center gap-2 mb-2">
+          <step.icon className="h-5 w-5 text-primary-green" />
+          <h3 className="text-lg font-semibold text-neutral-900 font-maven">
+            {step.title}
+          </h3>
+        </div>
+        <p className="text-sm text-neutral-600 mb-3">{step.description}</p>
+        <p className="text-sm italic text-primary-green font-medium">
+          {step.diferencial}
+        </p>
+      </m.div>
+    </div>
+  )
+}
+
+export function Methodology() {
+  const containerRef = useRef<HTMLElement>(null)
+  const { progress } = useScrollProgress(containerRef)
+  const prefersReducedMotion = useReducedMotion()
+
+  return (
+    <LazyMotion features={domAnimation}>
+      <section
+        ref={containerRef}
+        className="py-24 bg-neutral-50 relative overflow-hidden"
+        aria-labelledby="methodology-heading"
+      >
+        <div className="container mx-auto px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="mx-auto max-w-3xl text-center mb-12">
+            <h2
+              id="methodology-heading"
+              className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl font-maven"
+            >
+              Nós facilitamos o diálogo. Você foca no seu negócio.
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-neutral-600">
+              Mediamos a relação entre sua empresa e os órgãos reguladores,
+              traduzindo exigências em ações claras.
+            </p>
+          </div>
+
+          {/* Operating Diagram Illustration */}
+          <div className="mb-16">
+            <Image
+              src="/images/operating_diagram.svg"
+              alt="Diagrama mostrando o fluxo de mediação da Lumia entre empresas e órgãos reguladores, simplificando processos burocráticos"
+              width={800}
+              height={400}
+              className="w-full max-w-3xl mx-auto"
+              priority={false}
+            />
+          </div>
+
+          {/* Desktop Timeline */}
+          <div className="hidden lg:block mx-auto max-w-6xl">
+            {/* Cards above the line (steps 1 and 3) */}
+            <div className="flex justify-between mb-8">
+              {steps
+                .filter((_, index) => index % 2 === 0)
+                .map((step) => {
+                  const originalIndex = steps.findIndex((s) => s.id === step.id)
+                  return (
+                    <div
+                      key={step.id}
+                      className="w-1/4 px-2"
+                      style={{
+                        marginLeft:
+                          originalIndex === 0 ? '0' : 'calc(25% - 0.5rem)',
+                      }}
+                    >
+                      <StepCard
+                        step={step}
+                        index={originalIndex}
+                        progress={progress}
+                        prefersReducedMotion={prefersReducedMotion}
+                      />
+                    </div>
+                  )
+                })}
+            </div>
+
+            {/* Timeline Progress Line */}
+            <TimelineProgress
+              progress={progress}
+              prefersReducedMotion={prefersReducedMotion}
+            />
+
+            {/* Cards below the line (steps 2 and 4) */}
+            <div className="flex justify-between mt-8">
+              <div className="w-1/4" /> {/* Spacer for step 1 position */}
+              {steps
+                .filter((_, index) => index % 2 === 1)
+                .map((step) => {
+                  const originalIndex = steps.findIndex((s) => s.id === step.id)
+                  return (
+                    <div
+                      key={step.id}
+                      className="w-1/4 px-2"
+                      style={{
+                        marginRight:
+                          originalIndex === 3 ? '0' : 'calc(25% - 0.5rem)',
+                      }}
+                    >
+                      <StepCard
+                        step={step}
+                        index={originalIndex}
+                        progress={progress}
+                        prefersReducedMotion={prefersReducedMotion}
+                      />
+                    </div>
+                  )
+                })}
+            </div>
+          </div>
+
+          {/* Mobile Timeline */}
+          <MobileTimeline
+            progress={progress}
+            prefersReducedMotion={prefersReducedMotion}
+          />
+
+          {/* Final CTA */}
+          <div className="mt-16 text-center">
+            <Button asChild size="lg">
+              <a
+                href={CONTACT_INFO.whatsapp.link}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white border-2 border-primary-green shadow-sm mb-6 z-10">
-                  <step.icon className="h-8 w-8 text-primary-green" />
-                </div>
-                <h3 className="text-xl font-semibold leading-7 text-neutral-900 mb-2">
-                  {index + 1}. {step.title}
-                </h3>
-                <p className="text-base leading-7 text-neutral-600">
-                  {step.description}
-                </p>
-              </div>
-            ))}
+                Fale com um de nossos especialistas
+              </a>
+            </Button>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </LazyMotion>
   )
 }

@@ -9,6 +9,7 @@ import {
 } from 'framer-motion'
 import { Building2, FileCheck, ThumbsUp, Users } from 'lucide-react'
 import { useEffect, useRef } from 'react'
+import { Section } from '~/shared/components/ui/section'
 import { IMetricCard } from './types'
 
 const metrics: IMetricCard[] = [
@@ -65,12 +66,20 @@ function Counter({
 }
 
 export function ImpactMetrics() {
-  const ref = useRef(null)
+  const ref = useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   return (
-    <section ref={ref} className="bg-white-essential py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <Section ref={ref}>
+      <Section.Header>
+        <Section.Title>Resultados que falam por si.</Section.Title>
+        <Section.Subtitle>
+          Números que refletem nosso compromisso com a excelência e a satisfação
+          dos nossos clientes.
+        </Section.Subtitle>
+      </Section.Header>
+
+      <Section.Content>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-12 sm:gap-x-8 sm:gap-y-16">
           {metrics.map((metric, index) => {
             // Split value into number and symbol if possible to color them differently
@@ -122,7 +131,7 @@ export function ImpactMetrics() {
             )
           })}
         </div>
-      </div>
-    </section>
+      </Section.Content>
+    </Section>
   )
 }

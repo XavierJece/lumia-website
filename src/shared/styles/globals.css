@@ -82,4 +82,13 @@
   .section-shell {
     @apply w-full max-w-6xl px-6 py-12 lg:py-16;
   }
+
+  /* Alternating section backgrounds for visual rhythm */
+  section.section-alternating:nth-of-type(odd) {
+    @apply bg-neutral-100;
+  }
+
+  section.section-alternating:nth-of-type(even) {
+    @apply bg-white-essential;
+  }
 }

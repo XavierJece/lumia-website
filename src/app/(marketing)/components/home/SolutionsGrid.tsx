@@ -1,6 +1,7 @@
 import { AlertTriangle, ArrowRight, Factory, Handshake } from 'lucide-react'
 import { Link } from '~/shared/components/atoms/ui/link'
 import { GlassCard } from '~/shared/components/ui/GlassCard'
+import { Section } from '~/shared/components/ui/section'
 import { ISolutionCard } from './types'
 
 const solutions: ISolutionCard[] = [
@@ -29,21 +30,16 @@ const solutions: ISolutionCard[] = [
 
 export default function SolutionsGrid() {
   return (
-    <section
-      id="solucoes"
-      className="container relative z-10 py-16 scroll-mt-24 md:py-24"
-    >
-      <div className="flex flex-col gap-12">
-        <div className="flex flex-col gap-4 text-center md:text-left">
-          <h2 className="font-maven text-h3 font-bold text-secondary-green md:text-h2">
-            Soluções para o seu desafio.
-          </h2>
-          <p className="max-w-2xl text-body-base text-neutral-600">
-            Simplificamos a conformidade ambiental para que você foque no
-            crescimento do seu negócio.
-          </p>
-        </div>
+    <Section id="solucoes" className="relative z-10 scroll-mt-24">
+      <Section.Header>
+        <Section.Title>Soluções para o seu desafio.</Section.Title>
+        <Section.Subtitle>
+          Simplificamos a conformidade ambiental para que você foque no
+          crescimento do seu negócio.
+        </Section.Subtitle>
+      </Section.Header>
 
+      <Section.Content>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
           {solutions.map((solution) => (
             <Link
@@ -84,7 +80,7 @@ export default function SolutionsGrid() {
             </Link>
           ))}
         </div>
-      </div>
-    </section>
+      </Section.Content>
+    </Section>
   )
 }

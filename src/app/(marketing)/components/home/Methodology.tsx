@@ -12,6 +12,7 @@ import Image from 'next/image'
 import { useRef } from 'react'
 
 import { Button } from '~/shared/components/atoms/ui/button'
+import { Section } from '~/shared/components/ui/section'
 import { CONTACT_INFO } from '~/shared/config/constants'
 
 import { useReducedMotion, useScrollProgress } from './hooks/useScrollProgress'
@@ -328,26 +329,22 @@ export function Methodology() {
 
   return (
     <LazyMotion features={domAnimation}>
-      <section
+      <Section
         ref={containerRef}
-        className="py-24 bg-neutral-50 relative overflow-hidden"
+        className="relative overflow-hidden"
         aria-labelledby="methodology-heading"
       >
-        <div className="container mx-auto px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="mx-auto max-w-3xl text-center mb-12">
-            <h2
-              id="methodology-heading"
-              className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl font-maven"
-            >
-              Nós facilitamos o diálogo. Você foca no seu negócio.
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-neutral-600">
-              Mediamos a relação entre sua empresa e os órgãos reguladores,
-              traduzindo exigências em ações claras.
-            </p>
-          </div>
+        <Section.Header>
+          <Section.Title id="methodology-heading">
+            Nós facilitamos o diálogo. Você foca no seu negócio.
+          </Section.Title>
+          <Section.Subtitle className="max-w-3xl">
+            Mediamos a relação entre sua empresa e os órgãos reguladores,
+            traduzindo exigências em ações claras.
+          </Section.Subtitle>
+        </Section.Header>
 
+        <Section.Content>
           {/* Operating Diagram Illustration */}
           <div className="mb-16">
             <Image
@@ -440,8 +437,8 @@ export function Methodology() {
               </a>
             </Button>
           </div>
-        </div>
-      </section>
+        </Section.Content>
+      </Section>
     </LazyMotion>
   )
 }

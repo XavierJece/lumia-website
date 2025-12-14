@@ -1,14 +1,12 @@
-import React from 'react'
-import Link from 'next/link'
-import { GlassCard } from '~/shared/components/ui/GlassCard'
 import {
-  FileCheck,
+  ArrowRight,
   ClipboardCheck,
   Factory,
+  FileCheck,
   Sprout,
-  ArrowRight,
 } from 'lucide-react'
-import { buttonVariants } from '~/shared/components/Button/Button'
+import Link from 'next/link'
+import { GlassCard } from '~/shared/components/ui/GlassCard'
 
 const services = [
   {
@@ -50,8 +48,6 @@ const services = [
 ]
 
 export function FeaturedServices() {
-  const secondaryBtn = buttonVariants({ variant: 'outline' })
-
   return (
     <section className="py-24 sm:py-32 bg-white-essential relative">
       <div className="section-shell mx-auto max-w-7xl px-6 lg:px-8">
@@ -67,12 +63,6 @@ export function FeaturedServices() {
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 mb-16">
           {services.map((service) => {
-            const btnStyles = buttonVariants({
-              variant: service.tone === 'dark' ? 'secondary' : 'ghost',
-              size: 'sm',
-              class: 'mt-auto w-full justify-between group',
-            })
-
             return (
               <GlassCard
                 key={service.title}
@@ -89,10 +79,10 @@ export function FeaturedServices() {
                   </div>
                 }
                 footer={
-                  <Link href={service.href} className={btnStyles.base()}>
+                  <Link href={service.href}>
                     Ver Detalhes
                     <ArrowRight
-                      className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${btnStyles.icon()}`}
+                      className={`h-4 w-4 transition-transform group-hover:translate-x-1 `}
                     />
                   </Link>
                 }
@@ -108,9 +98,9 @@ export function FeaturedServices() {
         </div>
 
         <div className="flex justify-center">
-          <Link href="/servicos" className={secondaryBtn.base()}>
+          <Link href="/servicos">
             Ver Tabela Completa de Serviços
-            <ArrowRight className={secondaryBtn.icon()} />
+            <ArrowRight />
           </Link>
         </div>
       </div>

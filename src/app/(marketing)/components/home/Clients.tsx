@@ -1,8 +1,6 @@
-import React from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { buttonVariants } from '~/shared/components/Button/Button'
 import { ArrowRight, Quote } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 import { GlassCard } from '~/shared/components/ui/GlassCard'
 
 // More realistic sectors/clients based on research
@@ -39,8 +37,6 @@ const testimonials = [
 ]
 
 export function Clients() {
-  const btnStyles = buttonVariants({ variant: 'secondary' })
-
   return (
     <section className="py-24 bg-gradient-to-b from-white to-neutral-50">
       <div className="container mx-auto px-6 lg:px-8">
@@ -105,9 +101,9 @@ export function Clients() {
         </div>
 
         <div className="mt-16 flex justify-center">
-          <Link href="/portfolio" className={btnStyles.base()}>
+          <Link href="/portfolio">
             Ver Portfolio Completo
-            <ArrowRight className={btnStyles.icon()} />
+            <ArrowRight />
           </Link>
         </div>
       </div>

@@ -1,14 +1,10 @@
 import { MessageCircle, NotebookPen } from 'lucide-react'
 import Link from 'next/link'
-import { buttonVariants } from '~/shared/components/Button/Button'
 import { Heading, Text } from '~/shared/components/Typography/Typography'
 import { StartHereSection } from '~/shared/components/services'
 import { CONTACT_INFO } from '~/shared/config/constants'
 
 export default function PlanningServicesPage() {
-  const primaryBtn = buttonVariants({ variant: 'primary', size: 'lg' })
-  const secondaryBtn = buttonVariants({ variant: 'secondary', size: 'lg' })
-
   return (
     <main className="bg-white-essential">
       <section className="section-shell mx-auto py-16 sm:py-20">
@@ -33,18 +29,12 @@ export default function PlanningServicesPage() {
               href={CONTACT_INFO.whatsapp.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={primaryBtn.base()}
               aria-label="Falar no WhatsApp para iniciar licenciamento"
             >
-              <MessageCircle className={primaryBtn.icon()} />
+              <MessageCircle />
               Falar com especialista
             </Link>
-            <Link
-              href="/servicos#services-table"
-              className={secondaryBtn.base()}
-            >
-              Ver tabela de prazos
-            </Link>
+            <Link href="/servicos#services-table">Ver tabela de prazos</Link>
           </div>
         </div>
       </section>

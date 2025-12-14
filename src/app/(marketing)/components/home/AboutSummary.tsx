@@ -1,11 +1,8 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { buttonVariants } from '~/shared/components/Button/Button'
 
 export function AboutSummary() {
-  const btnStyles = buttonVariants({ variant: 'outline' })
-
   return (
     <section className="py-24 bg-white-essential">
       <div className="container mx-auto px-6 lg:px-8">
@@ -62,9 +59,9 @@ export function AboutSummary() {
                 </li>
               </ul>
               <div className="mt-10 flex items-center gap-x-6">
-                <Link href="/sobre" className={btnStyles.base()}>
+                <Link href="/sobre">
                   Conheça nossa história
-                  <ArrowRight className={btnStyles.icon()} />
+                  <ArrowRight />
                 </Link>
                 <span className="text-sm font-semibold leading-6 text-neutral-500">
                   Desde 2015

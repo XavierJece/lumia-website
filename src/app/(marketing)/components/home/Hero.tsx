@@ -21,12 +21,12 @@ export function Hero() {
       className={twMerge(
         'min-h-[100dvh]',
         'bg-gradient-to-b from-green-50/80 to-white',
-        'flex flex-col items-center justify-center',
+        'flex flex-col items-center',
         'gap-8 sm:gap-12',
         'px-6 py-12 sm:py-24',
       )}
     >
-      <div className="max-w-4xl mx-auto gap-4 flex flex-col items-center justify-center">
+      <div className="flex-1 flex flex-col items-center justify-center max-w-4xl mx-auto gap-4">
         <h1 className="text-3xl font-bold tracking-tight text-secondary-green sm:text-5xl lg:text-5xl font-maven leading-tight lg:leading-tight text-center">
           Conformidade Ambiental sem Burocracia:{' '}
           <span className="text-primary-green relative whitespace-nowrap">
@@ -88,7 +88,7 @@ export function Hero() {
 
       {/* Scroll Cue Indicator */}
       <ChevronDown
-        className="size-8 text-secondary-green animate-bounce mt-auto sm:mt-0"
+        className="size-8 text-secondary-green animate-bounce sm:mt-0"
         aria-label="Role para baixo"
       />
     </section>

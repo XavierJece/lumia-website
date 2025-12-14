@@ -71,7 +71,7 @@ export function ImpactMetrics() {
   return (
     <section ref={ref} className="bg-white-essential py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-12 sm:gap-x-8 sm:gap-y-16">
           {metrics.map((metric, index) => {
             // Split value into number and symbol if possible to color them differently
             // Logic: Assume symbol is the last character if it is '+' or '%'
@@ -85,7 +85,7 @@ export function ImpactMetrics() {
             return (
               <motion.div
                 key={metric.id}
-                className="flex flex-col items-center gap-y-4 text-center cursor-default"
+                className="flex flex-col items-center gap-y-4 text-center cursor-default w-[calc(50%-1rem)] sm:w-[calc(50%-2rem)] lg:w-[calc(25%-2rem)]"
                 initial="idle"
                 whileHover="hover"
               >

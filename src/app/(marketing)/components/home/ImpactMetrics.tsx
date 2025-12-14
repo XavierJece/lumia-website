@@ -1,7 +1,5 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
-import { Building2, FileCheck, ThumbsUp, Users } from 'lucide-react'
 import {
   motion,
   useInView,
@@ -9,6 +7,8 @@ import {
   useSpring,
   useTransform,
 } from 'framer-motion'
+import { Building2, FileCheck, ThumbsUp, Users } from 'lucide-react'
+import React, { useEffect, useRef } from 'react'
 import { IMetricCard } from './types'
 
 const metrics: IMetricCard[] = [
@@ -83,13 +83,18 @@ export function ImpactMetrics() {
             const symbolPart = hasSymbol ? metric.value.slice(-1) : ''
 
             return (
-              <div
+              <motion.div
                 key={metric.id}
-                className="flex flex-col items-center gap-y-4 text-center"
+                className="flex flex-col items-center gap-y-4 text-center cursor-default"
+                initial="idle"
+                whileHover="hover"
               >
                 <motion.div
                   className="flex h-12 w-12 items-center justify-center rounded-lg bg-neutral-100"
-                  whileHover={{ scale: 1.1 }}
+                  variants={{
+                    idle: { scale: 1 },
+                    hover: { scale: 1.1 },
+                  }}
                   transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
                   <metric.icon
@@ -113,7 +118,7 @@ export function ImpactMetrics() {
                     {metric.label}
                   </dt>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
         </div>

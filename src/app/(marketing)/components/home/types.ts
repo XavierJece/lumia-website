@@ -86,3 +86,19 @@ export interface IBlogPreview {
   image?: string
   href: string
 }
+
+/**
+ * Interface for timeline methodology steps displayed in the "How We Eliminate Bureaucracy" section.
+ * Each step represents a phase in Lumia's process with structured content including
+ * header, title, key question, description, differential highlight, practical example, and icon.
+ */
+export interface ITimelineStep {
+  id: number
+  header: string // "ETAPA 1", "ETAPA 2", etc.
+  title: string // Step conceptual name (H3)
+  keyQuestion: string // Question the step answers
+  description: string // Main activity description
+  diferencial: string // Lumia's unique approach
+  practicalExample: string // Real-world application example
+  icon: LucideIcon // Visual representation from lucide-react
+}

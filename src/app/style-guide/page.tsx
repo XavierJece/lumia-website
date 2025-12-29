@@ -2,15 +2,15 @@
 
 import { ArrowRight } from 'lucide-react'
 import { useState } from 'react'
-import { Button } from '~/shared/components/Button/Button'
+import { Button } from '~/shared/components/atoms/ui/button'
 import { Card } from '~/shared/components/Card/Card'
 import { FormField } from '~/shared/components/Form/FormField'
 import { Input } from '~/shared/components/Form/Input'
 import { Label } from '~/shared/components/Form/Label'
-import { Header } from '~/shared/components/Header/Header'
+import { LoadingIcon } from '~/shared/components/Loading/Loading'
 import { Logo } from '~/shared/components/Logo/Logo'
 import { Heading, Text } from '~/shared/components/Typography/Typography'
-import GlassCard from '~/shared/components/ui/GlassCard'
+import { GlassCard } from '~/shared/components/ui/GlassCard'
 import GlassContainer from '~/shared/components/ui/GlassContainer'
 import { colors } from '~/shared/styles/colors'
 
@@ -29,7 +29,7 @@ export default function StyleGuidePage() {
 
   return (
     <div className="min-h-screen bg-white-essential">
-      <Header />
+      {/* <Header /> */}
 
       <main className="container mx-auto px-4 py-12">
         <Heading level={1} className="mb-8">
@@ -358,7 +358,8 @@ export default function StyleGuidePage() {
                 Use o GlassContainer para agrupar seções com blur e iluminação
                 suave. Ele aceita overlay animado e variações de padding.
               </Text>
-              <Button trailingIcon={<ArrowRight size={16} />}>
+              <Button>
+                <ArrowRight size={16} />
                 Call to action
               </Button>
             </GlassContainer>
@@ -397,10 +398,8 @@ export default function StyleGuidePage() {
                   Variantes
                 </Text>
                 <div className="flex flex-wrap gap-4">
-                  <Button
-                    variant="primary"
-                    trailingIcon={<ArrowRight size={16} />}
-                  >
+                  <Button variant="default">
+                    <ArrowRight size={16} />
                     Botão Primário
                   </Button>
                   <Button variant="secondary">Botão Secundário</Button>
@@ -413,7 +412,7 @@ export default function StyleGuidePage() {
                 </Text>
                 <div className="flex flex-wrap items-center gap-4">
                   <Button size="sm">Pequeno</Button>
-                  <Button size="md">Padrão</Button>
+                  <Button size="default">Padrão</Button>
                   <Button size="lg">Grande</Button>
                 </div>
               </div>
@@ -424,7 +423,10 @@ export default function StyleGuidePage() {
                 <div className="flex flex-wrap gap-4">
                   <Button>Normal</Button>
                   <Button disabled>Desabilitado</Button>
-                  <Button isLoading>Carregando</Button>
+                  <Button disabled>
+                    <LoadingIcon className="animate-spin" />
+                    Carregando
+                  </Button>
                 </div>
               </div>
             </div>

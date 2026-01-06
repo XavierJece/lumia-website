@@ -1,9 +1,8 @@
-import React from 'react'
-import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { buttonVariants } from '~/shared/components/Button/Button'
-import GlassContainer from '~/shared/components/ui/GlassContainer'
+import Link from 'next/link'
+import { buttonVariants } from '~/shared/components/atoms/ui/button'
 import { Heading, Text } from '~/shared/components/Typography/Typography'
+import GlassContainer from '~/shared/components/ui/GlassContainer'
 import { aboutHero } from '~/shared/data/aboutContent'
 
 export function HeroAbout() {
@@ -37,20 +36,16 @@ export function HeroAbout() {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   href="/contato"
-                  className={buttonVariants({ variant: 'primary' }).base()}
+                  className={buttonVariants({ variant: 'default' })}
                 >
-                  <span className={buttonVariants().label()}>
-                    Falar com especialista
-                  </span>
-                  <ArrowRight className={buttonVariants().icon()} />
+                  Falar com especialista
+                  <ArrowRight className="h-4 w-4 shrink-0" />
                 </Link>
                 <Link
                   href="/servicos"
-                  className={buttonVariants({ variant: 'outline' }).base()}
+                  className={buttonVariants({ variant: 'outline' })}
                 >
-                  <span className={buttonVariants().label()}>
-                    Ver portfólio de serviços
-                  </span>
+                  Ver portfólio de serviços
                 </Link>
               </div>
             </div>

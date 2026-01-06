@@ -1,15 +1,15 @@
-import React from 'react'
 import {
   AlarmClock,
+  ArrowRight,
+  PhoneCall,
   ShieldAlert,
   Siren,
-  PhoneCall,
-  ArrowRight,
 } from 'lucide-react'
 import Link from 'next/link'
-import { buttonVariants } from '~/shared/components/Button/Button'
-import { GlassCard } from '~/shared/components/ui/GlassCard'
+import { buttonVariants } from '~/shared/components/atoms/ui/button'
+import { cn } from '~/shared/components/shadcn'
 import { Heading, Text } from '~/shared/components/Typography/Typography'
+import { GlassCard } from '~/shared/components/ui/GlassCard'
 import { CONTACT_INFO } from '~/shared/config/constants'
 
 interface ISolveNowSectionProps {
@@ -48,12 +48,14 @@ export function SolveNowSection({
   id = 'solve-now',
   compact = false,
 }: ISolveNowSectionProps) {
-  const primaryCta = buttonVariants({ variant: 'primary', size: 'lg' })
-  const ghostCta = buttonVariants({
-    variant: 'ghost',
-    size: 'sm',
-    class: 'mt-2 justify-start',
-  })
+  const primaryCta = buttonVariants({ variant: 'default', size: 'lg' })
+  const ghostCta = cn(
+    buttonVariants({
+      variant: 'ghost',
+      size: 'sm',
+    }),
+    'mt-2 justify-start',
+  )
 
   return (
     <section id={id} className="py-20 sm:py-24 bg-white-essential">
@@ -76,15 +78,15 @@ export function SolveNowSection({
                 href={CONTACT_INFO.whatsapp.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={primaryCta.base()}
+                className={primaryCta}
                 aria-label="Agendar diagnóstico imediato via WhatsApp"
               >
-                <PhoneCall className={primaryCta.icon()} />
+                <PhoneCall className="h-4 w-4 shrink-0" />
                 Agendar Diagnóstico
               </Link>
-              <Link href="#services-table" className={ghostCta.base()}>
+              <Link href="#services-table" className={ghostCta}>
                 Ver tabela completa
-                <ArrowRight className={ghostCta.icon()} />
+                <ArrowRight className="h-4 w-4 shrink-0" />
               </Link>
             </div>
           )}
@@ -114,14 +116,16 @@ export function SolveNowSection({
                       href={CONTACT_INFO.whatsapp.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={buttonVariants({
-                        variant: 'outline',
-                        size: 'sm',
-                        class: 'justify-between w-full',
-                      }).base()}
+                      className={cn(
+                        buttonVariants({
+                          variant: 'outline',
+                          size: 'sm',
+                        }),
+                        'justify-between w-full',
+                      )}
                     >
                       Falar agora
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-4 w-4 shrink-0" />
                     </Link>
                   </div>
                 }

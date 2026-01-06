@@ -1,15 +1,15 @@
-import React from 'react'
 import {
   ArrowRight,
+  CheckCircle2,
   ClipboardList,
   Landmark,
   Sprout,
-  CheckCircle2,
 } from 'lucide-react'
 import Link from 'next/link'
-import { buttonVariants } from '~/shared/components/Button/Button'
-import { GlassCard } from '~/shared/components/ui/GlassCard'
+import { buttonVariants } from '~/shared/components/atoms/ui/button'
+import { cn } from '~/shared/components/shadcn'
 import { Heading, Text } from '~/shared/components/Typography/Typography'
+import { GlassCard } from '~/shared/components/ui/GlassCard'
 import { CONTACT_INFO } from '~/shared/config/constants'
 
 interface IStartHereSectionProps {
@@ -45,12 +45,14 @@ export function StartHereSection({
   id = 'start-here',
   compact = false,
 }: IStartHereSectionProps) {
-  const primaryCta = buttonVariants({ variant: 'primary', size: 'lg' })
-  const ghostCta = buttonVariants({
-    variant: 'ghost',
-    size: 'sm',
-    class: 'mt-2 justify-start',
-  })
+  const primaryCta = buttonVariants({ variant: 'default', size: 'lg' })
+  const ghostCta = cn(
+    buttonVariants({
+      variant: 'ghost',
+      size: 'sm',
+    }),
+    'mt-2 justify-start',
+  )
 
   return (
     <section id={id} className="py-20 sm:py-24 bg-white-essential">
@@ -73,15 +75,15 @@ export function StartHereSection({
                 href={CONTACT_INFO.whatsapp.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={primaryCta.base()}
+                className={primaryCta}
                 aria-label="Iniciar licenciamento via WhatsApp"
               >
-                <CheckCircle2 className={primaryCta.icon()} />
+                <CheckCircle2 className="h-4 w-4 shrink-0" />
                 Iniciar licenciamento
               </Link>
-              <Link href="#services-table" className={ghostCta.base()}>
+              <Link href="#services-table" className={ghostCta}>
                 Ver tabela completa
-                <ArrowRight className={ghostCta.icon()} />
+                <ArrowRight className="h-4 w-4 shrink-0" />
               </Link>
             </div>
           )}

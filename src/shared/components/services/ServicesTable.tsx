@@ -1,9 +1,9 @@
-import React from 'react'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
-import { buttonVariants } from '~/shared/components/Button/Button'
-import GlassContainer from '~/shared/components/ui/GlassContainer'
+import { buttonVariants } from '~/shared/components/atoms/ui/button'
+import { cn } from '~/shared/components/shadcn'
 import { Heading, Text } from '~/shared/components/Typography/Typography'
+import GlassContainer from '~/shared/components/ui/GlassContainer'
 import { CONTACT_INFO } from '~/shared/config/constants'
 
 interface IServiceItem {
@@ -56,11 +56,13 @@ interface IServicesTableProps {
 }
 
 export function ServicesTable({ id = 'services-table' }: IServicesTableProps) {
-  const outlineCta = buttonVariants({
-    variant: 'outline',
-    size: 'sm',
-    class: 'justify-between w-full',
-  })
+  const outlineCta = cn(
+    buttonVariants({
+      variant: 'outline',
+      size: 'sm',
+    }),
+    'justify-between w-full',
+  )
 
   return (
     <section id={id} className="py-20 sm:py-24 bg-white-essential">
@@ -99,10 +101,10 @@ export function ServicesTable({ id = 'services-table' }: IServicesTableProps) {
                   href={CONTACT_INFO.whatsapp.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={outlineCta.base()}
+                  className={outlineCta}
                 >
                   {service.ctaLabel ?? 'Falar agora'}
-                  <ExternalLink className="h-4 w-4" />
+                  <ExternalLink className="h-4 w-4 shrink-0" />
                 </Link>
               </div>
             </GlassContainer>
@@ -137,14 +139,16 @@ export function ServicesTable({ id = 'services-table' }: IServicesTableProps) {
                           href={CONTACT_INFO.whatsapp.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={buttonVariants({
-                            variant: 'secondary',
-                            size: 'sm',
-                            class: 'inline-flex justify-between min-w-[180px]',
-                          }).base()}
+                          className={cn(
+                            buttonVariants({
+                              variant: 'secondary',
+                              size: 'sm',
+                            }),
+                            'inline-flex justify-between min-w-[180px]',
+                          )}
                         >
                           {service.ctaLabel ?? 'Falar agora'}
-                          <ArrowRight className="h-4 w-4" />
+                          <ArrowRight className="h-4 w-4 shrink-0" />
                         </Link>
                       </td>
                     </tr>

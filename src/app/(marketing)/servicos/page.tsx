@@ -1,16 +1,16 @@
-import Link from 'next/link'
 import { ArrowRight, MessageCircle } from 'lucide-react'
-import { buttonVariants } from '~/shared/components/Button/Button'
-import { Heading, Text } from '~/shared/components/Typography/Typography'
+import Link from 'next/link'
+import { buttonVariants } from '~/shared/components/atoms/ui/button'
 import {
+  ServicesTable,
   SolveNowSection,
   StartHereSection,
-  ServicesTable,
 } from '~/shared/components/services'
+import { Heading, Text } from '~/shared/components/Typography/Typography'
 import { CONTACT_INFO } from '~/shared/config/constants'
 
 export default function ServicesHubPage() {
-  const primaryBtn = buttonVariants({ variant: 'primary', size: 'lg' })
+  const primaryBtn = buttonVariants({ variant: 'default', size: 'lg' })
   const outlineBtn = buttonVariants({ variant: 'outline', size: 'lg' })
 
   return (
@@ -38,15 +38,15 @@ export default function ServicesHubPage() {
                 href={CONTACT_INFO.whatsapp.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={primaryBtn.base()}
+                className={primaryBtn}
                 aria-label="Falar no WhatsApp para prioridade"
               >
-                <MessageCircle className={primaryBtn.icon()} />
+                <MessageCircle className="h-4 w-4 shrink-0" />
                 Atendimento imediato
               </Link>
-              <Link href="#services-table" className={outlineBtn.base()}>
+              <Link href="#services-table" className={outlineBtn}>
                 Ver tabela completa
-                <ArrowRight className={outlineBtn.icon()} />
+                <ArrowRight className="h-4 w-4 shrink-0" />
               </Link>
             </div>
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm text-neutral-700">

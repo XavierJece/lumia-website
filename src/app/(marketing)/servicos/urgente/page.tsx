@@ -1,12 +1,12 @@
 import { AlertCircle, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
-import { buttonVariants } from '~/shared/components/Button/Button'
-import { Heading, Text } from '~/shared/components/Typography/Typography'
+import { buttonVariants } from '~/shared/components/atoms/ui/button'
 import { SolveNowSection } from '~/shared/components/services'
+import { Heading, Text } from '~/shared/components/Typography/Typography'
 import { CONTACT_INFO } from '~/shared/config/constants'
 
 export default function UrgentServicesPage() {
-  const primaryBtn = buttonVariants({ variant: 'primary', size: 'lg' })
+  const primaryBtn = buttonVariants({ variant: 'default', size: 'lg' })
 
   return (
     <main className="bg-white-essential">
@@ -33,15 +33,15 @@ export default function UrgentServicesPage() {
               href={CONTACT_INFO.whatsapp.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={primaryBtn.base()}
+              className={primaryBtn}
               aria-label="Falar agora no WhatsApp"
             >
-              <MessageCircle className={primaryBtn.icon()} />
+              <MessageCircle className="h-4 w-4 shrink-0" />
               Agendar diagnóstico imediato
             </Link>
             <Link
               href="/servicos#services-table"
-              className={buttonVariants({ variant: 'ghost' }).base()}
+              className={buttonVariants({ variant: 'ghost' })}
             >
               Ver prazos e serviços
             </Link>

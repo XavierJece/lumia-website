@@ -33,7 +33,8 @@ vi.mock('framer-motion', async (importOriginal) => {
     },
     useTransform: vi.fn((progress, inputRange, outputRange) => {
       // Mock color interpolation: return first color if progress < 0.5, else second color
-      const progressValue = typeof progress.get === 'function' ? progress.get() : 0
+      const progressValue =
+        typeof progress.get === 'function' ? progress.get() : 0
       if (progressValue < 0.5) {
         return outputRange[0]
       }
@@ -70,7 +71,9 @@ describe('TimelineProgress Component', () => {
 
     it('renders progress line overlay', () => {
       const { container } = render(<TimelineProgress {...defaultProps} />)
-      const progressLines = container.querySelectorAll('[data-testid="motion-div"]')
+      const progressLines = container.querySelectorAll(
+        '[data-testid="motion-div"]',
+      )
       // Should have at least one motion.div for the progress line
       expect(progressLines.length).toBeGreaterThan(0)
     })
@@ -81,7 +84,10 @@ describe('TimelineProgress Component', () => {
       // Filter out the base line (which also has rounded-full)
       // Markers have responsive sizes: h-3 w-3 md:h-4 md:w-4 lg:h-5 lg:w-5
       const stepMarkers = Array.from(markers).filter(
-        (marker) => marker.classList.contains('h-3') || marker.classList.contains('h-4') || marker.classList.contains('h-5'),
+        (marker) =>
+          marker.classList.contains('h-3') ||
+          marker.classList.contains('h-4') ||
+          marker.classList.contains('h-5'),
       )
       expect(stepMarkers.length).toBe(4)
     })
@@ -98,8 +104,8 @@ describe('TimelineProgress Component', () => {
     it('positions first marker at top (0%)', () => {
       const { container } = render(<TimelineProgress {...defaultProps} />)
       const markers = container.querySelectorAll('.rounded-full.border-2')
-      const firstMarker = Array.from(markers).find((m) =>
-        m.classList.contains('h-3') || m.classList.contains('h-4'),
+      const firstMarker = Array.from(markers).find(
+        (m) => m.classList.contains('h-3') || m.classList.contains('h-4'),
       ) as HTMLElement
       if (firstMarker) {
         const style = firstMarker.getAttribute('style')
@@ -110,8 +116,8 @@ describe('TimelineProgress Component', () => {
     it('positions last marker at bottom (100%)', () => {
       const { container } = render(<TimelineProgress {...defaultProps} />)
       const markers = container.querySelectorAll('.rounded-full.border-2')
-      const markerArray = Array.from(markers).filter((m) =>
-        m.classList.contains('h-3') || m.classList.contains('h-4'),
+      const markerArray = Array.from(markers).filter(
+        (m) => m.classList.contains('h-3') || m.classList.contains('h-4'),
       )
       const lastMarker = markerArray[markerArray.length - 1] as HTMLElement
       if (lastMarker) {
@@ -123,8 +129,8 @@ describe('TimelineProgress Component', () => {
     it('positions markers evenly for 4 steps', () => {
       const { container } = render(<TimelineProgress {...defaultProps} />)
       const markers = container.querySelectorAll('.rounded-full.border-2')
-      const stepMarkers = Array.from(markers).filter((m) =>
-        m.classList.contains('h-3') || m.classList.contains('h-4'),
+      const stepMarkers = Array.from(markers).filter(
+        (m) => m.classList.contains('h-3') || m.classList.contains('h-4'),
       )
 
       // Check positions: 0%, 33.33%, 66.67%, 100%
@@ -141,8 +147,8 @@ describe('TimelineProgress Component', () => {
         <TimelineProgress {...defaultProps} stepCount={3} />,
       )
       const markers = container.querySelectorAll('.rounded-full.border-2')
-      const stepMarkers = Array.from(markers).filter((m) =>
-        m.classList.contains('h-3') || m.classList.contains('h-4'),
+      const stepMarkers = Array.from(markers).filter(
+        (m) => m.classList.contains('h-3') || m.classList.contains('h-4'),
       )
       expect(stepMarkers.length).toBe(3)
     })
@@ -152,8 +158,8 @@ describe('TimelineProgress Component', () => {
         <TimelineProgress {...defaultProps} stepCount={1} />,
       )
       const markers = container.querySelectorAll('.rounded-full.border-2')
-      const stepMarkers = Array.from(markers).filter((m) =>
-        m.classList.contains('h-3') || m.classList.contains('h-4'),
+      const stepMarkers = Array.from(markers).filter(
+        (m) => m.classList.contains('h-3') || m.classList.contains('h-4'),
       )
       expect(stepMarkers.length).toBe(1)
     })
@@ -164,14 +170,18 @@ describe('TimelineProgress Component', () => {
       // Verify component renders (which means useTransform was called internally)
       const { container } = render(<TimelineProgress {...defaultProps} />)
       expect(container).toBeTruthy()
-      const progressLines = container.querySelectorAll('[data-testid="motion-div"]')
+      const progressLines = container.querySelectorAll(
+        '[data-testid="motion-div"]',
+      )
       expect(progressLines.length).toBeGreaterThan(0)
     })
 
     it('interpolates from Forest Green to Light Yellow', () => {
       // Verify the component renders with color transition
       const { container } = render(<TimelineProgress {...defaultProps} />)
-      const progressLines = container.querySelectorAll('[data-testid="motion-div"]')
+      const progressLines = container.querySelectorAll(
+        '[data-testid="motion-div"]',
+      )
       expect(progressLines.length).toBeGreaterThan(0)
       // Verify useTransform was called (via mock implementation)
       // The mock returns colors based on progress value
@@ -184,7 +194,9 @@ describe('TimelineProgress Component', () => {
       const { container } = render(
         <TimelineProgress {...defaultProps} prefersReducedMotion={true} />,
       )
-      const progressLines = container.querySelectorAll('[data-testid="motion-div"]')
+      const progressLines = container.querySelectorAll(
+        '[data-testid="motion-div"]',
+      )
       const progressLine = progressLines[0] as HTMLElement
       if (progressLine) {
         const style = progressLine.getAttribute('style')
@@ -199,8 +211,8 @@ describe('TimelineProgress Component', () => {
         <TimelineProgress {...defaultProps} prefersReducedMotion={true} />,
       )
       const markers = container.querySelectorAll('.rounded-full.border-2')
-      const stepMarkers = Array.from(markers).filter((m) =>
-        m.classList.contains('h-3') || m.classList.contains('h-4'),
+      const stepMarkers = Array.from(markers).filter(
+        (m) => m.classList.contains('h-3') || m.classList.contains('h-4'),
       )
       stepMarkers.forEach((marker) => {
         const style = (marker as HTMLElement).getAttribute('style')
@@ -215,7 +227,9 @@ describe('TimelineProgress Component', () => {
       const { container } = render(
         <TimelineProgress {...defaultProps} prefersReducedMotion={false} />,
       )
-      const progressLines = container.querySelectorAll('[data-testid="motion-div"]')
+      const progressLines = container.querySelectorAll(
+        '[data-testid="motion-div"]',
+      )
       expect(progressLines.length).toBeGreaterThan(0)
     })
   })
@@ -230,7 +244,12 @@ describe('TimelineProgress Component', () => {
     it('has responsive positioning classes', () => {
       const { container } = render(<TimelineProgress {...defaultProps} />)
       const lineContainer = container.querySelector('.absolute.left-4')
-      expect(lineContainer).toHaveClass('left-4', 'md:left-8', 'lg:left-1/2', 'lg:-translate-x-1/2')
+      expect(lineContainer).toHaveClass(
+        'left-4',
+        'md:left-8',
+        'lg:left-1/2',
+        'lg:-translate-x-1/2',
+      )
     })
 
     it('has responsive marker size classes', () => {
@@ -254,7 +273,9 @@ describe('TimelineProgress Component', () => {
       const { container } = render(
         <TimelineProgress {...defaultProps} prefersReducedMotion={false} />,
       )
-      const progressLines = container.querySelectorAll('[data-testid="motion-div"]')
+      const progressLines = container.querySelectorAll(
+        '[data-testid="motion-div"]',
+      )
       const progressLine = progressLines[0] as HTMLElement
       if (progressLine) {
         const style = progressLine.getAttribute('style')
@@ -284,9 +305,11 @@ describe('TimelineProgress Component', () => {
 
     it('has markers centered on line', () => {
       const { container } = render(<TimelineProgress {...defaultProps} />)
-      const markers = container.querySelectorAll('.left-1\\/2.-translate-x-1\\/2')
-      const stepMarkers = Array.from(markers).filter((m) =>
-        m.classList.contains('h-3') || m.classList.contains('h-4'),
+      const markers = container.querySelectorAll(
+        '.left-1\\/2.-translate-x-1\\/2',
+      )
+      const stepMarkers = Array.from(markers).filter(
+        (m) => m.classList.contains('h-3') || m.classList.contains('h-4'),
       )
       expect(stepMarkers.length).toBe(4)
     })
@@ -294,8 +317,8 @@ describe('TimelineProgress Component', () => {
     it('has markers with white borders and shadows', () => {
       const { container } = render(<TimelineProgress {...defaultProps} />)
       const markers = container.querySelectorAll('.border-2.shadow-sm')
-      const stepMarkers = Array.from(markers).filter((m) =>
-        m.classList.contains('h-3') || m.classList.contains('h-4'),
+      const stepMarkers = Array.from(markers).filter(
+        (m) => m.classList.contains('h-3') || m.classList.contains('h-4'),
       )
       expect(stepMarkers.length).toBe(4)
     })
@@ -310,11 +333,10 @@ describe('TimelineProgress Component', () => {
         />,
       )
       const markers = container.querySelectorAll('.rounded-full.border-2')
-      const stepMarkers = Array.from(markers).filter((m) =>
-        m.classList.contains('h-3') || m.classList.contains('h-4'),
+      const stepMarkers = Array.from(markers).filter(
+        (m) => m.classList.contains('h-3') || m.classList.contains('h-4'),
       )
       expect(stepMarkers.length).toBe(4)
     })
   })
 })
-

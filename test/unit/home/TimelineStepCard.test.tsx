@@ -55,7 +55,8 @@ vi.mock('framer-motion', async (importOriginal) => {
     },
     useTransform: vi.fn((progress, inputRange, outputRange) => {
       // Simple mock: return the first output value if progress is below threshold
-      const progressValue = typeof progress.get === 'function' ? progress.get() : 0
+      const progressValue =
+        typeof progress.get === 'function' ? progress.get() : 0
       if (progressValue < inputRange[1]) {
         return outputRange[0]
       }
@@ -89,9 +90,7 @@ describe('TimelineStepCard Component', () => {
       expect(title).toHaveTextContent('Diagnóstico & Estratégia')
 
       // Key Question
-      expect(
-        screen.getByText(/Pergunta que respondemos:/i),
-      ).toBeInTheDocument()
+      expect(screen.getByText(/Pergunta que respondemos:/i)).toBeInTheDocument()
 
       // Description
       expect(
@@ -150,7 +149,9 @@ describe('TimelineStepCard Component', () => {
 
     it('renders differential highlight box with correct styling', () => {
       const { container } = render(<TimelineStepCard {...defaultProps} />)
-      const differentialBox = container.querySelector('.border-l-4.border-amarelo-luz')
+      const differentialBox = container.querySelector(
+        '.border-l-4.border-amarelo-luz',
+      )
       expect(differentialBox).toBeInTheDocument()
       expect(differentialBox).toHaveClass('bg-white-essential')
     })
@@ -392,7 +393,9 @@ describe('TimelineStepCard Component', () => {
     it('handles keyboard Enter key activation', async () => {
       const user = userEvent.setup()
       const { container } = render(<TimelineStepCard {...defaultProps} />)
-      const card = container.querySelector('[data-testid="motion-div"]') as HTMLElement
+      const card = container.querySelector(
+        '[data-testid="motion-div"]',
+      ) as HTMLElement
 
       // Focus the card
       card.focus()
@@ -408,7 +411,9 @@ describe('TimelineStepCard Component', () => {
     it('handles keyboard Space key activation', async () => {
       const user = userEvent.setup()
       const { container } = render(<TimelineStepCard {...defaultProps} />)
-      const card = container.querySelector('[data-testid="motion-div"]') as HTMLElement
+      const card = container.querySelector(
+        '[data-testid="motion-div"]',
+      ) as HTMLElement
 
       // Focus the card
       card.focus()
@@ -467,8 +472,9 @@ describe('TimelineStepCard Component', () => {
       // All content should still be visible and readable
       expect(screen.getByText('ETAPA 1')).toBeInTheDocument()
       expect(screen.getByRole('heading', { level: 3 })).toBeInTheDocument()
-      expect(screen.getByText(/Realizamos uma análise técnica/i)).toBeInTheDocument()
+      expect(
+        screen.getByText(/Realizamos uma análise técnica/i),
+      ).toBeInTheDocument()
     })
   })
 })
-

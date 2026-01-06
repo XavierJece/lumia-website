@@ -24,7 +24,9 @@ vi.mock('framer-motion', async (importOriginal) => {
 
   return {
     ...actual,
-    LazyMotion: ({ children }: any) => <div data-testid="lazy-motion">{children}</div>,
+    LazyMotion: ({ children }: any) => (
+      <div data-testid="lazy-motion">{children}</div>
+    ),
     domAnimation: {},
     m: {
       div: ({ children, className, style }: any) => (
@@ -34,7 +36,8 @@ vi.mock('framer-motion', async (importOriginal) => {
       ),
     },
     useTransform: vi.fn((progress, inputRange, outputRange) => {
-      const progressValue = typeof progress.get === 'function' ? progress.get() : 0
+      const progressValue =
+        typeof progress.get === 'function' ? progress.get() : 0
       if (progressValue < 0.5) {
         return outputRange[0]
       }
@@ -94,11 +97,13 @@ vi.mock('~/app/(marketing)/components/home/TimelineStepCard', () => ({
 // Mock Section component
 vi.mock('~/shared/components/ui/section', () => ({
   Section: Object.assign(
-    React.forwardRef<HTMLElement, any>(({ children, className, ...props }, ref) => (
-      <section ref={ref} className={className} {...props}>
-        <div className="container">{children}</div>
-      </section>
-    )),
+    React.forwardRef<HTMLElement, any>(
+      ({ children, className, ...props }, ref) => (
+        <section ref={ref} className={className} {...props}>
+          <div className="container">{children}</div>
+        </section>
+      ),
+    ),
     {
       Header: ({ children, className }: any) => (
         <div className={className} data-testid="section-header">
@@ -147,7 +152,8 @@ describe('TimelineMethodology Component', () => {
 
     it('renders Section component with proper structure', () => {
       render(<TimelineMethodology />)
-      const section = screen.getByRole('region') || document.querySelector('section')
+      const section =
+        screen.getByRole('region') || document.querySelector('section')
       expect(section).toBeInTheDocument()
       expect(section).toHaveClass('relative')
     })
@@ -277,7 +283,10 @@ describe('TimelineMethodology Component', () => {
     it('passes prefersReducedMotion prop to TimelineProgress', () => {
       render(<TimelineMethodology />)
       const progressComponent = screen.getByTestId('timeline-progress')
-      expect(progressComponent).toHaveAttribute('data-prefers-reduced-motion', 'false')
+      expect(progressComponent).toHaveAttribute(
+        'data-prefers-reduced-motion',
+        'false',
+      )
     })
 
     it('passes correct stepCount to TimelineProgress', () => {
@@ -290,7 +299,10 @@ describe('TimelineMethodology Component', () => {
       mockUseReducedMotion.mockReturnValue(true)
       render(<TimelineMethodology />)
       const progressComponent = screen.getByTestId('timeline-progress')
-      expect(progressComponent).toHaveAttribute('data-prefers-reduced-motion', 'true')
+      expect(progressComponent).toHaveAttribute(
+        'data-prefers-reduced-motion',
+        'true',
+      )
     })
   })
 
@@ -375,7 +387,13 @@ describe('TimelineMethodology Component', () => {
       const { container } = render(<TimelineMethodology />)
       const cardsContainer = container.querySelector('.flex.flex-col.gap-6')
       expect(cardsContainer).toBeInTheDocument()
-      expect(cardsContainer).toHaveClass('pl-12', 'md:gap-8', 'md:pl-16', 'lg:gap-12', 'lg:pl-12')
+      expect(cardsContainer).toHaveClass(
+        'pl-12',
+        'md:gap-8',
+        'md:pl-16',
+        'lg:gap-12',
+        'lg:pl-12',
+      )
     })
 
     it('renders section content wrapper', () => {
@@ -452,7 +470,10 @@ describe('TimelineMethodology Component', () => {
       render(<TimelineMethodology />)
 
       const progressComponent = screen.getByTestId('timeline-progress')
-      expect(progressComponent).toHaveAttribute('data-prefers-reduced-motion', 'true')
+      expect(progressComponent).toHaveAttribute(
+        'data-prefers-reduced-motion',
+        'true',
+      )
 
       const cards = screen.getAllByTestId('timeline-step-card')
       cards.forEach((card) => {
@@ -507,7 +528,7 @@ describe('TimelineMethodology Component', () => {
     it('renders all cards without horizontal overflow on mobile', () => {
       const { container } = render(<TimelineMethodology />)
       const cards = screen.getAllByTestId('timeline-step-card')
-      
+
       cards.forEach((card) => {
         const cardElement = card as HTMLElement
         // Cards should not have fixed widths that could cause overflow
@@ -517,4 +538,3 @@ describe('TimelineMethodology Component', () => {
     })
   })
 })
-

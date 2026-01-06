@@ -32,7 +32,7 @@ Before starting implementation:
 
 ### Phase 1: Foundation & Data Structure
 
-- [ ] **1.0 Create ITimelineStep Interface and Static Data** ✅
+- [x] **1.0 Create ITimelineStep Interface and Static Data** ✅
 
   - Define new `ITimelineStep` interface with PRD-required fields
   - Create static data array with 4 steps (all content from PRD)
@@ -42,7 +42,7 @@ Before starting implementation:
 
 ### Phase 2: Core Components
 
-- [ ] **2.0 Implement TimelineStepCard Component** ⏐
+- [x] **2.0 Implement TimelineStepCard Component** ⏐ ✅
 
   - Build card component with PRD-required layout structure
   - Implement hover state (border changes to Light Yellow #d2d658)
@@ -50,7 +50,7 @@ Before starting implementation:
   - Ensure proper semantic HTML structure
   - _File: `02_task.md`_
 
-- [ ] **3.0 Create TimelineProgress Component** ⏐
+- [x] **3.0 Create TimelineProgress Component** ⏐ ✅
 
   - Build vertical connecting line component
   - Implement scroll-based color transition (Forest Green #10763e → Light Yellow #d2d658)
@@ -58,7 +58,7 @@ Before starting implementation:
   - Add circular markers at each step position
   - _File: `03_task.md`_
 
-- [ ] **4.0 Build TimelineMethodology Container Component**
+- [x] **4.0 Build TimelineMethodology Container Component** ✅
 
   - Integrate TimelineStepCard and TimelineProgress components
   - Implement scroll detection with `useScrollProgress` hook
@@ -70,7 +70,7 @@ Before starting implementation:
 
 ### Phase 3: Responsive & Accessibility
 
-- [ ] **5.0 Implement Responsive Mobile Layout** ⏐
+- [x] **5.0 Implement Responsive Mobile Layout** ⏐ ✅
 
   - Adapt timeline for mobile viewports (320px+)
   - Ensure line and cards align properly on all screen sizes
@@ -79,7 +79,7 @@ Before starting implementation:
   - _Depends on: 4.0_
   - _File: `05_task.md`_
 
-- [ ] **6.0 Integrate Accessibility Features** ⏐
+- [x] **6.0 Integrate Accessibility Features** ⏐ ✅
 
   - Add reduced motion support (`useReducedMotion` hook)
   - Ensure WCAG AA color contrast compliance

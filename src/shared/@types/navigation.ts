@@ -1,3 +1,5 @@
+// *** HEADER ***
+
 export interface NavDropdownItem {
   label: string
   href: string
@@ -5,7 +7,7 @@ export interface NavDropdownItem {
 
 export interface NavItem {
   label: string
-  href?: string
+  href: string
   dropdown?: NavDropdownItem[]
 }
 
@@ -20,11 +22,9 @@ export interface HeaderContent {
     text: string
     href: string
   }
-  ctaSecondary: {
-    text: string
-    href: string
-  }
 }
+
+// *** FOOTER ***
 
 export interface FooterColumn {
   title: string

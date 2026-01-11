@@ -51,21 +51,11 @@ export interface FooterContent {
   columns: FooterColumn[]
   social: {
     title?: string
-    items: FooterSocial[]
-  }
-  newsletter: FooterNewsletter
-  finalCta: {
-    text: string
-    buttonText: string
-    href: string
-  }
-  trustSignals?: {
-    rating?: string
-    clients?: string
-  }
-  legal: {
-    copyright: string
-    cnpj?: string
-    stateRegistration?: string
+    socialNetworks: FooterSocial[]
+    contactItems: {
+      type: 'phone' | 'mail' | 'address'
+      href: string
+      label: string
+    }[]
   }
 }

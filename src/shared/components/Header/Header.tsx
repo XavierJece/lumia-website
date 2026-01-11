@@ -31,10 +31,7 @@ const CTAButton = () => {
 const NavItems = () => {
   const pathname = usePathname()
 
-  const isActive = (path: string) => {
-    console.log({ pathname, path, isActive: pathname === path })
-    return pathname === path
-  }
+  const isActive = (path: string) => pathname === path
 
   return (
     <div className="hidden lg:flex items-center gap-8">

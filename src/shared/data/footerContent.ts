@@ -1,42 +1,37 @@
-import type { FooterContent } from '~/shared/@types/navigation'
+import { FooterContent } from '../@types/navigation'
+import { CONTACT_INFO } from '../config/constants'
+import { headerContent } from './headerContent'
+import { solutionContent } from './solutionContent'
 
 export const footerContent: FooterContent = {
   columns: [
     {
       title: 'Explorar',
-      links: [
-        { label: 'Início', href: '/' },
-        { label: 'Sobre Nós', href: '/sobre' },
-        { label: 'Blog & Artigos', href: '/blog' },
-        { label: 'Cases de Sucesso', href: '/casos-de-sucesso' },
-      ],
+      links: headerContent.navItems,
     },
     {
       title: 'Soluções',
-      links: [
-        {
-          label: 'Licenciamento Ambiental',
-          href: '/servicos/licencas-ambientais',
-        },
-        { label: 'Gestão de Resíduos', href: '/servicos/planos-gestao' },
-        {
-          label: 'Regularização Sanitária',
-          href: '/servicos/licencas-sanitarias',
-        },
-        { label: 'Ver todos os serviços', href: '/servicos' },
-      ],
-    },
-    {
-      title: 'Legal',
-      links: [
-        { label: 'Privacidade', href: '/politica-privacidade' },
-        { label: 'Termos', href: '/termos-uso' },
-      ],
+      links: solutionContent.map(({ quickLinks, href }) => ({
+        label: quickLinks,
+        href: `/solucoes#${href}`,
+      })),
     },
   ],
   social: {
-    title: 'Conecte-se',
-    items: [
+    title: 'Contato',
+    contactItems: [
+      {
+        type: 'phone',
+        label: `${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
+        href: `tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER?.replace(/\D/g, '')}`,
+      },
+      {
+        type: 'mail',
+        label: `${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`,
+        href: `mailto:${CONTACT_INFO.email}`,
+      },
+    ],
+    socialNetworks: [
       {
         platform: 'instagram',
         href: 'https://instagram.com/lumia',
@@ -48,24 +43,5 @@ export const footerContent: FooterContent = {
         label: 'LinkedIn',
       },
     ],
-  },
-  newsletter: {
-    title: 'Receba insights ambientais exclusivos',
-    placeholder: 'Seu melhor e-mail',
-    button: 'Assinar Newsletter',
-    disclaimer: 'Conteúdo relevante, zero spam.',
-  },
-  finalCta: {
-    text: 'Precisa de agilidade no seu licenciamento?',
-    buttonText: 'Falar com Especialista',
-    href: 'https://wa.me/5511947305880',
-  },
-  trustSignals: {
-    rating: '4.9/5',
-    clients: 'Mais de 300 projetos aprovados',
-  },
-  legal: {
-    copyright: '© 2025 Lumia Engenharia e Consultoria Ambiental.',
-    cnpj: 'CNPJ: 00.000.000/0001-00',
   },
 }

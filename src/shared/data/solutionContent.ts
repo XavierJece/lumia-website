@@ -1,8 +1,10 @@
+import { Building, FileCheck, FileText, Handshake, Recycle } from 'lucide-react'
+
 interface ISolutionContent {
   title: string
   forWhom: string
   href: string
-  icon: string
+  icon: React.ElementType
   quickLinks: string
   services: string[]
 }
@@ -13,7 +15,7 @@ export const solutionContent: ISolutionContent[] = [
     forWhom:
       'Para quem precisa abrir, regularizar ou expandir o negócio atendendo à legislação',
     href: 'licencas-regularizacao-ambiental',
-    icon: '',
+    icon: FileCheck,
     quickLinks: 'Licenças Ambientais',
     services: [
       'Licença Ambiental (LP, LI, LO)',
@@ -28,7 +30,7 @@ export const solutionContent: ISolutionContent[] = [
     forWhom:
       'Para quem gera resíduos e precisa descartar corretamente, evitando multas',
     href: 'gestao-residuos-solidos',
-    icon: '',
+    icon: Recycle,
     quickLinks: 'Gestão de Resíduos',
     services: [
       'Plano de Gerenciamento de Resíduos Sólidos (PGRS)',
@@ -42,7 +44,7 @@ export const solutionContent: ISolutionContent[] = [
     title: 'Laudos e Estudos Técnicos',
     forWhom: 'Para quem precisa atender requisitos legais e exigências',
     href: 'laudos-estudos-tecnicos',
-    icon: '',
+    icon: FileText,
     quickLinks: 'Laudos Técnicos',
     services: [
       'Laudo Técnico de Avaliação (LTA)',
@@ -56,7 +58,7 @@ export const solutionContent: ISolutionContent[] = [
     forWhom:
       'Para quem precisa da documentação para liberação e funcionamento seguro do seu estabelecimento',
     href: 'regularizacao-bombeiros',
-    icon: '',
+    icon: Building,
     quickLinks: 'Regularização & Bombeiros',
     services: [
       'Alvará de Funcionamento (Prefeitura)',
@@ -71,7 +73,7 @@ export const solutionContent: ISolutionContent[] = [
     forWhom:
       'Para quem precisa de suporte técnico permanente e treinamentos para sua equipe, assegurando conformidade e eficiência.',
     href: 'assessoria-treinamentos',
-    icon: '',
+    icon: Handshake,
     quickLinks: 'Assessoria & Treinamentos',
     services: [
       'Assessoria Ambiental (Suporte mensal ou consultivo)',

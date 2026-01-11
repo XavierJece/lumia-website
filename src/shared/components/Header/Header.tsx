@@ -114,28 +114,30 @@ const Header = () => {
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <header className="fixed  top-0 left-0 right-0 h-16 z-50 bg-white-essential border-b border-border/50 py-2 px-4">
-      <nav className="flex items-center justify-between w-full">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <Logo />
-        </Link>
+    <header className="fixed top-0 left-0 right-0 h-16 z-50 bg-white-essential border-b border-border/50 py-2 px-4">
+      <div className="container-lumia">
+        <nav className="flex items-center justify-between w-full">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 group">
+            <Logo />
+          </Link>
 
-        <NavItems />
+          <NavItems />
 
-        <CTAButton />
+          <CTAButton />
 
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden p-2 text-foreground"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden p-2 text-foreground"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
 
-      <MobileMenu isOpen={isMenuOpen} onClose={closeMenu} />
+        <MobileMenu isOpen={isMenuOpen} onClose={closeMenu} />
+      </div>
     </header>
   )
 }

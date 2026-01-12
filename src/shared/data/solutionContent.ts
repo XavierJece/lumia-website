@@ -1,6 +1,6 @@
 import { Building, FileCheck, FileText, Handshake, Recycle } from 'lucide-react'
 
-interface ISolutionContent {
+export interface ISolutionContent {
   title: string
   forWhom: string
   href: string

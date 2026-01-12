@@ -1,6 +1,6 @@
 import * as C from './components'
 
-export default function MarketingHome() {
+export default function Home() {
   return (
     <>
       <C.HeroSection />

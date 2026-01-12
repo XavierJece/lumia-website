@@ -118,13 +118,13 @@
     @apply max-w-7xl mx-auto;
   }
 
-  /* .gradient-hero {
+  .gradient-hero {
     background: linear-gradient(
       135deg,
-      hsl(var(--primary)) 0%,
-      hsl(var(--background)) 50%
+      hsl(var(--foreground)) 0%,
+      hsl(var(--primary)) 100%
     );
-  } */
+  }
 
   .gradient-card {
     background: linear-gradient(

@@ -48,9 +48,9 @@ export default function HeroSection() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 size-20 bg-gradient-nature rounded-full opacity-10 animate-pulse"></div>
-      <div className="absolute top-1/3 right-10 size-12 bg-gradient-forest rounded-full opacity-10 animate-pulse delay-1000"></div>
-      <div className="absolute top-1/2 left-5 size-16 bg-accent rounded-full opacity-20 animate-pulse delay-500"></div>
+      <div className="absolute top-2 left-1 lg:top-10 xl:top-20 lg:left-10 size-20 bg-gradient-nature rounded-full opacity-10 animate-pulse"></div>
+      <div className="absolute top-1/4 right-1 lg:top-1/3 lg:right-10 size-12 bg-gradient-forest rounded-full opacity-10 animate-pulse delay-1000"></div>
+      <div className="relative -bottom-6 xl:absolute xl:top-1/2 xl:left-5 size-16 bg-accent rounded-full opacity-20 animate-pulse delay-500"></div>
     </section>
   )
 }

@@ -23,7 +23,7 @@ export function FilterSection({
             variant={activeFilter === null ? 'default' : 'outline'}
             size="sm"
             onClick={() => setActiveFilter(null)}
-            className="font-medium whitespace-pre-wrap w-full sm:w-auto"
+            className="font-medium whitespace-pre-wrap w-full sm:w-auto min-h-fit"
           >
             Todas os Projetos
           </Button>
@@ -33,10 +33,10 @@ export function FilterSection({
               variant={activeFilter === section.href ? 'default' : 'outline'}
               size="sm"
               onClick={() => setActiveFilter(section.href)}
-              className="font-medium whitespace-pre-wrap w-full sm:w-auto"
+              className="font-medium whitespace-pre-wrap w-full sm:w-auto py-1 min-h-fit flex items-center justify-between text-center"
             >
               <section.icon size={14} className="mr-1.5" />
-              {section.title}
+              <span className="flex-1">{section.title}</span>
             </Button>
           ))}
         </div>

@@ -16,14 +16,15 @@ export default function CTASection() {
           asChild
           size="lg"
           variant="tertiary"
-          className="font-semibold text-lg px-10 shadow-elevated"
+          className="font-semibold text-lg px-10 shadow-elevated break-words whitespace-pre-wrap min-h-fit"
         >
           <a
             href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Olá! Gostaria de saber mais sobre os serviços da LUMIA.`}
             target="_blank"
             rel="noopener noreferrer"
+            className="whitespace-pre-wrap"
           >
-            Fale com um Especialista no WhatsApp
+            Falar com Especialista
             <ArrowRight className="ml-2" size={20} />
           </a>
         </Button>

@@ -1,111 +1,73 @@
-export interface ITeamMember {
-  name: string
-  role: string
-  bio: string
-  avatar?: string
+import { Eye, Heart, Leaf, Shield, Star, Target } from 'lucide-react'
+
+export interface IStoryContent {
+  title: string
+  description: string[]
+  image?: string
 }
 
-export interface ICertification {
-  name: string
-  logo: string
-  alt: string
-  caption: string
-}
-
-export interface ITimelineItem {
-  year: string
+export interface IAboutContent {
+  icon: React.ElementType
   title: string
   description: string
 }
 
-export const aboutHero = {
-  eyebrow: 'Sobre a Lumia',
-  title:
-    'Sobre a Lumia: consultoria ambiental guiada por confiança e precisão técnica',
-  subtitle:
-    'Desde 2015, a Lumia conecta expertise regulatória, engenharia e ESG para resolver desafios ambientais com rapidez e rigor.',
-  missionHighlights: [
-    'Atuação nacional com foco em licenciamento, regularização e ESG',
-    'Diagnósticos ágeis para cenários urgentes e planos estruturados para novos projetos',
-    'Equipe sênior multidisciplinar com processos certificados',
+export interface IValuesContent {
+  title: string
+  description: string
+  values: IAboutContent[]
+}
+
+export const storyContent: IStoryContent = {
+  title: 'Nascemos para Simplificar o Complexo',
+  description: [
+    'A LUMIA nasceu da percepção de que muita empresas enfrentam dificuldades para se adequar à legislação ambiental, não por falta vontade, mas por falta de orientação clara e acessível.',
+    'Fundada por profissionais com vasta experiência em engenharia e consultoria ambiental, nossa missão é ser a ponte entre as exigências legais e a realidade do empresário brasileiro.',
+    'Combinamos conhecimento técnico profundo com uma abordagem humanizada, traduzindo a complexidade das normas ambientais em soluções práticas e aplicáveis ao dia a dia das empresas.',
   ],
 }
 
-export const teamMembers: ITeamMember[] = [
-  {
-    name: 'Larissa Almeida',
-    role: 'CEO & Engenheira Ambiental',
-    bio: 'Lidera estratégia e governança ESG, com 12+ anos em licenciamento complexo e diálogo com órgãos ambientais.',
-    avatar: '/images/woman_presents_ESG.webp',
-  },
-  {
-    name: 'João Batista',
-    role: 'Diretor Técnico',
-    bio: 'Especialista em regularização de passivos e perícias ambientais, conduzindo planos de ação e mitigação.',
-    avatar: '/images/woman_in_meeting.webp',
-  },
-  {
-    name: 'Marina Costa',
-    role: 'Coordenadora de Projetos ESG',
-    bio: 'Orquestra projetos de certificação e compliance, garantindo entregas com indicadores claros de desempenho.',
-  },
-  {
-    name: 'Pedro Nogueira',
-    role: 'Especialista em Licenciamento',
-    bio: 'Responsável por estudos técnicos, PGRS e interlocução com órgãos fiscalizadores para reduzir prazos e riscos.',
-  },
-]
+export const missionContent: IAboutContent = {
+  icon: Target,
+  title: 'Missão',
+  description:
+    'Levar soluções ambientais eficientes, seguras e acessíveis para empresas de todos os portes, contribuindo para o desenvolvimento sustentável e a conformidade legal dos nossos clientes.',
+}
 
-export const certifications: ICertification[] = [
-  {
-    name: 'CREA-SP',
-    logo: '/logos/horizontal_line_color_logo.svg',
-    alt: 'Certificação CREA-SP da Lumia',
-    caption: 'Registro ativo no Conselho Regional de Engenharia e Agronomia',
-  },
-  {
-    name: 'ABNT NBR ISO',
-    logo: '/logos/color-logo.svg',
-    alt: 'Aderência à ABNT NBR ISO',
-    caption: 'Projetos alinhados às melhores práticas de gestão da qualidade',
-  },
-  {
-    name: 'ABES',
-    logo: '/logos/dark-logo.svg',
-    alt: 'Associação Brasileira de Engenharia Sanitária',
-    caption: 'Associação com rede técnica e atualização contínua',
-  },
-  {
-    name: 'PNUMA',
-    logo: '/logos/light_logo.svg',
-    alt: 'Programa das Nações Unidas para o Meio Ambiente',
-    caption: 'Compromisso com diretrizes globais de sustentabilidade',
-  },
-]
+export const visionContent: IAboutContent = {
+  icon: Eye,
+  title: 'Visão',
+  description:
+    'Ser referência em soluções ambientais, contribuindo para a sustentabilidade e a excelência em cada projeto, sempre com ética, transparência e comprometimento com o cliente.',
+}
 
-export const timeline: ITimelineItem[] = [
-  {
-    year: '2015',
-    title: 'Fundação da Lumia',
-    description:
-      'Início com foco em licenciamento para PMEs e resposta rápida a autos de infração.',
-  },
-  {
-    year: '2018',
-    title: 'Expansão regulatória',
-    description:
-      'Portfólio ampliado para gestão de resíduos, PGRS e due diligence ambiental.',
-  },
-  {
-    year: '2021',
-    title: 'Linha ESG',
-    description:
-      'Estruturação de projetos de descarbonização, indicadores e relatórios de sustentabilidade.',
-  },
-  {
-    year: '2024',
-    title: 'Operação nacional',
-    description:
-      'Times dedicados para cenários urgentes e planejamento de novos empreendimentos em múltiplos estados.',
-  },
-]
+export const valuesContent: IValuesContent = {
+  title: 'Nossos Valores',
+  description:
+    'Os princípios que norteiam cada decisão e cada projeto que realizamos.',
+  values: [
+    {
+      icon: Shield,
+      title: 'Ética',
+      description:
+        'Atuamos com transparência e integridade em todas as nossas relações.',
+    },
+    {
+      icon: Leaf,
+      title: 'Responsabilidade Ambiental',
+      description:
+        'Comprometidos com a preservação e o desenvolvimento sustentável.',
+    },
+    {
+      icon: Heart,
+      title: 'Compromisso com o Cliente',
+      description: 'Sua satisfação é nossa prioridade em cada projeto.',
+    },
+    {
+      icon: Star,
+      title: 'Excelência Técnica',
+      description:
+        'Profissionais capacitados e atualizados nas melhores práticas do mercado.',
+    },
+  ],
+}

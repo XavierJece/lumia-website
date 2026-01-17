@@ -1,11 +1,8 @@
 import type { Metadata } from 'next'
-import '~/shared/styles/colors.css'
+import Footer from '~/shared/components/Footer/Footer'
+import Header from '~/shared/components/Header/Header'
 import { mavenFonts, montserratFonts } from '~/shared/styles/fonts'
 import '~/shared/styles/globals.css'
-import { Header } from '~/shared/components/Header/Header'
-import { Footer } from '~/shared/components/Footer/Footer'
-import { headerContent } from '~/shared/data/headerContent'
-import { footerContent } from '~/shared/data/footerContent'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lumia.com.br'),
@@ -30,14 +27,11 @@ export default function RootLayout({
       lang="pt-BR"
     >
       <body className="flex min-h-screen flex-col bg-white-essential text-neutral-900 antialiased">
-        <a className="skip-link" href="#main-content">
-          Pular para o conteúdo principal
-        </a>
-        <Header content={headerContent} />
-        <main id="main-content" className="flex-1">
+        <Header />
+        <main id="main-content" className="flex-1 mx-auto w-full pt-16 ">
           {children}
         </main>
-        <Footer content={footerContent} />
+        <Footer />
       </body>
     </html>
   )

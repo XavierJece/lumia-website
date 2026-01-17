@@ -20,87 +20,79 @@ const config = {
       },
     },
     extend: {
-      colors: {
-        ...colors,
-        'amarelo-luz': '#d2d658',
-      },
-      backgroundImage: {
-        'glass-overlay':
-          'linear-gradient(135deg, rgba(255, 251, 247, 0.9) 0%, rgba(255, 251, 247, 0.7) 45%, rgba(16, 118, 62, 0.08) 100%)',
-        'gradient-nature': 'linear-gradient(135deg, #10763e 0%, #81c784 100%)',
-        'gradient-forest': 'linear-gradient(135deg, #003a33 0%, #0c4726 100%)',
-      },
       fontFamily: {
         maven: ['var(--font-maven)', 'sans-serif'],
         montserrat: ['var(--font-montserrat)', 'sans-serif'],
-        sans: ['var(--font-montserrat)', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Outfit', 'system-ui', 'sans-serif'],
       },
-      fontSize: {
-        // Desktop typography scale
-        h1: [
-          '3rem',
-          { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' },
-        ],
-        h2: [
-          '2.25rem',
-          { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' },
-        ],
-        h3: [
-          '1.875rem',
-          { lineHeight: '1.3', letterSpacing: '0', fontWeight: '600' },
-        ],
-        h4: [
-          '1.5rem',
-          { lineHeight: '1.4', letterSpacing: '0.01em', fontWeight: '600' },
-        ],
-        h5: [
-          '1.25rem',
-          { lineHeight: '1.4', letterSpacing: '0.01em', fontWeight: '600' },
-        ],
-        h6: [
-          '1.125rem',
-          { lineHeight: '1.4', letterSpacing: '0.01em', fontWeight: '600' },
-        ],
-        lead: [
-          '1.25rem',
-          { lineHeight: '1.6', letterSpacing: '0.02em', fontWeight: '400' },
-        ],
-        'body-large': [
-          '1.125rem',
-          { lineHeight: '1.6', letterSpacing: '0.02em', fontWeight: '400' },
-        ],
-        'body-base': [
-          '1rem',
-          { lineHeight: '1.7', letterSpacing: '0.03em', fontWeight: '400' },
-        ],
-        'body-small': [
-          '0.875rem',
-          { lineHeight: '1.6', letterSpacing: '0.03em', fontWeight: '400' },
-        ],
-        caption: [
-          '0.75rem',
-          { lineHeight: '1.4', letterSpacing: '0.04em', fontWeight: '400' },
-        ],
+      colors: {
+        ...colors,
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
+      boxShadow: {
+        soft: 'var(--shadow-soft)',
+        card: 'var(--shadow-card)',
+        elevated: 'var(--shadow-elevated)',
       },
       keyframes: {
         'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-accordion-content-height)',
+          },
         },
         'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
-        },
-        'gradient-move': {
-          '0%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-          '100%': { backgroundPosition: '0% 50%' },
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+          to: {
+            height: '0',
+          },
         },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'gradient-move': 'gradient-move 8s ease infinite',
       },
     },
   },

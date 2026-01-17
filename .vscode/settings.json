@@ -1,3 +1,5 @@
 {
-  "makefile.configureOnOpen": false
+  "makefile.configureOnOpen": false,
+  "conventionalCommits.scopes": ["mvp"],
+  "cSpell.words": ["lumiaeng"]
 }

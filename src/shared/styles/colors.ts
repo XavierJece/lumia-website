@@ -5,7 +5,6 @@ export const colors = {
   'primary-green': '#10763e',
   'secondary-green': '#003a33',
   'horizon-green': '#003a33',
-  'accent-yellow': '#d2d658',
   'light-yellow': '#d2d658',
   'white-essential': '#fffbf7',
   // Green scale

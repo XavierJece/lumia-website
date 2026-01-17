@@ -23,39 +23,3 @@ export interface HeaderContent {
     href: string
   }
 }
-
-// *** FOOTER ***
-
-export interface FooterColumn {
-  title: string
-  links: Array<{
-    label: string
-    href: string
-  }>
-}
-
-export interface FooterSocial {
-  platform: 'instagram' | 'linkedin' | 'tiktok'
-  href: string
-  label: string
-}
-
-export interface FooterNewsletter {
-  title: string
-  placeholder: string
-  button: string
-  disclaimer?: string
-}
-
-export interface FooterContent {
-  columns: FooterColumn[]
-  social: {
-    title?: string
-    socialNetworks: FooterSocial[]
-    contactItems: {
-      type: 'phone' | 'mail' | 'address'
-      href: string
-      label: string
-    }[]
-  }
-}

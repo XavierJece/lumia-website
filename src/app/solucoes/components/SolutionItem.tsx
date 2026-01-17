@@ -97,11 +97,11 @@ export function SummaryView({ service }: SolutionItemProps) {
 }
 
 export function SolutionItem({ service }: SolutionItemProps) {
-  const view = useSearchParams().get('view') ?? 'summary'
+  const view = useSearchParams().get('view') ?? 'complete'
 
-  return view === 'complete' ? (
-    <CompleteView service={service} />
-  ) : (
+  return view === 'summary' ? (
     <SummaryView service={service} />
+  ) : (
+    <CompleteView service={service} />
   )
 }

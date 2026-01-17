@@ -1,7 +1,28 @@
-import { FooterContent } from '../@types/navigation'
-import { CONTACT_INFO } from '../config/constants'
+import {
+  contactInfo,
+  IContactInfoItem,
+  ISocialNetworkContactItem,
+  socialNetworksContent,
+} from './contact'
 import { headerContent } from './headerContent'
 import { solutionContent } from './solutionContent'
+
+export interface FooterColumn {
+  title: string
+  links: Array<{
+    label: string
+    href: string
+  }>
+}
+
+export interface FooterContent {
+  columns: FooterColumn[]
+  social: {
+    title?: string
+    socialNetworks: ISocialNetworkContactItem[]
+    contactItems: IContactInfoItem[]
+  }
+}
 
 export const footerContent: FooterContent = {
   columns: [
@@ -19,29 +40,7 @@ export const footerContent: FooterContent = {
   ],
   social: {
     title: 'Contato',
-    contactItems: [
-      {
-        type: 'phone',
-        label: `${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
-        href: `tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER?.replace(/\D/g, '')}`,
-      },
-      {
-        type: 'mail',
-        label: `${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`,
-        href: `mailto:${CONTACT_INFO.email}`,
-      },
-    ],
-    socialNetworks: [
-      {
-        platform: 'instagram',
-        href: 'https://instagram.com/lumia',
-        label: 'Instagram',
-      },
-      {
-        platform: 'linkedin',
-        href: 'https://linkedin.com/company/lumia',
-        label: 'LinkedIn',
-      },
-    ],
+    contactItems: contactInfo,
+    socialNetworks: socialNetworksContent,
   },
 }

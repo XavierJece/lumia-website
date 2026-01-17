@@ -1,19 +1,6 @@
-import { Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
 import Link from 'next/link'
-import { ReactElement } from 'react'
 import { footerContent } from '~/shared/data/footerContent'
 import { Logo } from '../Logo/Logo'
-
-const ContactIcon: Record<'phone' | 'mail' | 'address', ReactElement> = {
-  phone: <Phone size={18} className="text-accent mt-0.5 flex-shrink-0" />,
-  mail: <Mail size={18} className="text-accent mt-0.5 flex-shrink-0" />,
-  address: <MapPin size={18} className="text-accent mt-0.5 flex-shrink-0" />,
-}
-
-const SocialIcon: Record<'instagram' | 'linkedin', ReactElement> = {
-  instagram: <Instagram size={18} />,
-  linkedin: <Linkedin size={18} />,
-}
 
 const Footer = () => {
   return (
@@ -56,7 +43,10 @@ const Footer = () => {
           <ul className="space-y-4">
             {footerContent.social.contactItems.map((item) => (
               <li key={item.label} className="flex items-start gap-3">
-                {ContactIcon[item.type]}
+                <item.icon
+                  size={18}
+                  className="text-accent mt-0.5 flex-shrink-0"
+                />
                 <Link
                   href={item.href}
                   className="text-secondary-foreground/70 hover:text-accent transition-colors text-sm"
@@ -79,7 +69,7 @@ const Footer = () => {
                 className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label={item.label}
               >
-                {SocialIcon[item.platform]}
+                <item.icon size={18} />
               </a>
             ))}
           </div>

@@ -16,7 +16,7 @@ export function FilterSection({
     <section className="border-b border-border">
       <div className="container-lumia p-4 py-6">
         <h2 className="text-xl font-heading font-bold text-foreground mb-4">
-          Filtro
+          Filtros
         </h2>
         <div className="flex flex-wrap gap-2">
           <Button

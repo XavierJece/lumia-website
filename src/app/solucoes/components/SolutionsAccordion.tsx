@@ -46,7 +46,7 @@ export function SolutionsAccordion({ sections }: SolutionsAccordionProps) {
               <AccordionContent className="px-6 pb-6">
                 <div className="grid gap-4 pt-2">
                   {section.services.map((service) => (
-                    <SolutionItem key={service} service={service} />
+                    <SolutionItem key={service.title} service={service} />
                   ))}
                 </div>
               </AccordionContent>

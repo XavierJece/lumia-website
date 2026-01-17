@@ -54,9 +54,9 @@ export default function MainSection() {
   return (
     <section className="section-padding bg-background">
       <div className="container-lumia">
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="flex flex-col gap-6 sm:flex-row">
           {/* WhatsApp CTA */}
-          <div className="bg-primary rounded-2xl p-8 sm:p-10 text-primary-foreground">
+          <div className="bg-primary rounded-2xl  sm:1/3 p-8 sm:p-10 text-primary-foreground">
             <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-6">
               <MessageCircle className="w-8 h-8 text-accent" />
             </div>
@@ -85,7 +85,7 @@ export default function MainSection() {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-8">
+          <div className="w-full ">
             <div>
               <h2 className="text-2xl font-heading font-bold text-foreground mb-6">
                 Informações de Contato
@@ -98,11 +98,11 @@ export default function MainSection() {
             </div>
 
             {/* Social Links */}
-            <div>
+            <div className="w-full ">
               <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
                 Redes Sociais
               </h3>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-3 w-full ">
                 {socialNetworksContent.map((socialItem) => (
                   <SocialLink
                     key={socialItem.href}

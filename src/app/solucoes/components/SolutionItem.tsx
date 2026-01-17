@@ -17,11 +17,13 @@ export function CompleteView({ service }: SolutionItemProps) {
     >
       <div className="grid lg:grid-cols-3 gap-0">
         {/* Icon & Title */}
-        <div className="p-8 lg:border-r border-border bg-muted/30">
-          <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-            {service.icon && <service.icon className="size-7 text-primary" />}
+        <div className="px-3 py-4 sm:p-8 lg:border-r border-border bg-muted/30">
+          <div className="size-9 md:size-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+            {service.icon && (
+              <service.icon className="size-5 md:size-6 text-primary" />
+            )}
           </div>
-          <h2 className="text-2xl font-heading font-bold text-foreground mb-3">
+          <h2 className="text-xl font-heading font-bold text-foreground mb-3">
             {service.title}
           </h2>
           <p className="text-muted-foreground leading-relaxed">
@@ -30,10 +32,11 @@ export function CompleteView({ service }: SolutionItemProps) {
         </div>
 
         {/* Benefits */}
-        <div className="p-8 lg:col-span-2">
+        <div className="p-4 sm:p-8 lg:col-span-2 ">
           <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">
             Vantagens para seu negócio
           </h3>
+
           <ul className="space-y-3 mb-6">
             {service.businessAdvantages.map((businessAdvantage) => (
               <li key={businessAdvantage} className="flex items-start gap-3">
@@ -44,7 +47,12 @@ export function CompleteView({ service }: SolutionItemProps) {
               </li>
             ))}
           </ul>
-          <Button asChild variant="outline" className="font-semibold">
+
+          <Button
+            asChild
+            variant="outline"
+            className="font-semibold max-sm:w-full"
+          >
             <a
               href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Gostaria de saber mais sobre ${encodeURIComponent(service.title)}.`}
               target="_blank"

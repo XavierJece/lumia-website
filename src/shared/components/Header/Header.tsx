@@ -119,7 +119,8 @@ const Header = () => {
         <nav className="flex items-center justify-between w-full">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <Logo />
+            <Logo variant="simple" colorScheme="color" className="w-52 h-12" />
+            {/* <Logo className="" /> */}
           </Link>
 
           <NavItems />

@@ -29,12 +29,15 @@ export function SolutionsAccordion({ sections }: SolutionsAccordionProps) {
               className="bg-card rounded-lg shadow-soft border border-border overflow-hidden"
             >
               <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-muted/50 transition-colors">
-                <div className="flex items-center gap-4 text-left">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <div className=" flex items-center gap-4 text-left">
+                  <div className="hidden w-12 h-12 rounded-xl bg-primary/10 sm:flex items-center justify-center flex-shrink-0">
                     <section.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-heading font-bold text-foreground">
+                    <h2 className="text-xl font-heading font-bold text-foreground flex items-center gap-2">
+                      <div className=" size-10 rounded-xl bg-primary/10 sm:hidden flex items-center justify-center flex-shrink-0">
+                        <section.icon className="size-6 text-primary" />
+                      </div>
                       {section.title}
                     </h2>
                     <p className="text-sm text-muted-foreground mt-1">

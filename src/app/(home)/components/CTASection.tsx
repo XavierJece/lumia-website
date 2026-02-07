@@ -9,8 +9,8 @@ export default function CTASection() {
           Pronto para Regularizar Sua Empresa?
         </h2>
         <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-          Entre em contato agora mesmo e descubra como a LUMIA pode ajudar sua
-          empresa a estar em conformidade com a legislação ambiental.
+          Entre em contato agora mesmo e faça seu orçamento! <br />{' '}
+          <strong> Não arrisque multas e interdições.</strong>
         </p>
         <Button
           asChild
@@ -19,12 +19,12 @@ export default function CTASection() {
           className="font-semibold text-lg px-10 shadow-elevated break-words whitespace-pre-wrap min-h-fit"
         >
           <a
-            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Olá! Gostaria de saber mais sobre os serviços da LUMIA.`}
+            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Olá! Gostaria de de fazer um orçamento grátis.`}
             target="_blank"
             rel="noopener noreferrer"
             className="whitespace-pre-wrap"
           >
-            Falar com Especialista
+            Fazer meu orçamento grátis
             <ArrowRight className="ml-2" size={20} />
           </a>
         </Button>

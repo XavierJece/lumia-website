@@ -63,7 +63,7 @@ export default function NotFound() {
         {/* <div className="mt-12 animate-fade-up stagger-3">
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium">
               <Search size={16} />
-              Que tal explorar nossas soluções ambientais?
+              Que tal explorar nossas soluções?
             </div>
           </div> */}
       </div>

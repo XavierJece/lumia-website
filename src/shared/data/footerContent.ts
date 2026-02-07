@@ -5,7 +5,7 @@ import {
   socialNetworksContent,
 } from './contact'
 import { headerContent } from './headerContent'
-import { solutionContent } from './solutionContent'
+import { solutionsCategoryContent } from './solutionContent'
 
 export interface FooterColumn {
   title: string
@@ -32,9 +32,9 @@ export const footerContent: FooterContent = {
     },
     {
       title: 'Soluções',
-      links: solutionContent.map(({ quickLinks, href }) => ({
+      links: solutionsCategoryContent.map(({ quickLinks, slug }) => ({
         label: quickLinks,
-        href: `/solucoes#${href}`,
+        href: `/solucoes?c=${slug}`,
       })),
     },
   ],

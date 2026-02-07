@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '~/shared/components/atoms/ui/button'
-import { solutionContent } from '~/shared/data/solutionContent'
+import { solutionsCategoryContent } from '~/shared/data/solutionContent'
 
 export default function SolutionSummarySection() {
   return (
@@ -9,19 +9,19 @@ export default function SolutionSummarySection() {
       <div className="container-lumia">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-primary font-medium text-sm uppercase tracking-wider">
-            Nossos Serviços
+            Nossas Soluções
           </span>
           <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mt-2 mb-4">
-            Soluções Completas em Meio Ambiente
+            Soluções Completas para sua Empresa!
           </h2>
           <p className="text-muted-foreground">
-            Oferecemos uma gama completa de serviços ambientais para garantir a
-            regularização e conformidade do seu negócio.
+            Oferecemos um pacote completo de serviços personalizados para
+            conformidade e liberação do empreendimento.
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {solutionContent.map((category, index) => (
+          {solutionsCategoryContent.map((category, index) => (
             <div
               key={category.title}
               className={`bg-card p-6 rounded-xl shadow-soft hover-lift border border-border group stagger-${index + 1}`}
@@ -41,8 +41,8 @@ export default function SolutionSummarySection() {
 
         <div className="text-center mt-10">
           <Button asChild size="lg" variant="outline" className="font-semibold">
-            <Link href="/servicos">
-              Ver Todos os Serviços
+            <Link href="/solucoes">
+              Ver Todos as Soluções
               <ArrowRight className="ml-2" size={16} />
             </Link>
           </Button>

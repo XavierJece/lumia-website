@@ -19,11 +19,11 @@ export interface IValuesContent {
 }
 
 export const storyContent: IStoryContent = {
-  title: 'Nascemos para Simplificar o Complexo',
+  title: 'Nascemos para Simplificar',
   description: [
-    'A LUMIA nasceu da percepção de que muita empresas enfrentam dificuldades para se adequar à legislação ambiental, não por falta vontade, mas por falta de orientação clara e acessível.',
-    'Fundada por profissionais com vasta experiência em engenharia e consultoria ambiental, nossa missão é ser a ponte entre as exigências legais e a realidade do empresário brasileiro.',
-    'Combinamos conhecimento técnico profundo com uma abordagem humanizada, traduzindo a complexidade das normas ambientais em soluções práticas e aplicáveis ao dia a dia das empresas.',
+    'A Lumia nasceu com o propósito de trazer soluções especializadas para indústrias e comércios que precisam se adequar às legislações e atender requisitos para seu funcionamento de maneira clara e acessível.',
+    'Fundada por profissionais com vasta experiência em engenharia ambiental, sanitária e civil, nossa missão é ser a ponte entre as exigências legais e a realidade da empresa.',
+    'Combinamos conhecimento técnico com uma abordagem humanizada, traduzindo a complexidade das normas ambientais em soluções práticas e aplicáveis ao dia a dia das empresas.',
   ],
 }
 
@@ -31,14 +31,14 @@ export const missionContent: IAboutContent = {
   icon: Target,
   title: 'Missão',
   description:
-    'Levar soluções ambientais eficientes, seguras e acessíveis para empresas de todos os portes, contribuindo para o desenvolvimento sustentável e a conformidade legal dos nossos clientes.',
+    'Levar soluções eficientes, seguras e acessíveis para empresas de todos os portes, contribuindo para o desenvolvimento sustentável e a conformidade legal dos nossos clientes.',
 }
 
 export const visionContent: IAboutContent = {
   icon: Eye,
   title: 'Visão',
   description:
-    'Ser referência em soluções ambientais, contribuindo para a sustentabilidade e a excelência em cada projeto, sempre com ética, transparência e comprometimento com o cliente.',
+    'Ser referência em soluções especializadas, contribuindo para a sustentabilidade e a excelência em cada projeto, sempre com ética, transparência e comprometimento com o cliente.',
 }
 
 export const valuesContent: IValuesContent = {

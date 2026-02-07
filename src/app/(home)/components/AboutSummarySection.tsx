@@ -17,8 +17,9 @@ export default function AboutSummarySection() {
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               A LUMIA nasceu da união de profissionais altamente capacitados em
-              engenharia e consultoria ambiental, com o objetivo de oferecer
-              soluções práticas e acessíveis para empresas de todos os portes.
+              engenharia ambiental, sanitária, civil e assessoria técnica, com o
+              objetivo de oferecer soluções práticas e acessíveis para empresas
+              de todos os portes.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
               Nossa equipe combina conhecimento técnico profundo com uma

@@ -1,10 +1,4 @@
-import {
-  Building2,
-  Factory,
-  HardHat,
-  ShoppingBag,
-  Stethoscope,
-} from 'lucide-react'
+import { Factory, ShoppingBag, Stethoscope } from 'lucide-react'
 
 export interface IProject {
   icon: React.ElementType
@@ -19,73 +13,49 @@ export interface IProject {
 export const projects: IProject[] = [
   {
     icon: Factory,
-    category: 'Indústria Alimentícia',
-    title: 'Regularização Ambiental Completa',
+    category: 'Indústria Alimentícia - Torrefação e Moagem de Café',
+    title: 'Regularização Sanitária',
     problem:
-      'Empresa atuando sem licença de operação, com risco de embargo pela fiscalização.',
+      'Indústria de torrefação e moagem de café em fase inicial de operação.',
     solution:
-      'Elaboração de estudos ambientais, PGRS e acompanhamento do processo de licenciamento junto ao órgão estadual.',
+      'Elaboração de LTA - Laudo Técnico de Avaliação para regularização junto à Vigilância Sanitária Municipal, incluindo diagnóstico de instalações, avaliação do processo produtivo,  atendimento às exigências sanitárias.',
     result:
-      'Licença de Operação obtida em 90 dias, permitindo a continuidade das atividades com total segurança jurídica.',
-    testimonial:
-      'A LUMIA resolveu em meses o que tentávamos há anos. Profissionais extremamente competentes.',
+      'LTA aprovado para obtenção da licença sanitária em 90 dias, permitindo a regularização da atividade.',
+    testimonial: `Confesso que a parte burocrária da abertura da torrefação me deixou bem perdido. A Kethilyn nos guiou com clareza.`,
   },
   {
     icon: Stethoscope,
-    category: 'Clínica Veterinária',
-    title: 'PGRS e Adequação Sanitária',
+    category: 'Farmácia de Manipulação',
+    title: 'Regularização Sanitária',
     problem:
-      'Clínica sem Plano de Gerenciamento de Resíduos, gerando descarte inadequado de resíduos de saúde.',
+      'Farmácia de manipulação em fase de instalação, sem licença sanitária, necessidade de aprovação prévia junto à Vigilância Sanitária Municipal para início das atividades.',
     solution:
-      'Elaboração do PGRS específico para clínicas veterinárias, treinamento de equipe e contratação de empresa coletora certificada.',
+      'Elaboração de LTA - Laudo Técnico de Avaliação para regularização.',
     result:
-      '100% de conformidade nas fiscalizações seguintes, além de redução de custos com destinação de resíduos.',
-    testimonial:
-      'Agora temos tranquilidade para trabalhar, sabendo que está tudo certo.',
+      'Aprovação do LTA e obtenção da licença sanitária, viabilizando o início das operações da farmácia em conformidade com os requisitos sanitários.',
+    testimonial: '',
   },
   {
     icon: ShoppingBag,
     category: 'Rede de Supermercados',
-    title: 'Licenciamento de Nova Unidade',
+    title: 'Gestão de Resíduos',
     problem:
-      'Necessidade de obtenção de todas as licenças ambientais para abertura de nova loja em área urbana.',
-    solution:
-      'Estudo de Impacto de Vizinhança, laudos técnicos e acompanhamento do processo junto à prefeitura.',
+      'Supermercado sem Plano de Gerenciamento de Resíduos, solicitação em condicionante do alvará da prefeitura.',
+    solution: 'Elaboração do PGRS específico para supermercados.',
     result:
-      'Inauguração dentro do prazo planejado, sem atrasos causados por pendências ambientais.',
-  },
-  {
-    icon: Building2,
-    category: 'Construtora',
-    title: 'Habite-se Ambiental',
-    problem:
-      'Empreendimento residencial com pendências ambientais impedindo a emissão do Habite-se.',
-    solution:
-      'Regularização de áreas verdes, recuperação de área degradada e emissão de laudos técnicos necessários.',
-    result:
-      'Habite-se emitido e unidades entregues aos compradores dentro do prazo contratual.',
-    testimonial: 'Parceria que se repetirá em todos os nossos empreendimentos.',
-  },
-  {
-    icon: HardHat,
-    category: 'Marmoraria',
-    title: 'Adequação para Fiscalização',
-    problem:
-      'Empresa notificada por irregularidades no tratamento de efluentes e descarte de resíduos.',
-    solution:
-      'Projeto de sistema de tratamento de efluentes, adequação do processo produtivo e obtenção de licença.',
-    result:
-      'Todas as notificações arquivadas e empresa operando em total conformidade.',
+      'Atendimento ao requisito obrigatório do alvará de funcionamento, prevenindo multas ou embargo do supermercado.',
   },
   {
     icon: Factory,
     category: 'Indústria de Plásticos',
-    title: 'Licenciamento IBAMA',
+    title: 'Regularização Ambiental Federal - IBAMA',
     problem:
-      'Necessidade de Cadastro Técnico Federal e licenciamento junto ao IBAMA para atividade potencialmente poluidora.',
+      'Necessidade de RAPP para emissão do Certificado de Regularidade - CR IBAMA.',
     solution:
-      'Elaboração de documentação técnica, cadastro CTF e acompanhamento do processo de licenciamento federal.',
+      'Elaboração e envio do Relatório de Anual de Atividades Potencialmente Poluidoras - RAPP para regularização federal.',
     result:
       'Regularização completa junto ao IBAMA, permitindo operação nacional.',
+    testimonial:
+      'Para nossa indústria de plásticos, o IBAMA era bicho de sete cabeças, aqui na empresa ninguém conseguia resolver. Com ajuda da Kethilyn, conseguimos regularizar em pouco tempo.',
   },
 ]

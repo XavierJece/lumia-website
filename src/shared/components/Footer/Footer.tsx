@@ -12,8 +12,8 @@ const Footer = () => {
             <Logo variant="simple" colorScheme="color" className="" />
           </Link>
           <p className="text-secondary-foreground/80 text-sm leading-relaxed text-center">
-            Soluções ambientais inteligentes para empresas que buscam
-            regularização, segurança e tranquilidade.
+            Soluções especializadas para empresas que buscam regularização,
+            conformidade e tranquilidade.
           </p>
         </div>
 
@@ -78,8 +78,8 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <span className="px-4 mt-8 pt-4 border-t border-secondary-foreground/10 flex items-center justify-center text-secondary-foreground/60 text-sm text-center">
-        © {new Date().getFullYear()} LUMIA Consultoria e Engenharia Integrada.
-        Todos os direitos reservados.
+        © {new Date().getFullYear()} Lumia Consultoria e Engenharia LTDA Todos
+        os direitos reservados.
       </span>
     </footer>
   )

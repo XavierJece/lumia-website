@@ -8,7 +8,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div
       key={project.title}
-      className="bg-card rounded-2xl shadow-soft border border-border overflow-hidden hover-lift group"
+      className="bg-card rounded-2xl shadow-soft border border-border overflow-hidden hover-lift group flex flex-col"
     >
       {/* Header */}
       <div className="p-6 border-b border-border bg-muted/30">
@@ -28,7 +28,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-6 space-y-4">
+      <div className="p-6 space-y-4  flex flex-col justify-between flex-1">
         <div>
           <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">
             Desafio

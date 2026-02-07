@@ -64,9 +64,9 @@ export default function MainSection() {
               Fale Diretamente com um Especialista
             </h2>
             <p className="text-primary-foreground/80 leading-relaxed mb-8">
-              O jeito mais rápido de resolver sua demanda ambiental. Clique no
-              botão abaixo e inicie uma conversa agora mesmo. Responderemos o
-              mais breve possível!
+              O jeito mais rápido de resolver sua demanda.{' '}
+              <strong>Clique no botão abaixo</strong> e inicie uma conversa
+              agora mesmo. Responderemos o mais breve possível!
             </p>
             <Button
               asChild
@@ -78,7 +78,7 @@ export default function MainSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Abrir WhatsApp
+                Falar com especialista
                 <ArrowRight className="ml-2" size={20} />
               </a>
             </Button>

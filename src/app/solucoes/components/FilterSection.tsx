@@ -1,17 +1,37 @@
 'use client'
 
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '~/shared/components/atoms/ui/button'
-import { solutionContent } from '~/shared/data/solutionContent'
+import {
+  solutionsCategoryContent,
+  solutionsContent,
+} from '~/shared/data/solutionContent'
 
-interface FilterSectionProps {
-  activeFilter: string | null
-  setActiveFilter: (filter: string | null) => void
-}
+export function FilterSection() {
+  const router = useRouter()
+  const searchParams = useSearchParams()
 
-export function FilterSection({
-  activeFilter,
-  setActiveFilter,
-}: FilterSectionProps) {
+  // Get the current filter from URL query params
+  const activeCategory = searchParams.get('c')
+
+  const setActiveFilter = (filter: string | null) => {
+    const params = new URLSearchParams(searchParams.toString())
+
+    if (filter) {
+      params.set('c', filter)
+    } else {
+      // Remove filter if null (all solutions)
+      params.delete('c')
+    }
+
+    // Update the URL without page reload
+    router.push(`?${params.toString()}`, { scroll: false })
+  }
+
+  const countFilteredServices = solutionsContent.filter(
+    (solution) =>
+      activeCategory === null || solution.categorySlug === activeCategory,
+  ).length
   return (
     <section className="border-b border-border">
       <div className="container-lumia p-4 py-6">
@@ -20,19 +40,23 @@ export function FilterSection({
         </h2>
         <div className="flex flex-wrap gap-2">
           <Button
-            variant={activeFilter === null ? 'default' : 'outline'}
+            variant={activeCategory === null ? 'default' : 'outline'}
             size="sm"
             onClick={() => setActiveFilter(null)}
             className="font-medium whitespace-pre-wrap w-full sm:w-auto min-h-fit"
           >
             Todas as Soluções
           </Button>
-          {solutionContent.map((section) => (
+          {solutionsCategoryContent.map((section) => (
             <Button
-              key={section.href}
-              variant={activeFilter === section.href ? 'default' : 'outline'}
+              key={section.slug}
+              variant={activeCategory === section.slug ? 'default' : 'outline'}
               size="sm"
-              onClick={() => setActiveFilter(section.href)}
+              onClick={() =>
+                setActiveFilter(
+                  activeCategory === section.slug ? null : section.slug,
+                )
+              }
               className="font-medium whitespace-pre-wrap w-full sm:w-auto py-1 min-h-fit flex items-center justify-between text-center"
             >
               <section.icon size={14} className="mr-1.5" />
@@ -40,6 +64,13 @@ export function FilterSection({
             </Button>
           ))}
         </div>
+        <p className="mt-6 text-muted-foreground">
+          Exibindo{' '}
+          <span className="font-semibold text-foreground">
+            {countFilteredServices}
+          </span>{' '}
+          soluções
+        </p>
       </div>
     </section>
   )

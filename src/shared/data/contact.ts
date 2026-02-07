@@ -48,8 +48,8 @@ export const contactInfo: IContactInfoItem[] = [
     icon: Mail,
     title: 'E-mail',
     type: 'mail',
-    label: 'contato@lumia.com.br',
-    href: `mailto:contato@lumia.com.br`,
+    label: 'contato@lumia.eng.br',
+    href: `mailto:contato@lumia.eng.br`,
   },
   {
     icon: Clock,

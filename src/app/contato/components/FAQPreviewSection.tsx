@@ -16,7 +16,7 @@ export default function FAQPreviewSection() {
       <div className="container-lumia">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-heading font-bold text-foreground mb-6">
-            Dúvidas Frequentes?
+            Dúvidas Frequentes
           </h2>
 
           <Accordion type="single" collapsible className="mb-8 space-y-4">
@@ -41,8 +41,7 @@ export default function FAQPreviewSection() {
           </Accordion>
 
           <p className="text-muted-foreground mb-8">
-            Ainda tem dúvidas? Entre em contato conosco que teremos prazer em
-            esclarecer tudo de forma clara e objetiva.
+            Ainda tem dúvidas? Entre em contato conosco.
           </p>
           <Button asChild size="lg" variant="outline" className="font-semibold">
             <a

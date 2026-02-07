@@ -13,8 +13,8 @@ export default function HeroSection() {
             Quem Somos
           </h1>
           <p className="text-lg text-primary-foreground/80 leading-relaxed">
-            Conheça a LUMIA Consultoria e Engenharia Ambiental, sua parceira na
-            busca por soluções ambientais inteligentes e eficientes.
+            Conheça a LUMIA Consultoria e Engenharia, sua parceira em soluções
+            ambientais, sanitárias e de segurança contra incêndio.
           </p>
         </div>
       </div>

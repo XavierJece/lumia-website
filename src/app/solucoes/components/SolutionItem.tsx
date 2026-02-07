@@ -1,9 +1,15 @@
 'use client'
 
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
+import { Badge } from '~/shared/components/atoms/ui/badge'
 import { Button } from '~/shared/components/atoms/ui/button'
-import { ISolutionServiceContent } from '~/shared/data/solutionContent'
+import {
+  ISolutionCategoryContent,
+  ISolutionServiceContent,
+} from '~/shared/data/solutionContent'
 
 interface SolutionItemProps {
   service: ISolutionServiceContent
@@ -101,6 +107,59 @@ export function SummaryView({ service }: SolutionItemProps) {
         </div>
       </div>
     </div>
+  )
+}
+
+export function CardView({
+  service,
+  categoryInfo,
+}: SolutionItemProps & {
+  categoryInfo: Pick<ISolutionCategoryContent, 'quickLinks' | 'icon'>
+}) {
+  return (
+    <Link
+      target="_blank"
+      href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Gostaria de saber mais sobre *${encodeURIComponent(service.title)}*.`}
+      className="group bg-card rounded-2xl shadow-soft border border-border overflow-hidden hover-lift transition-all duration-300"
+    >
+      {/* Image */}
+      <div className="relative h-48 overflow-hidden">
+        <Image
+          src={
+            service.coverURL ||
+            'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=600&h=400&fit=crop'
+          }
+          alt={service.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          layout="fill"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+        <Badge className="absolute top-4 left-4 bg-primary/90 text-primary-foreground">
+          <categoryInfo.icon size={12} className="mr-1" />
+          {categoryInfo.quickLinks}
+        </Badge>
+      </div>
+
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="text-lg font-heading font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+          {service.title}
+        </h3>
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
+          {service.description}
+        </p>
+
+        {/* CTA */}
+        <div className="flex items-center text-primary font-semibold text-sm">
+          Saiba mais
+          <ArrowRight
+            size={16}
+            className="ml-2 transition-transform group-hover:translate-x-1"
+          />
+        </div>
+      </div>
+    </Link>
   )
 }
 

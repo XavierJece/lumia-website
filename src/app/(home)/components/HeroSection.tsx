@@ -9,15 +9,17 @@ export default function HeroSection() {
         <div className="max-w-3xl">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-medium mb-6 animate-fade-up">
             <Leaf size={16} />
-            Consultoria e Engenharia Integrada
+            Consultoria e Engenharia Especializada
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-accent-foreground mb-6 leading-tight animate-fade-up stagger-1">
-            Soluções Ambientais Inteligentes para Sua Empresa
+            Soluções especializadas <br /> para sua empresa
           </h1>
           <p className="text-lg sm:text-xl text-accent-foreground/80 mb-8 leading-relaxed animate-fade-up stagger-2">
-            Regularização, segurança e tranquilidade para o seu negócio. A LUMIA
-            oferece consultoria especializada para empresas que buscam
-            conformidade ambiental com praticidade e eficiência.
+            Atuação completa na regularização de indústrias e comércios,
+            garantindo conformidade com as normas ambientais, vigilância,
+            sanitária e segurança contra incêndio e liberação legal do
+            estabelecimento. A Lumia oferece tranquilidade para seu negócio, com
+            praticidade e eficiência.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-up stagger-3">
             <Button

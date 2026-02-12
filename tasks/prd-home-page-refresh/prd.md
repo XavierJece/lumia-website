@@ -105,9 +105,9 @@ All key inputs provided; keep monitoring for future changes.
 - Primary CTA message: “Olá, Lumia! Acabei de visitar o site de vocês e tenho interesse em conversar sobre conformidade ambiental para minha empresa. Podem me ajudar?” (gives context of site visit for support triage).
 - Metrics to highlight: 15+ technical experts; 280+ clients in compliance; 1,200+ managed administrative processes; 98% client satisfaction.
 - Solution cards:
-  - Licenciamento Ambiental para Indústrias — `/solucoes/licenciamento-industrial` — “Obtenha e renove suas licenças (LP, LI, LO) com agilidade e segurança jurídica para operar sem interrupções.”
-  - Regularização de Emergência e Defesa — `/solucoes/regularizacao-emergencia` — “Atuamos rapidamente em casos de autuação ou embargo. Nossa expertise é sua melhor defesa.”
-  - Assessoria Contínua para Empresas — `/solucoes/assessoria-continua` — “Tenha um parceiro estratégico permanente para monitorar legislação e manter sua operação sempre regular.”
+  - Licenciamento Ambiental para Indústrias — `/solutions/licenciamento-industrial` — “Obtenha e renove suas licenças (LP, LI, LO) com agilidade e segurança jurídica para operar sem interrupções.”
+  - Regularização de Emergência e Defesa — `/solutions/regularizacao-emergencia` — “Atuamos rapidamente em casos de autuação ou embargo. Nossa expertise é sua melhor defesa.”
+  - Assessoria Contínua para Empresas — `/solutions/assessoria-continua` — “Tenha um parceiro estratégico permanente para monitorar legislação e manter sua operação sempre regular.”
 - Case studies:
   - Indústria de Componentes Metálicos S.A. (logo: stylized gear). Badge: “LICENÇA OPERACIONAL LIBERADA EM 60 DIAS.” CAR: Challenge—risk of shutdown due to expiring LO; Action—reviewed process, organized docs, met agency; Result—license renewed before deadline.
   - Construtora Horizonte Verde (logo: building with leaf). Badge: “AUTUAÇÃO DE R$ 350 MIL REVERTIDA.” CAR: Challenge—fine for alleged irregular vegetation suppression; Action—detailed appeal with technical grounding and negotiation; Result—fine canceled, project approved with compensatory measures.

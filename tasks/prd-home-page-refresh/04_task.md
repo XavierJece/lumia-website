@@ -32,9 +32,9 @@ Create a new SolutionsGrid component displaying 3 solution cards that link to sp
 
 - [x] 4.3 Add solutions data
 
-  - Licenciamento Ambiental para Indústrias → `/solucoes/licenciamento-industrial`
-  - Regularização de Emergência e Defesa → `/solucoes/regularizacao-emergencia`
-  - Assessoria Contínua para Empresas → `/solucoes/assessoria-continua`
+  - Licenciamento Ambiental para Indústrias → `/solutions/licenciamento-industrial`
+  - Regularização de Emergência e Defesa → `/solutions/regularizacao-emergencia`
+  - Assessoria Contínua para Empresas → `/solutions/assessoria-continua`
 
 - [x] 4.4 Style cards with brand patterns
 
@@ -78,21 +78,21 @@ const solutions: ISolutionCard[] = [
     title: 'Licenciamento Ambiental para Indústrias',
     description:
       'Obtenha e renove suas licenças (LP, LI, LO) com agilidade e segurança jurídica para operar sem interrupções.',
-    href: '/solucoes/licenciamento-industrial',
+    href: '/solutions/licenciamento-industrial',
     icon: Factory,
   },
   {
     title: 'Regularização de Emergência e Defesa',
     description:
       'Atuamos rapidamente em casos de autuação ou embargo. Nossa expertise é sua melhor defesa.',
-    href: '/solucoes/regularizacao-emergencia',
+    href: '/solutions/regularizacao-emergencia',
     icon: AlertTriangle,
   },
   {
     title: 'Assessoria Contínua para Empresas',
     description:
       'Tenha um parceiro estratégico permanente para monitorar legislação e manter sua operação sempre regular.',
-    href: '/solucoes/assessoria-continua',
+    href: '/solutions/assessoria-continua',
     icon: Handshake,
   },
 ]

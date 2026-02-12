@@ -7,10 +7,10 @@ export const headerContent: HeaderContent = {
   },
   navItems: [
     { label: 'Home', href: '/' },
-    { label: 'Soluções', href: '/solucoes' },
-    { label: 'Projetos', href: '/projetos' },
-    { label: 'Quem Somos', href: '/quem-somos' },
-    { label: 'Contato', href: '/contato' },
+    { label: 'Soluções', href: '/solutions' },
+    { label: 'Projetos', href: '/projects' },
+    { label: 'Quem Somos', href: '/about' },
+    { label: 'Contato', href: '/contact' },
   ],
   ctaPrimary: {
     text: 'Falar no WhatsApp',

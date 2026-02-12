@@ -27,7 +27,7 @@ Enhance the existing Hero component with new headline, subheadline, dual CTAs (W
 - [x] 2.2 Implement dual CTA buttons
 
   - Primary (Yellow): "Fale com um Especialista" → WhatsApp link from constants.ts
-  - Secondary (Outlined): "Ver Nossas Soluções" → anchor to `#solucoes` (Updated to `/solucoes` per user request)
+  - Secondary (Outlined): "Ver Nossas Soluções" → anchor to `#solucoes` (Updated to `/solutions` per user request)
   - Use existing buttonVariants from design system
 
 - [x] 2.3 Add scroll cue indicator

@@ -28,7 +28,7 @@ export default function HeroSection() {
               variant="outline"
               className="font-semibold text-lg px-8"
             >
-              <Link href="/solucoes">Conheça Nossas Soluções</Link>
+              <Link href="/solutions">Conheça Nossas Soluções</Link>
             </Button>
             <Button
               asChild

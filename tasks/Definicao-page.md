@@ -34,7 +34,7 @@
 
 #### Conteúdo
 
-### 5. SEÇÃO DE CASES DE SUCESSO (Resultados/Projetos)
+### 5. SEÇÃO DE CASES DE SUCESSO (Resultados/projects)
 
 **Objetivo:** Prova social concreta. Demonstrar expertise através de resultados reais para clientes reais. **Conectar emocionalmente mostrando que você já resolveu problemas similares.**
 

@@ -156,7 +156,7 @@ const solutions: ISolutionCard[] = [
     title: 'Licenciamento Ambiental para Indústrias',
     description:
       'Obtenha e renove suas licenças (LP, LI, LO) com agilidade e segurança jurídica para operar sem interrupções.',
-    href: '/solucoes/licenciamento-industrial',
+    href: '/solutions/licenciamento-industrial',
     icon: Factory,
   },
   // ... 2 more cards

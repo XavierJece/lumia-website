@@ -27,7 +27,7 @@ export default function AboutSummarySection() {
               receba a atenção que merece.
             </p>
             <Button asChild variant="outline" className="font-semibold">
-              <Link href="/quem-somos">
+              <Link href="/about">
                 Saiba Mais Sobre Nós
                 <ArrowRight className="ml-2" size={16} />
               </Link>

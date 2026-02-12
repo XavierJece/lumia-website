@@ -34,7 +34,7 @@ export const footerContent: FooterContent = {
       title: 'Soluções',
       links: solutionsCategoryContent.map(({ quickLinks, slug }) => ({
         label: quickLinks,
-        href: `/solucoes?c=${slug}`,
+        href: `/solutions?c=${slug}`,
       })),
     },
   ],

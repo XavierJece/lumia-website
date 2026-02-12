@@ -1,5 +1,29 @@
 {
   "makefile.configureOnOpen": false,
   "conventionalCommits.scopes": ["mvp"],
-  "cSpell.words": ["lumiaeng"]
+  "cSpell.words": [
+    "ANVISA",
+    "aspectos",
+    "AVCB",
+    "CETESB",
+    "CLCB",
+    "CMVS",
+    "CONAMA",
+    "conscientização",
+    "econômica",
+    "Fabrício",
+    "IBAMA",
+    "insumos",
+    "liberação",
+    "lumiaeng",
+    "PGRS",
+    "PGRSCC",
+    "PGRSS",
+    "planejamento",
+    "RAPP",
+    "rastreabilidade",
+    "retrabalho",
+    "SIGOR",
+    "SINIR"
+  ]
 }

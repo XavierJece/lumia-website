@@ -52,7 +52,7 @@ export default function NotFound() {
             variant="tertiary"
             className="font-semibold text-lg px-8 shadow-elevated"
           >
-            <Link href="/solucoes">
+            <Link href="/solutions">
               Conheça Nossas Soluções
               <ArrowRight className="ml-2" size={20} />
             </Link>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { TooltipProvider } from '~/shared/components/atoms/ui/tooltip'
 import Footer from '~/shared/components/Footer/Footer'
 import Header from '~/shared/components/Header/Header'
 import { mavenFonts, montserratFonts } from '~/shared/styles/fonts'
@@ -29,7 +30,7 @@ export default function RootLayout({
       <body className="flex min-h-screen flex-col bg-white-essential text-neutral-900 antialiased">
         <Header />
         <main id="main-content" className="flex-1 mx-auto w-full pt-16 ">
-          {children}
+          <TooltipProvider>{children}</TooltipProvider>
         </main>
         <Footer />
       </body>

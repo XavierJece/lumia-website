@@ -1,6 +1,8 @@
 import { ArrowRight, Leaf } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '~/shared/components/atoms/ui/button'
+import { Text } from '~/shared/components/atoms/ui/text'
+import { heroContent } from '~/shared/data/homeContent'
 
 export default function HeroSection() {
   return (
@@ -9,18 +11,32 @@ export default function HeroSection() {
         <div className="max-w-3xl">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-medium mb-6 animate-fade-up">
             <Leaf size={16} />
-            Consultoria e Engenharia Especializada
+            {heroContent.title}
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-accent-foreground mb-6 leading-tight animate-fade-up stagger-1">
-            Soluções especializadas <br /> para sua empresa
-          </h1>
-          <p className="text-lg sm:text-xl text-accent-foreground/80 mb-8 leading-relaxed animate-fade-up stagger-2">
-            Atuação completa na regularização de indústrias e comércios,
-            garantindo conformidade com as normas ambientais, vigilância,
-            sanitária e segurança contra incêndio e liberação legal do
-            estabelecimento. A Lumia oferece tranquilidade para seu negócio, com
-            praticidade e eficiência.
-          </p>
+          <Text
+            components={{
+              p: ({ _, ...props }) => (
+                <h1
+                  className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-accent-foreground mb-6 leading-tight animate-fade-up stagger-1"
+                  {...props}
+                />
+              ),
+            }}
+          >
+            {heroContent.subtitle}
+          </Text>
+          <Text
+            components={{
+              p: ({ _, ...props }) => (
+                <p
+                  className="text-lg sm:text-xl text-accent-foreground/80 mb-8 leading-relaxed animate-fade-up stagger-2"
+                  {...props}
+                />
+              ),
+            }}
+          >
+            {heroContent.description}
+          </Text>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-up stagger-3">
             <Button
               asChild
@@ -28,7 +44,9 @@ export default function HeroSection() {
               variant="outline"
               className="font-semibold text-lg px-8"
             >
-              <Link href="/solutions">Conheça Nossas Soluções</Link>
+              <Link href={heroContent.buttons[0].link}>
+                {heroContent.buttons[0].label}
+              </Link>
             </Button>
             <Button
               asChild
@@ -36,14 +54,14 @@ export default function HeroSection() {
               variant="tertiary"
               className="font-semibold text-lg px-8 shadow-elevated"
             >
-              <a
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Olá! Gostaria de saber mais sobre os serviços da LUMIA.`}
+              <Link
+                href={heroContent.buttons[1].link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Fale com um Especialista
+                {heroContent.buttons[1].label}
                 <ArrowRight className="ml-2" size={20} />
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

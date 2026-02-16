@@ -107,12 +107,12 @@ export const metadataContact: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://lumia.eng.br/Contact',
+    canonical: 'https://lumia.eng.br/contact',
   },
 
   // ----- OPEN GRAPH (Facebook, LinkedIn, Instagram, WhatsApp) -----
   openGraph: {
-    title: 'Fale conosco',
+    title: 'Fale Conosco',
     description:
       'Estamos prontos para atender você. Telefone, WhatsApp, e-mail e redes sociais. Respondemos rapidamente!',
 

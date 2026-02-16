@@ -26,6 +26,7 @@ import {
   Truck,
   Volume,
 } from 'lucide-react'
+import { Metadata } from 'next'
 
 export interface ISolutionServiceContent {
   title: string
@@ -508,3 +509,103 @@ Os projetos são adaptados à realidade de cada empresa, garantindo rastreabilid
     categorySlug: 'desenvolvimento-de-projetos-ambientais',
   },
 ]
+
+export const metadataSolutions: Metadata = {
+  // ----- TITLE -----
+  title: 'Soluções',
+
+  // ----- DEFAULT DESCRIPTION -----
+  description: `Conheça todas as soluções da LUMIA: PGRS, PGRSS, licenciamento ambiental, regularização IBAMA, estudos e laudos, AVCB, CLCB, regularização de imóveis e assessoria técnica. Atendimento em todo o Brasil.`,
+
+  // ----- ROBOTS (indexing) -----
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://lumia.eng.br/solutions',
+  },
+
+  // ----- OPEN GRAPH (Facebook, LinkedIn, Instagram, WhatsApp) -----
+  openGraph: {
+    title: 'Todas as Soluções',
+    description:
+      'Encontre a solução ideal para seu negócio: gestão de resíduos, licenças ambientais, sanitárias, bombeiros, estudos técnicos e muito mais.',
+
+    images: [
+      {
+        url: '/solutions-og-image.png',
+        width: 1200,
+        height: 630,
+        alt: `Projetos LUMIA`,
+      },
+    ],
+  },
+
+  // ----- TWITTER CARD -----
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/solutions-og-image.png'],
+  },
+
+  // ----- OTHERS METADADOS ÚTEIS -----
+  keywords: [
+    ...solutionsCategoryContent.map((c) => c.title),
+    ...solutionsServiceContent.map((s) => s.title),
+    'São Paulo',
+    'SP',
+  ],
+
+  authors: [{ name: 'LUMIA' }],
+}
+
+export const jsonLdSolutions = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: 'Soluções LUMIA',
+      description:
+        'Todas as soluções ambientais, sanitárias e de segurança da LUMIA.',
+      url: 'https://lumia.eng.br/solutions',
+      mainEntity: {
+        '@type': 'ItemList',
+        numberOfItems: solutionsServiceContent.length,
+        itemListElement: solutionsServiceContent.map((s, i) => ({
+          '@type': 'ListItem',
+          position: i,
+          item: {
+            '@type': 'Service',
+            name: s.title,
+            description: s.description,
+            provider: {
+              '@id': 'https://lumia.eng.br/#organization',
+            },
+            areaServed: 'BR',
+            serviceType:
+              solutionsCategoryContent.find((c) => c.slug === s.categorySlug)
+                ?.title || 'Assessoria Técnica',
+          },
+        })),
+      },
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://lumia.eng.br/#organization',
+      name: 'LUMIA Consultoria e Engenharia',
+      url: 'https://lumia.eng.br',
+      logo: 'https://lumia.eng.br/logos/simple-color-logo.svg',
+      sameAs: [
+        'https://www.instagram.com/lumia.eng',
+        'https://www.linkedin.com/company/lumia-eng',
+      ],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+55-11-94226-5492',
+        contactType: 'customer service',
+        areaServed: 'BR',
+        availableLanguage: 'Portuguese',
+      },
+    },
+  ],
+}

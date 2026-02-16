@@ -154,7 +154,7 @@ export const jsonLdContact = {
       '@id': 'https://lumia.eng.br/#organization',
       name: 'LUMIA Consultoria e Engenharia',
       url: 'https://lumia.eng.br',
-      logo: 'https://lumia.eng.br/logos/logo.png',
+      logo: 'https://lumia.eng.br/logos/simple-color-logo.svg',
       sameAs: [
         'https://www.instagram.com/lumia.eng',
         'https://www.linkedin.com/company/lumia-eng',

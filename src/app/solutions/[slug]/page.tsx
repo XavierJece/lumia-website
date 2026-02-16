@@ -69,11 +69,11 @@ export default function SolutionsPage({
           description: solution.description,
         }}
       />
-      <C.ProcessSection
+      {/* <C.ProcessSection
         solution={{
           process: solution.process,
         }}
-      />
+      /> */}
       <C.CtaSection />
     </>
   )

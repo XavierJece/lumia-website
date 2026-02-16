@@ -112,7 +112,7 @@ export const metadataContact: Metadata = {
 
   // ----- OPEN GRAPH (Facebook, LinkedIn, Instagram, WhatsApp) -----
   openGraph: {
-    title: 'FAle conosco',
+    title: 'Fale conosco',
     description:
       'Estamos prontos para atender você. Telefone, WhatsApp, e-mail e redes sociais. Respondemos rapidamente!',
 

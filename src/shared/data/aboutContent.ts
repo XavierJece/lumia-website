@@ -1,4 +1,5 @@
 import { Eye, Heart, Leaf, Shield, Star, Target } from 'lucide-react'
+import { Metadata } from 'next'
 
 export interface IStoryContent {
   title: string
@@ -16,6 +17,112 @@ export interface IValuesContent {
   title: string
   description: string
   values: IAboutContent[]
+}
+
+export const metadataAbout: Metadata = {
+  // ----- TITLE -----
+  title: 'Quem Somos',
+
+  // ----- DEFAULT DESCRIPTION -----
+  description:
+    'Conheça a história da LUMIA, nossa missão, visão e valores. Somos especialistas em soluções ambientais, sanitárias e segurança contra incêndio.',
+
+  // ----- ROBOTS (indexing) -----
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://lumia.eng.br/about',
+  },
+
+  // ----- OPEN GRAPH (Facebook, LinkedIn, Instagram, WhatsApp) -----
+  openGraph: {
+    title: 'Nossa História e Valores',
+    description:
+      'Conheça a trajetória de Kethilyn Freitas Xavier e Fabrício Cardoso, e como a LUMIA simplifica a regularização ambiental e sanitária para empresas.',
+
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: `Kethilyn Freitas Xavier`,
+      },
+    ],
+  },
+
+  // ----- TWITTER CARD -----
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/about-og-image.png'],
+  },
+
+  // ----- OTHERS METADADOS ÚTEIS -----
+  keywords:
+    'sobre a lumia, engenheira ambiental, kethilyn freitas xavier, engenheiro civil fabricio cardoso, consultoria ambiental, regularização de imóveis, segurança contra incêndio, são paulo',
+
+  authors: [{ name: 'LUMIA' }],
+}
+
+export const jsonLdAbout = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'AboutPage',
+      name: 'Sobre a LUMIA',
+      description:
+        'Conheça a história da LUMIA, nossa missão, visão e valores.',
+      url: 'https://lumia.eng.br/about',
+      mainEntity: { '@id': 'https://lumia.eng.br/#organization' },
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://lumia.eng.br/#organization',
+      name: 'LUMIA Consultoria e Engenharia',
+      url: 'https://lumia.eng.br',
+      logo: 'https://lumia.eng.br/logos/logo.png',
+      sameAs: [
+        'https://www.instagram.com/lumia.eng',
+        'https://www.linkedin.com/company/lumia-eng',
+      ],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+55-11-94226-5492',
+        contactType: 'customer service',
+        areaServed: 'BR',
+        availableLanguage: 'Portuguese',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'São Paulo',
+        addressRegion: 'SP',
+        addressCountry: 'BR',
+      },
+      founders: [
+        { '@id': 'https://lumia.eng.br/#person-kethilyn' },
+        { '@id': 'https://lumia.eng.br/#person-fabricio' },
+      ],
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://lumia.eng.br/#person-kethilyn',
+      name: 'Kethilyn Freitas Xavier',
+      jobTitle: 'Engenheira Ambiental e Sanitária',
+      worksFor: { '@id': 'https://lumia.eng.br/#organization' },
+      description:
+        'Fundadora da LUMIA, engenheira com experiência em regularização ambiental e sanitária.',
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://lumia.eng.br/#person-fabricio',
+      name: 'Fabrício Cardoso',
+      jobTitle: 'Engenheiro Civil',
+      worksFor: { '@id': 'https://lumia.eng.br/#organization' },
+      description:
+        'Engenheiro civil com mais de 20 anos de mercado, especialista em projetos e segurança.',
+    },
+  ],
 }
 
 export const storyContent: IStoryContent = {

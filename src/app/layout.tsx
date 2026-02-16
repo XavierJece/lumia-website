@@ -6,8 +6,6 @@ import { heroContent } from '~/shared/data/homeContent'
 import { mavenFonts, montserratFonts } from '~/shared/styles/fonts'
 import '~/shared/styles/globals.css'
 
-// app/layout.tsx
-
 export const metadata: Metadata = {
   // ----- BASE URL -----
   metadataBase: new URL(

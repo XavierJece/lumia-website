@@ -32,7 +32,7 @@ export default function StorySection() {
                 </div> */}
                 <Image
                   src="/ket/ket6.JPEG"
-                  alt="About Summary"
+                  alt="Kethilyn Freitas Xavier - Fundadora"
                   className="size-full object-cover bg-muted rounded-2xl border-2"
                   layout="fill"
                 />

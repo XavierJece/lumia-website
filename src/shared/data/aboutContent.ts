@@ -33,7 +33,7 @@ export const metadataAbout: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://lumia.eng.br/about',
+    canonical: 'https://lumia.eng.br/contact',
   },
 
   // ----- OPEN GRAPH (Facebook, LinkedIn, Instagram, WhatsApp) -----
@@ -44,7 +44,7 @@ export const metadataAbout: Metadata = {
 
     images: [
       {
-        url: '/og-image.png',
+        url: '/about-og-image.png',
         width: 1200,
         height: 630,
         alt: `Kethilyn Freitas Xavier`,
@@ -60,7 +60,7 @@ export const metadataAbout: Metadata = {
 
   // ----- OTHERS METADADOS ÚTEIS -----
   keywords:
-    'sobre a lumia, engenheira ambiental, kethilyn freitas xavier, engenheiro civil fabricio cardoso, consultoria ambiental, regularização de imóveis, segurança contra incêndio, são paulo',
+    'contato lumia, telefone lumia, whatsapp lumia, email lumia, consultoria ambiental contato, regularização de empresas, são paulo, engenharia ambiental',
 
   authors: [{ name: 'LUMIA' }],
 }

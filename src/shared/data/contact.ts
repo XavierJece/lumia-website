@@ -1,4 +1,5 @@
 import { Clock, Instagram, Linkedin, Mail, Phone } from 'lucide-react'
+import { Metadata } from 'next'
 
 export interface ISocialNetworkContactItem {
   platform: 'instagram' | 'linkedin' | 'tiktok'
@@ -92,3 +93,105 @@ export const FAQQuestionsContent: IFAQItem[] = [
       'É um serviço contínuo onde nossa equipe fica à disposição para suporte técnico, atualizações legislativas, resolução de dúvidas e acompanhamento da conformidade ambiental da sua empresa. Ideal para quem busca tranquilidade e prevenção, com um custo fixo mensal que otimiza seus investimentos em compliance ambiental.',
   },
 ]
+
+export const metadataContact: Metadata = {
+  // ----- TITLE -----
+  title: 'Contato',
+
+  // ----- DEFAULT DESCRIPTION -----
+  description: `Entre em contato com a LUMIA. Telefone/WhatsApp ${contactInfo[0].label}, e-mail ${contactInfo[1].label} e horário de atendimento: ${contactInfo[2].label}. Fale com um especialista agora!`,
+
+  // ----- ROBOTS (indexing) -----
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://lumia.eng.br/Contact',
+  },
+
+  // ----- OPEN GRAPH (Facebook, LinkedIn, Instagram, WhatsApp) -----
+  openGraph: {
+    title: 'FAle conosco',
+    description:
+      'Estamos prontos para atender você. Telefone, WhatsApp, e-mail e redes sociais. Respondemos rapidamente!',
+
+    images: [
+      {
+        url: '/contact-og-image.png',
+        width: 630,
+        height: 1200,
+        alt: `Fale com a Lumia`,
+      },
+    ],
+  },
+
+  // ----- TWITTER CARD -----
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/contact-og-image.png'],
+  },
+
+  // ----- OTHERS METADADOS ÚTEIS -----
+  keywords:
+    'sobre a lumia, engenheira ambiental, kethilyn freitas xavier, engenheiro civil fabricio cardoso, consultoria ambiental, regularização de imóveis, segurança contra incêndio, são paulo',
+
+  authors: [{ name: 'LUMIA' }],
+}
+
+export const jsonLdContact = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ContactPage',
+      name: 'Contato LUMIA',
+      description: 'Página de contato da LUMIA Consultoria e Engenharia',
+      url: 'https://lumia.eng.br/contact',
+      mainEntity: { '@id': 'https://lumia.eng.br/#organization' },
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://lumia.eng.br/#organization',
+      name: 'LUMIA Consultoria e Engenharia',
+      url: 'https://lumia.eng.br',
+      logo: 'https://lumia.eng.br/logos/logo.png',
+      sameAs: [
+        'https://www.instagram.com/lumia.eng',
+        'https://www.linkedin.com/company/lumia-eng',
+      ],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: '+55-11-94226-5492',
+          contactType: 'customer service',
+          areaServed: 'BR',
+          availableLanguage: 'Portuguese',
+        },
+        {
+          '@type': 'ContactPoint',
+          email: 'contato@lumia.eng.br',
+          contactType: 'customer service',
+          areaServed: 'BR',
+          availableLanguage: 'Portuguese',
+        },
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'São Paulo',
+        addressRegion: 'SP',
+        addressCountry: 'BR',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: FAQQuestionsContent.map((q) => ({
+        '@type': 'Question',
+        name: q.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: q.answer,
+        },
+      })),
+    },
+  ],
+}

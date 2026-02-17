@@ -25,7 +25,7 @@ export const heroContent: HeroContent = {
   tagline: 'Regularização ambiental e sanitária para o seu negócio',
   title: `Consultoria e Engenharia Especializada`,
   subtitle: `Soluções especializadas <br /> para sua empresa`,
-  description: `Atuação completa na regularização de indústrias e comércios, garantindo conformidade com as normas ambientais, vigilância, sanitária e segurança contra incêndio e liberação legal do estabelecimento. A Lumia oferece tranquilidade para seu negócio, com praticidade e eficiência.`,
+  description: `Atuação completa na regularização de indústrias e comércios, garantindo conformidade com as normas ambientais, vigilância sanitária, segurança contra incêndio e liberação legal do estabelecimento. A Lumia oferece tranquilidade para seu negócio, com praticidade e eficiência.`,
   buttons: [
     {
       label: `Conheça Nossas Soluções`,

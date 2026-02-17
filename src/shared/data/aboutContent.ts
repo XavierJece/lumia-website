@@ -128,7 +128,7 @@ export const storyContent: IStoryContent = {
     'A Lumia atua na simplificação do que normalmente é tratado como complicado: normas, licenças e exigências ambientais, sanitárias e de segurança contra incêndio.',
     'À frente da Lumia estou eu, Kethilyn Freitas Xavier, engenheira ambiental e sanitária. Minha trajetória é técnica e construída no dia a dia, no chão de fábrica e nos bastidores de clínicas, indústrias e comércios que precisam operar de forma regular, segura e dentro da lei, sem risco, sem multa e sem improviso.',
     'O trabalho da Lumia envolve desde a regularização de imóveis até a adequação de empreendimentos às exigências do Corpo de Bombeiros, Vigilância Sanitária e órgãos ambientais, sempre considerando a realidade operacional de cada cliente.',
-    'o engenheiro civil Fabrício Cardoso, com mais de 20 anos de atuação no mercado, agregando visão prática e consistência técnica aos projetos desenvolvidos.',
+    'Também contamos com o engenheiro civil, Fabrício Cardoso, que atua com mais de 20 anos no mercado, agregando visão prática e consistência técnica aos projetos desenvolvidos.',
   ],
 }
 

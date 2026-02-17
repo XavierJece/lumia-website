@@ -136,11 +136,13 @@ export function CardView({
 }: SolutionItemProps & {
   categoryInfo: Pick<ISolutionCategoryContent, 'quickLinks' | 'icon'>
 }) {
+  const path = `/solutions/${slugFy(service.title)}`
+
   return (
     <Tooltip>
       <TooltipTrigger asChild>
         <Link
-          href={`/solutions/${slugFy(service.title)}`}
+          href={path}
           className="group bg-card rounded-2xl shadow-soft border border-border overflow-hidden hover-lift transition-all duration-300 flex flex-col hover:no-underline"
           trackParams={{
             category: 'Solutions',
@@ -152,10 +154,7 @@ export function CardView({
           {/* Image */}
           <div className="relative h-48 overflow-hidden">
             <Image
-              src={
-                service.coverURL ||
-                'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=600&h=400&fit=crop'
-              }
+              src={`${path}.png`}
               alt={service.title}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               layout="fill"

@@ -35,18 +35,20 @@ export function HeroSection({ category, solution }: IHeroSection) {
             {solution.title}
           </h1>
 
-          <ReactMarkdown
-            components={{
-              p: (props) => (
-                <p
-                  className="text-xl text-primary-foreground/80 leading-relaxed"
-                  {...props}
-                />
-              ),
-            }}
-          >
-            {solution.subtitle || 'Add Subtitle'}
-          </ReactMarkdown>
+          {solution.subtitle && (
+            <ReactMarkdown
+              components={{
+                p: (props) => (
+                  <p
+                    className="text-xl text-primary-foreground/80 leading-relaxed"
+                    {...props}
+                  />
+                ),
+              }}
+            >
+              {solution.subtitle || 'Add Subtitle'}
+            </ReactMarkdown>
+          )}
         </div>
       </div>
     </section>

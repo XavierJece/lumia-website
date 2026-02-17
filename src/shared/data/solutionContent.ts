@@ -162,8 +162,7 @@ export const solutionsServiceContent: ISolutionServiceContent[] = [
     ],
     icon: Recycle,
     categorySlug: 'gestao-de-residuos',
-    coverURL:
-      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop',
+    coverURL: '/solutions/plano-de-gerenciamento-de-residuos-solidos-pgrs.png',
   },
   {
     title: 'PGRSS – Resíduos de Serviços de Saúde',
@@ -179,6 +178,7 @@ export const solutionsServiceContent: ISolutionServiceContent[] = [
     ],
     icon: Heart,
     categorySlug: 'gestao-de-residuos',
+    coverURL: '/solutions/pgrss-residuos-de-servicos-de-saude.png',
   },
   {
     title: 'PGRSCC – Construção Civil',
@@ -194,6 +194,7 @@ export const solutionsServiceContent: ISolutionServiceContent[] = [
     ],
     icon: Building,
     categorySlug: 'gestao-de-residuos',
+    coverURL: '/solutions/pgrscc-construcao-civil.png',
   },
   {
     title: 'Serviços no SIGOR / SINIR',
@@ -209,9 +210,10 @@ export const solutionsServiceContent: ISolutionServiceContent[] = [
     ],
     icon: Database,
     categorySlug: 'gestao-de-residuos',
+    coverURL: `/solutions/servicos-no-sigor-sinir.png`,
   },
   {
-    title: 'Logística Reversa',
+    title: 'Plano de Logística Reversa',
     keywords:
       'logística reversa, sistema de logística reversa, plano de logística reversa, logística reversa de embalagens, retorno de produtos, destinação adequada, consultoria logística reversa, regularização ambiental logística reversa',
     description:
@@ -224,6 +226,7 @@ export const solutionsServiceContent: ISolutionServiceContent[] = [
     ],
     icon: RefreshCw,
     categorySlug: 'gestao-de-residuos',
+    coverURL: '/solutions/plano-de-logistica-reversa.png',
   },
 
   // --------------------------------------------------------------------------
@@ -244,6 +247,8 @@ Acompanhamos todas as etapas: análise de viabilidade, enquadramento legal, elab
     ],
     icon: Leaf,
     categorySlug: 'licenca-ambiental',
+    coverURL:
+      '/solutions/licenca-ambiental-prefeitura-cetesb-e-ibama-lp-li-e-lo.png',
   },
 
   // --------------------------------------------------------------------------
@@ -264,6 +269,7 @@ O CMVS garante que o negócio esteja devidamente cadastrado e autorizado a funci
     ],
     icon: ClipboardList,
     categorySlug: 'licenca-sanitaria',
+    coverURL: '/solutions/cmvs-cadastro-municipal-de-vigilancia-sanitaria.png',
   },
   {
     title: 'LTA – Laudo Técnico de Avaliação',
@@ -280,6 +286,7 @@ O laudo comprova que o imóvel, os processos e as condições operacionais atend
     ],
     icon: FileText,
     categorySlug: 'licenca-sanitaria',
+    coverURL: '/solutions/lta-laudo-tecnico-de-avaliacao.png',
   },
 
   // --------------------------------------------------------------------------
@@ -300,6 +307,7 @@ O CTF é a base da regularização ambiental federal e viabiliza a emissão do C
     ],
     icon: FileDigit,
     categorySlug: 'regularizacao-ambiental-federal-ibama',
+    coverURL: '/solutions/ctf-cadastro-tecnico-federal-do-ibama.png',
   },
   {
     title: 'CR – Certificado de Regularidade do IBAMA',
@@ -316,6 +324,7 @@ O CR é exigido em processos de licenciamento, licitações, contratos e operaç
     ],
     icon: Award,
     categorySlug: 'regularizacao-ambiental-federal-ibama',
+    coverURL: '/solutions/cr-certificado-de-regularidade-do-ibama.png',
   },
   {
     title: 'RAPP – Relatório Anual de Atividades Potencialmente Poluidoras',
@@ -332,6 +341,8 @@ A entrega correta do RAPP garante a manutenção do CR ativo e evita penalidades
     ],
     icon: FileWarning,
     categorySlug: 'regularizacao-ambiental-federal-ibama',
+    coverURL:
+      '/solutions/rapp-relatorio-anual-de-atividades-potencialmente-poluidoras.png',
   },
 
   // --------------------------------------------------------------------------
@@ -352,6 +363,7 @@ O EIV é fundamental para a aprovação de projetos e para a prevenção de conf
     ],
     icon: Map,
     categorySlug: 'estudos-e-laudos-tecnicos',
+    coverURL: '/solutions/eiv-estudo-de-impacto-de-vizinhanca.png',
   },
   {
     title: 'EIA/RIMA – Estudo e Relatório de Impacto Ambiental',
@@ -368,6 +380,7 @@ Esses estudos são essenciais para viabilizar o licenciamento ambiental de ativi
     ],
     icon: FileText,
     categorySlug: 'estudos-e-laudos-tecnicos',
+    coverURL: '/solutions/eiarima-estudo-e-relatorio-de-impacto-ambiental.png',
   },
   {
     title: 'RAS – Relatório Ambiental Simplificado',
@@ -384,6 +397,7 @@ O RAS apresenta a caracterização do empreendimento, os aspectos ambientais env
     ],
     icon: File,
     categorySlug: 'estudos-e-laudos-tecnicos',
+    coverURL: '/solutions/ras-relatorio-ambiental-simplificado.png',
   },
   {
     title: 'Laudo de Ruído Ambiental',
@@ -400,6 +414,7 @@ O laudo verifica a conformidade com a legislação vigente e auxilia na prevenç
     ],
     icon: Volume,
     categorySlug: 'estudos-e-laudos-tecnicos',
+    coverURL: '/solutions/laudo-de-ruido-ambiental.png',
   },
 
   // --------------------------------------------------------------------------
@@ -420,6 +435,7 @@ A atuação envolve análise do imóvel, adequações técnicas, acompanhamento 
     ],
     icon: Flame,
     categorySlug: 'licenca-do-corpo-de-bombeiros',
+    coverURL: '/solutions/avcb-auto-de-vistoria-do-corpo-de-bombeiros.png',
   },
   {
     title: 'CLCB – Certificado de Licença do Corpo de Bombeiros',
@@ -436,6 +452,8 @@ A Lumia realiza o enquadramento correto da atividade e acompanha o processo para
     ],
     icon: ShieldCheck,
     categorySlug: 'licenca-do-corpo-de-bombeiros',
+    coverURL:
+      '/solutions/clcb-certificado-de-licenca-do-corpo-de-bombeiros.png.png',
   },
 
   // --------------------------------------------------------------------------
@@ -456,6 +474,7 @@ O Habite-se é exigido para funcionamento de atividades comerciais, obtenção d
     ],
     icon: Home,
     categorySlug: 'regularizacao-de-imoveis-e-comercios',
+    coverURL: '/solutions/habite-se.png',
   },
   {
     title: 'Alvará de Funcionamento',
@@ -472,6 +491,8 @@ A Lumia realiza o enquadramento correto da atividade, organiza a documentação 
     ],
     icon: FileCheck,
     categorySlug: 'regularizacao-de-imoveis-e-comercios',
+
+    coverURL: '/solutions/alvara-de-funcionamento.png',
   },
 
   // --------------------------------------------------------------------------
@@ -492,6 +513,7 @@ Esse modelo garante previsibilidade, organização e continuidade no atendimento
     ],
     icon: Calendar,
     categorySlug: 'assessoria-tecnica',
+    coverURL: '/solutions/suporte-anual.png',
   },
   {
     title: 'Treinamentos',
@@ -508,6 +530,7 @@ Os treinamentos são adaptados à realidade da empresa e às atividades desenvol
     ],
     icon: GraduationCap,
     categorySlug: 'assessoria-tecnica',
+    coverURL: '/solutions/treinamentos.png',
   },
   {
     title: 'Palestras',
@@ -524,6 +547,7 @@ As palestras unem conteúdo técnico e linguagem acessível, promovendo entendim
     ],
     icon: Megaphone,
     categorySlug: 'assessoria-tecnica',
+    coverURL: '/solutions/palestras.png',
   },
 
   // --------------------------------------------------------------------------
@@ -542,6 +566,7 @@ As palestras unem conteúdo técnico e linguagem acessível, promovendo entendim
     ],
     icon: Recycle,
     categorySlug: 'desenvolvimento-de-projetos-ambientais',
+    coverURL: '/solutions/economia-circular.png',
   },
   {
     title: 'Logística Reversa',
@@ -558,6 +583,7 @@ Os projetos são adaptados à realidade de cada empresa, garantindo rastreabilid
     ],
     icon: Truck,
     categorySlug: 'desenvolvimento-de-projetos-ambientais',
+    coverURL: '/solutions/logistica-reversa.png',
   },
 ]
 

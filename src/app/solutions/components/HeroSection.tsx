@@ -16,8 +16,11 @@ export function HeroSection() {
             Na LUMIA, entendemos que cada empresa tem desafios únicos.
             Organizamos nossas especialidades para que você encontre rapidamente
             a solução ideal para regularizar, otimizar e proteger o seu negócio.
-            Fale conosco e tenha um parceiro técnico ao seu lado.
+            {/* <br />Fale conosco e tenha um parceiro técnico ao seu lado. */}
           </p>
+          <strong className="text-lg text-primary-foreground/80 leading-relaxed">
+            Fale conosco e tenha um parceiro técnico ao seu lado.
+          </strong>
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import {
   solutionsCategoryContent,
   solutionsServiceContent,
 } from '~/shared/data/solutionContent'
+import { getSolutionImages } from '~/shared/utils/files'
 import { generateServiceMetadata } from '~/shared/utils/metadata'
 import { slugFy } from '~/shared/utils/string'
 import * as C from './components'
@@ -70,6 +71,9 @@ export default function SolutionsPage({ params }: ISolutionsPageProps) {
   if (!solution) {
     notFound()
   }
+
+  // Obtém as imagens da solução com base no slug
+  const solutionImages = getSolutionImages(slug)
 
   const category = solutionsCategoryContent.find(
     (c) => c.slug === solution.categorySlug,
@@ -161,9 +165,10 @@ export default function SolutionsPage({ params }: ISolutionsPageProps) {
           subtitle: solution.subtitle,
         }}
       />
-      <C.GallerySection
-        imagensURL={solution.coverURL ? [solution.coverURL] : undefined}
-      />
+      {solutionImages.length > 0 && (
+        <C.GallerySection imagensURL={solutionImages} />
+      )}
+
       <C.ContentSection
         slug={slug}
         solution={{

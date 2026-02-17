@@ -44,7 +44,7 @@ export const metadataAbout: Metadata = {
   openGraph: {
     title: 'Nossa História e Valores',
     description:
-      'Conheça a trajetória de Kethilyn Freitas Xavier e Fabrício Cardoso, e como a LUMIA simplifica a regularização ambiental e sanitária para empresas.',
+      'Conheça a trajetória de Kethilyn Freitas Xavier e Fabricio Cardoso, e como a LUMIA simplifica a regularização ambiental e sanitária para empresas.',
 
     images: [ogImageUrl, fallbackImage],
   },
@@ -113,7 +113,7 @@ export const jsonLdAbout = {
     {
       '@type': 'Person',
       '@id': 'https://lumia.eng.br/#person-fabricio',
-      name: 'Fabrício Cardoso',
+      name: 'Fabricio Cardoso',
       jobTitle: 'Engenheiro Civil',
       worksFor: { '@id': 'https://lumia.eng.br/#organization' },
       description:
@@ -128,7 +128,7 @@ export const storyContent: IStoryContent = {
     'A Lumia atua na simplificação do que normalmente é tratado como complicado: normas, licenças e exigências ambientais, sanitárias e de segurança contra incêndio.',
     'À frente da Lumia estou eu, Kethilyn Freitas Xavier, engenheira ambiental e sanitária. Minha trajetória é técnica e construída no dia a dia, no chão de fábrica e nos bastidores de clínicas, indústrias e comércios que precisam operar de forma regular, segura e dentro da lei, sem risco, sem multa e sem improviso.',
     'O trabalho da Lumia envolve desde a regularização de imóveis até a adequação de empreendimentos às exigências do Corpo de Bombeiros, Vigilância Sanitária e órgãos ambientais, sempre considerando a realidade operacional de cada cliente.',
-    'Também contamos com o engenheiro civil, Fabrício Cardoso, que atua com mais de 20 anos no mercado, agregando visão prática e consistência técnica aos projetos desenvolvidos.',
+    'Também contamos com o engenheiro civil, Fabricio Cardoso, que atua com mais de 20 anos no mercado, agregando visão prática e consistência técnica aos projetos desenvolvidos.',
   ],
 }
 

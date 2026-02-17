@@ -39,7 +39,7 @@ export async function generateMetadata({
     stripMarkdown(solution.description).slice(0, 160).trim() ||
     'Conheça esta solução completa para o seu negócio.'
 
-  const ogImageUrl = `${siteUrl}/solutions/${params.slug}/opengraph-image` // URL da imagem dinâmica
+  const ogImageUrl = `${siteUrl}/solutions/${params.slug}/opengraph-image`
   const fallbackImage = solution.coverURL || `${siteUrl}/og-image.png`
 
   return {

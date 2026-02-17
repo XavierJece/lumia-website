@@ -19,6 +19,10 @@ export interface IValuesContent {
   values: IAboutContent[]
 }
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lumia.eng.br'
+const ogImageUrl = `${siteUrl}/about/opengraph-image`
+const fallbackImage = `${siteUrl}/og-image.png`
+
 export const metadataAbout: Metadata = {
   // ----- TITLE -----
   title: 'Quem Somos',
@@ -42,20 +46,13 @@ export const metadataAbout: Metadata = {
     description:
       'Conheça a trajetória de Kethilyn Freitas Xavier e Fabrício Cardoso, e como a LUMIA simplifica a regularização ambiental e sanitária para empresas.',
 
-    images: [
-      {
-        url: '/about-og-image.png',
-        width: 1200,
-        height: 630,
-        alt: `Kethilyn Freitas Xavier`,
-      },
-    ],
+    images: [ogImageUrl, fallbackImage],
   },
 
   // ----- TWITTER CARD -----
   twitter: {
     card: 'summary_large_image',
-    images: ['/about-og-image.png'],
+    images: [ogImageUrl, fallbackImage],
   },
 
   // ----- OTHERS METADADOS ÚTEIS -----

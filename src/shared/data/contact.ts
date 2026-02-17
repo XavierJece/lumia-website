@@ -94,6 +94,10 @@ export const FAQQuestionsContent: IFAQItem[] = [
   },
 ]
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lumia.eng.br'
+const ogImageUrl = `${siteUrl}/about/opengraph-image`
+const fallbackImage = `${siteUrl}/og-image.png`
+
 export const metadataContact: Metadata = {
   // ----- TITLE -----
   title: 'Contato',
@@ -116,20 +120,13 @@ export const metadataContact: Metadata = {
     description:
       'Estamos prontos para atender você. Telefone, WhatsApp, e-mail e redes sociais. Respondemos rapidamente!',
 
-    images: [
-      {
-        url: '/contact-og-image.png',
-        width: 630,
-        height: 1200,
-        alt: `Fale com a Lumia`,
-      },
-    ],
+    images: [ogImageUrl, fallbackImage],
   },
 
   // ----- TWITTER CARD -----
   twitter: {
     card: 'summary_large_image',
-    images: ['/contact-og-image.png'],
+    images: [ogImageUrl, fallbackImage],
   },
 
   // ----- OTHERS METADADOS ÚTEIS -----

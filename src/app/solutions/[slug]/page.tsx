@@ -37,7 +37,9 @@ export async function generateMetadata({
   const description =
     solution.description?.slice(0, 160) ||
     'Conheça esta solução completa para o seu negócio.'
-  const ogImage = solution.coverURL || `${siteUrl}/og-image.png`
+
+  const ogImageUrl = `${siteUrl}/solutions/${params.slug}/opengraph-image` // URL da imagem dinâmica
+  const fallbackImage = solution.coverURL || `${siteUrl}/og-image.png`
 
   return {
     title,
@@ -46,18 +48,11 @@ export async function generateMetadata({
       title: openGraphTitle,
       description,
       url: `${siteUrl}/solutions/${params.slug}`,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: solution.title,
-        },
-      ],
+      images: [ogImageUrl, fallbackImage],
     },
     twitter: {
       card: 'summary_large_image',
-      images: [ogImage],
+      images: [ogImageUrl, fallbackImage],
     },
     keywords: `${solution.title}, ${solution.keywords}, regularização ambiental, soluções LUMIA`,
     alternates: {

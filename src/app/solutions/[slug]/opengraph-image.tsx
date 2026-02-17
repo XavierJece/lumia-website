@@ -1,39 +1,35 @@
+// app/solutions/[slug]/opengraph-image.tsx
 import { ImageResponse } from 'next/og'
 import { solutionsServiceContent } from '~/shared/data/solutionContent'
 import { slugFy } from '~/shared/utils/string'
 
-export const size = { width: 1200, height: 630 }
-export const contentType = 'image/png'
+export const runtime = 'edge' // optional, but recommended for performance
 
-interface Props {
-  params: { slug: string }
-}
+export default async function Image({ params }: { params: { slug: string } }) {
+  const { slug } = params
 
-export default async function Image({ params }: Props) {
-  const solution = solutionsServiceContent.find(
-    (s) => slugFy(s.title) === params.slug,
-  )
+  // Find the matching solution
+  const solution = solutionsServiceContent.find((s) => slugFy(s.title) === slug)
 
-  const title = solution?.title || 'Solução LUMIA'
-  const coverUrl = solution?.coverURL || 'og-image.png' // fallback
+  if (!solution) {
+    // Return a fallback image or a 404 (you can also return a default ImageResponse)
+    return new ImageResponse(<div>Not found</div>, { status: 404 })
+  }
 
   return new ImageResponse(
     (
       <div
         style={{
-          width: '100%',
-          height: '100%',
+          width: '1200px',
+          height: '630px',
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
           position: 'relative',
-          backgroundColor: '#0a3b2e', // tom escuro de fallback
+          fontFamily: 'Inter, sans-serif',
         }}
       >
-        {/* Imagem de fundo com overlay verde escuro */}
+        {/* Background Image */}
         <img
-          src={coverUrl}
+          src={solution.coverURL}
           alt=""
           style={{
             position: 'absolute',
@@ -42,9 +38,10 @@ export default async function Image({ params }: Props) {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            filter: 'brightness(0.5)',
           }}
         />
+
+        {/* Gradient Overlay */}
         <div
           style={{
             position: 'absolute',
@@ -52,56 +49,90 @@ export default async function Image({ params }: Props) {
             left: 0,
             width: '100%',
             height: '100%',
-            backgroundColor: 'rgba(0, 80, 60, 0.6)', // verde semi-transparente
+            background:
+              'linear-gradient(135deg, rgba(16,118,62,0.9) 0%, rgba(0,58,51,0.9) 100%)',
           }}
         />
 
-        {/* Logo no canto superior esquerdo */}
+        {/* Content Container */}
         <div
           style={{
-            position: 'absolute',
-            top: 40,
-            left: 40,
+            position: 'relative',
+            width: '100%',
+            height: '100%',
             display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
             alignItems: 'center',
+            color: 'white',
+            padding: '40px',
           }}
         >
-          <img
-            src="https://lumia.eng.br/logos/simple-white-logo.svg"
-            alt="LUMIA"
-            width={120}
-            height={40}
-            style={{ objectFit: 'contain' }}
-          />
-        </div>
+          {/* Top Left Logo */}
+          <div style={{ position: 'absolute', top: 40, left: 40 }}>
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="white">
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="white"
+                strokeWidth="2"
+                fill="none"
+              />
+              <path
+                d="M12 8 L12 16 M8 12 L16 12"
+                stroke="white"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
 
-        {/* Título centralizado */}
-        <div
-          style={{
-            maxWidth: '1000px',
-            padding: '20px 40px',
-            textAlign: 'center',
-            zIndex: 10,
-          }}
-        >
-          <h1
+          {/* Center Title */}
+          <div
             style={{
-              fontSize: '64px',
-              fontWeight: 'bold',
-              color: 'white',
-              textShadow: '2px 2px 8px rgba(0,0,0,0.7)',
+              fontSize: 80,
+              fontWeight: 800,
+              letterSpacing: '-0.02em',
+              textAlign: 'center',
               lineHeight: 1.2,
-              margin: 0,
-              fontFamily: 'sans-serif',
+              maxWidth: '1000px',
             }}
           >
-            {title}
-          </h1>
+            {solution.title}
+          </div>
+
+          {/* Subtitle */}
+          <div
+            style={{
+              fontSize: 36,
+              color: '#d2d658',
+              marginTop: 16,
+              textAlign: 'center',
+            }}
+          >
+            CTR text | SEO TEXT
+          </div>
+
+          {/* Bottom Center */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 40,
+              fontSize: 24,
+              color: 'white',
+              opacity: 0.9,
+            }}
+          >
+            lumia.eng.br
+          </div>
         </div>
       </div>
     ),
     {
-      ...size,
+      width: 1200,
+      height: 630,
+      // If you need a custom font, add the fonts array here
+      // fonts: [...]
     },
   )
 }

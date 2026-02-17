@@ -37,7 +37,7 @@ export function HeroSection({ category, solution }: IHeroSection) {
 
           <ReactMarkdown
             components={{
-              p: ({ _, ...props }) => (
+              p: (props) => (
                 <p
                   className="text-xl text-primary-foreground/80 leading-relaxed"
                   {...props}

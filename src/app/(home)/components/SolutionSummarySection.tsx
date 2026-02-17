@@ -50,7 +50,7 @@ export function CarouselView() {
             </h3>{' '}
             <ReactMarkdown
               components={{
-                p: ({ _, ...props }) => (
+                p: (props) => (
                   <p
                     className="text-muted-foreground text-sm leading-relaxed line-clamp-2 flex-1 mb-3"
                     {...props}
@@ -67,9 +67,7 @@ export function CarouselView() {
       {/* Desktop/Tablet: carousel */}
 
       <div className="hidden sm:block relative">
-        {/* Sombra esquerda sutil */}
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-muted/30 to-transparent z-10 pointer-events-none rounded-l-xl" />
-        {/* Sombra direita sutil */}
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-muted/30 to-transparent z-10 pointer-events-none rounded-r-xl" />
         <Carousel
           setApi={setApi}
@@ -106,7 +104,7 @@ export function CarouselView() {
 
                   <ReactMarkdown
                     components={{
-                      p: ({ _, ...props }) => (
+                      p: (props) => (
                         <p
                           className="text-muted-foreground text-sm leading-relaxed line-clamp-2 flex-1 mb-3"
                           {...props}
@@ -184,7 +182,7 @@ export function GridView() {
           </h3>
           <ReactMarkdown
             components={{
-              p: ({ _, ...props }) => (
+              p: (props) => (
                 <p
                   className="text-muted-foreground text-sm leading-relaxed line-clamp-2 flex-1 mb-3"
                   {...props}

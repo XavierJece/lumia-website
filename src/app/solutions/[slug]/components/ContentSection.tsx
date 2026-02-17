@@ -24,7 +24,7 @@ export function ContentSection({ solution }: IContentSection) {
             <div className="prose prose-lg max-w-none">
               <ReactMarkdown
                 components={{
-                  p: ({ _, ...props }) => (
+                  p: (props) => (
                     <p
                       className="text-muted-foreground leading-relaxed mb-4"
                       {...props}

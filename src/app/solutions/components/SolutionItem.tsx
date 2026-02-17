@@ -157,7 +157,7 @@ export function CardView({
             </h3>
             <ReactMarkdown
               components={{
-                p: ({ _, ...props }) => (
+                p: (props) => (
                   <p
                     className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2 flex-1"
                     {...props}
@@ -205,7 +205,7 @@ export function CardView({
       <TooltipContent side="right" className="max-w-xs text-sm prose-sm">
         <ReactMarkdown
           components={{
-            p: ({ _, ...props }) => (
+            p: (props) => (
               <p
                 className="text-muted-foreground text-sm leading-relaxed mb-4"
                 {...props}

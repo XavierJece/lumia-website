@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
+import { stripMarkdown } from '~/shared/components/atoms/ui/text'
 import {
   solutionsCategoryContent,
   solutionsServiceContent,
@@ -35,7 +36,7 @@ export async function generateMetadata({
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lumia.eng.br'
   const { title, openGraphTitle } = generateServiceMetadata(solution.title)
   const description =
-    solution.description?.slice(0, 160) ||
+    stripMarkdown(solution.description).slice(0, 160).trim() ||
     'Conheça esta solução completa para o seu negócio.'
 
   const ogImageUrl = `${siteUrl}/solutions/${params.slug}/opengraph-image` // URL da imagem dinâmica

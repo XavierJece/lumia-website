@@ -15,7 +15,7 @@ export default function HeroSection() {
           </span>
           <Text
             components={{
-              p: ({ _, ...props }) => (
+              p: (props) => (
                 <h1
                   className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-accent-foreground mb-6 leading-tight animate-fade-up stagger-1"
                   {...props}
@@ -27,7 +27,7 @@ export default function HeroSection() {
           </Text>
           <Text
             components={{
-              p: ({ _, ...props }) => (
+              p: (props) => (
                 <p
                   className="text-lg sm:text-xl text-accent-foreground/80 mb-8 leading-relaxed animate-fade-up stagger-2"
                   {...props}

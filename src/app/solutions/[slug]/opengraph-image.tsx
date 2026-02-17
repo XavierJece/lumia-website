@@ -1,46 +1,75 @@
-// app/solutions/[slug]/opengraph-image.tsx
 import { ImageResponse } from 'next/og'
-import { solutionsServiceContent } from '~/shared/data/solutionContent'
+import {
+  solutionsCategoryContent,
+  solutionsServiceContent,
+} from '~/shared/data/solutionContent'
+import { colors } from '~/shared/styles/colors'
+import { fetchGoogleFont } from '~/shared/styles/fonts'
 import { slugFy } from '~/shared/utils/string'
 
-export const runtime = 'edge' // optional, but recommended for performance
+// Image metadata
+export const size = {
+  width: 1200,
+  height: 630,
+}
 
+export const contentType = 'image/png'
+
+// Image generation
 export default async function Image({ params }: { params: { slug: string } }) {
-  const { slug } = params
-
-  // Find the matching solution
-  const solution = solutionsServiceContent.find((s) => slugFy(s.title) === slug)
+  const solution = solutionsServiceContent.find(
+    (s) => slugFy(s.title) === params.slug,
+  )
 
   if (!solution) {
-    // Return a fallback image or a 404 (you can also return a default ImageResponse)
-    return new ImageResponse(<div>Not found</div>, { status: 404 })
+    // Return a fallback image or 404 if solution not found
+    return new ImageResponse(<div>Not found</div>, {
+      status: 404,
+    })
   }
+
+  const category = solutionsCategoryContent.find(
+    (c) => c.slug === solution.categorySlug,
+  )
+
+  const [mavenBold, mavenRegular, montserratRegular] = await Promise.all([
+    fetchGoogleFont('Maven Pro', 700),
+    fetchGoogleFont('Maven Pro', 400),
+    fetchGoogleFont('Montserrat', 400),
+  ])
 
   return new ImageResponse(
     (
       <div
         style={{
-          width: '1200px',
-          height: '630px',
+          background: `linear-gradient(
+            to bottom,
+            rgba(16, 118, 62, 0.5),
+            rgba(0, 58, 51, 0.5)
+          )`,
+          width: '100%',
+          height: '100%',
           display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           position: 'relative',
-          fontFamily: 'Inter, sans-serif',
+          fontFamily: 'mavenFonts, montserratFonts, sans-serif',
         }}
       >
-        {/* Background Image */}
-        <img
-          src={solution.coverURL}
-          alt=""
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-          }}
-        />
-
+        {solution.coverURL && (
+          <img
+            src={solution.coverURL}
+            alt=""
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+        )}
         {/* Gradient Overlay */}
         <div
           style={{
@@ -49,12 +78,13 @@ export default async function Image({ params }: { params: { slug: string } }) {
             left: 0,
             width: '100%',
             height: '100%',
-            background:
-              'linear-gradient(135deg, rgba(16,118,62,0.9) 0%, rgba(0,58,51,0.9) 100%)',
+            background: `linear-gradient(
+                to bottom,
+                rgba(16, 118, 62, 0.6),
+                rgba(0, 58, 51, 0.8)
+              )`,
           }}
         />
-
-        {/* Content Container */}
         <div
           style={{
             position: 'relative',
@@ -68,71 +98,108 @@ export default async function Image({ params }: { params: { slug: string } }) {
             padding: '40px',
           }}
         >
-          {/* Top Left Logo */}
-          <div style={{ position: 'absolute', top: 40, left: 40 }}>
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="white">
-              <circle
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="white"
-                strokeWidth="2"
-                fill="none"
-              />
-              <path
-                d="M12 8 L12 16 M8 12 L16 12"
-                stroke="white"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
-
-          {/* Center Title */}
-          <div
-            style={{
-              fontSize: 80,
-              fontWeight: 800,
-              letterSpacing: '-0.02em',
-              textAlign: 'center',
-              lineHeight: 1.2,
-              maxWidth: '1000px',
-            }}
-          >
-            {solution.title}
-          </div>
-
-          {/* Subtitle */}
-          <div
-            style={{
-              fontSize: 36,
-              color: '#d2d658',
-              marginTop: 16,
-              textAlign: 'center',
-            }}
-          >
-            CTR text | SEO TEXT
-          </div>
-
-          {/* Bottom Center */}
-          <div
+          <img
+            src="https://www.lumia.eng.br/logos/simple-white-logo.svg"
+            alt=""
             style={{
               position: 'absolute',
-              bottom: 40,
-              fontSize: 24,
-              color: 'white',
-              opacity: 0.9,
+              width: '160px',
+              height: '46px',
+              top: 40,
+              left: 40,
+            }}
+          />
+          <header
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              textAlign: 'center',
+              gap: '10px',
+              flex: '1 1 0%',
             }}
           >
-            lumia.eng.br
-          </div>
+            <h1
+              style={{
+                fontSize: '60px',
+                fontFamily: 'Maven Pro, sans-serif',
+                fontWeight: 700,
+                color: colors['white-essential'],
+                lineHeight: '1',
+                letterSpacing: '-2px',
+                textTransform: 'uppercase',
+                textShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
+                margin: 0,
+              }}
+            >
+              {solution.title}
+            </h1>
+            <h2
+              style={{
+                fontSize: '40px',
+                fontFamily: 'Montserrat, sans-serif',
+                fontWeight: 400,
+                color: colors['light-yellow'],
+                letterSpacing: '0.5px',
+                marginTop: '-5px',
+                margin: 0,
+              }}
+            >
+              {category?.title}
+            </h2>
+          </header>
+          <footer
+            style={{
+              width: '100%',
+              height: 'auto',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              textAlign: 'center',
+            }}
+          >
+            <span
+              style={{
+                fontSize: '24px',
+                fontWeight: 400,
+                color: colors['white-essential'],
+                letterSpacing: '0.8px',
+                marginTop: '5px',
+              }}
+            >
+              lumia.eng.br
+            </span>
+          </footer>
         </div>
       </div>
     ),
     {
       width: 1200,
       height: 630,
-      // If you need a custom font, add the fonts array here
-      // fonts: [...]
+      fonts: [
+        {
+          name: 'Maven Pro',
+          data: mavenBold,
+          weight: 700,
+          style: 'normal',
+        },
+        {
+          name: 'Maven Pro',
+          data: mavenRegular,
+          weight: 400,
+          style: 'normal',
+        },
+        {
+          name: 'Montserrat',
+          data: montserratRegular,
+          weight: 400,
+          style: 'normal',
+        },
+      ],
+      // headers: {
+      // }
     },
   )
 }

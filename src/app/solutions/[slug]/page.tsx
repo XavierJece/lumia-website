@@ -1,39 +1,72 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 import {
   solutionsCategoryContent,
   solutionsServiceContent,
 } from '~/shared/data/solutionContent'
+import { generateServiceMetadata } from '~/shared/utils/metadata'
 import { slugFy } from '~/shared/utils/string'
 import * as C from './components'
 
-// ✅ 1. Geração de slugs estáticos (SSG)
+interface ISolutionsPageProps {
+  params: { slug: string }
+}
+
 export async function generateStaticParams() {
   return solutionsServiceContent.map((solution) => ({
     slug: slugFy(solution.title),
   }))
 }
 
-// ✅ 2. Metadados dinâmicos (SEO)
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string }
-}): Promise<Metadata> {
+}: ISolutionsPageProps): Promise<Metadata> {
   const solution = solutionsServiceContent.find(
     (s) => slugFy(s.title) === params.slug,
   )
+
+  if (!solution) {
+    return {
+      title: 'Solução não encontrada',
+    }
+  }
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lumia.eng.br'
+  const { title, openGraphTitle } = generateServiceMetadata(solution.title)
+  const description =
+    solution.description?.slice(0, 160) ||
+    'Conheça esta solução completa para o seu negócio.'
+  const ogImage = solution.coverURL || `${siteUrl}/og-image.png`
+
   return {
-    title: solution?.title || 'Solução não encontrada',
+    title,
+    description,
+    openGraph: {
+      title: openGraphTitle,
+      description,
+      url: `${siteUrl}/solutions/${params.slug}`,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: solution.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [ogImage],
+    },
+    keywords: `${solution.title}, ${solution.keywords}, regularização ambiental, soluções LUMIA`,
+    alternates: {
+      canonical: `${siteUrl}/solutions/${params.slug}`,
+    },
   }
 }
 
-// ✅ 3. Página – Server Component puro
-export default function SolutionsPage({
-  params,
-}: {
-  params: { slug: string }
-}) {
+export default function SolutionsPage({ params }: ISolutionsPageProps) {
   const { slug } = params
 
   const solution = solutionsServiceContent.find((s) => slugFy(s.title) === slug)
@@ -46,8 +79,81 @@ export default function SolutionsPage({
     (c) => c.slug === solution.categorySlug,
   )!
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lumia.eng.br'
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        name: solution.title,
+        description: solution.description,
+        provider: {
+          '@type': 'Organization',
+          name: 'LUMIA Consultoria e Engenharia',
+          url: siteUrl,
+          logo: `${siteUrl}/logos/simple-color-logo.svg`,
+          sameAs: [
+            'https://www.instagram.com/lumia.eng',
+            'https://www.linkedin.com/company/lumia-eng',
+          ],
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'São Paulo',
+            addressRegion: 'SP',
+            addressCountry: 'BR',
+          },
+        },
+        areaServed: {
+          '@type': 'Country',
+          name: 'Brasil',
+        },
+        serviceType: category.title,
+        offers: {
+          '@type': 'Offer',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'BRL',
+            price: 'Sob consulta',
+          },
+          availability: 'https://schema.org/OnlineOnly',
+        },
+        url: `${siteUrl}/solutions/${params.slug}`,
+        image: solution.coverURL || `${siteUrl}/og-image.png`,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: siteUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Soluções',
+            item: `${siteUrl}/solutions`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: solution.title,
+            item: `${siteUrl}/solutions/${params.slug}`,
+          },
+        ],
+      },
+    ],
+  }
+
   return (
     <>
+      <Script
+        id="schema-solution"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <C.HeroSection
         category={{
           icon: category.icon,

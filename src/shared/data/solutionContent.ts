@@ -40,6 +40,7 @@ export interface ISolutionServiceContent {
     title: string
     description: string
   }>
+  keywords?: string
 }
 
 export interface ISolutionCategoryContent {
@@ -149,6 +150,8 @@ export const solutionsServiceContent: ISolutionServiceContent[] = [
   // --------------------------------------------------------------------------
   {
     title: 'Plano de Gerenciamento de Resíduos Sólidos (PGRS)',
+    keywords:
+      'plano de gerenciamento de resíduos sólidos, PGRS, gestão de resíduos, elaboração de PGRS, plano de resíduos empresa, conforme PNRS, regularização ambiental resíduos, consultoria PGRS, plano de gerenciamento de resíduos sólidos empresas',
     description:
       'Elaboração do **PGRS completo**, atendendo às exigências legais e à rotina da sua empresa. O plano define como os resíduos são gerados, armazenados, transportados e destinados, garantindo conformidade e organização.',
     businessAdvantages: [
@@ -159,9 +162,13 @@ export const solutionsServiceContent: ISolutionServiceContent[] = [
     ],
     icon: Recycle,
     categorySlug: 'gestao-de-residuos',
+    coverURL:
+      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop',
   },
   {
     title: 'PGRSS – Resíduos de Serviços de Saúde',
+    keywords:
+      'PGRSS, plano de gerenciamento de resíduos de serviços de saúde, resíduos hospitalares, gestão de resíduos de saúde, plano resíduos saúde ANVISA, conformidade resíduos hospitalares, consultoria PGRSS, gerenciamento de resíduos de serviços de saúde',
     description:
       'Plano específico para o **gerenciamento seguro de resíduos de saúde**, com foco na redução de riscos e no cumprimento das normas sanitárias.',
     businessAdvantages: [
@@ -175,6 +182,8 @@ export const solutionsServiceContent: ISolutionServiceContent[] = [
   },
   {
     title: 'PGRSCC – Construção Civil',
+    keywords:
+      'PGRSCC, plano de gerenciamento de resíduos da construção civil, resíduos de construção, gestão de resíduos na construção, CONAMA 307, plano de resíduos obra, destinação de entulho, consultoria resíduos construção, PGRCC',
     description:
       'Gestão técnica dos resíduos da construção civil, desde a geração até a destinação final, evitando passivos ambientais e problemas em obras.',
     businessAdvantages: [
@@ -188,6 +197,8 @@ export const solutionsServiceContent: ISolutionServiceContent[] = [
   },
   {
     title: 'Serviços no SIGOR / SINIR',
+    keywords:
+      'SIGOR, SINIR, sistema de gestão de resíduos, cadastro SIGOR, MTR, manifesto de transporte de resíduos, gestão de resíduos online, regularização resíduos sistemas oficiais, declaração de resíduos, emissão MTR',
     description:
       'Cadastro, acompanhamento e gestão da documentação nos sistemas oficiais de resíduos, garantindo rastreabilidade e organização.',
     businessAdvantages: [
@@ -201,6 +212,8 @@ export const solutionsServiceContent: ISolutionServiceContent[] = [
   },
   {
     title: 'Logística Reversa',
+    keywords:
+      'logística reversa, sistema de logística reversa, plano de logística reversa, logística reversa de embalagens, retorno de produtos, destinação adequada, consultoria logística reversa, regularização ambiental logística reversa',
     description:
       'Estruturação e acompanhamento de sistemas de **logística reversa**, atendendo às exigências legais para retorno e destinação adequada de produtos e embalagens.',
     businessAdvantages: [
@@ -218,6 +231,8 @@ export const solutionsServiceContent: ISolutionServiceContent[] = [
   // --------------------------------------------------------------------------
   {
     title: 'Licença Ambiental – Prefeitura, CETESB e IBAMA (LP, LI e LO)',
+    keywords:
+      'licença ambiental, licenciamento ambiental, LP LI LO, licença prévia, licença de instalação, licença de operação, CETESB, IBAMA, licenciamento municipal, consultoria licenciamento ambiental, regularização ambiental, obtenção de licença ambiental',
     description: `Atuação completa no processo de licenciamento ambiental municipal, estadual e federal, desde a fase de planejamento até a operação do empreendimento.
 
 Acompanhamos todas as etapas: análise de viabilidade, enquadramento legal, elaboração de estudos, protocolo, atendimento a exigências e acompanhamento do processo junto aos órgãos ambientais competentes.`,
@@ -236,6 +251,8 @@ Acompanhamos todas as etapas: análise de viabilidade, enquadramento legal, elab
   // --------------------------------------------------------------------------
   {
     title: 'CMVS – Cadastro Municipal de Vigilância Sanitária',
+    keywords:
+      'CMVS, cadastro municipal de vigilância sanitária, licença sanitária, regularização vigilância sanitária, alvará sanitário, cadastro vigilância sanitária restaurante, cadastro para clínicas, farmácias, salões de beleza, regularização de estabelecimento vigilância sanitária',
     description: `Regularização obrigatória para estabelecimentos sujeitos à Vigilância Sanitária, como **restaurantes, clínicas, farmácias, salões de beleza, estética e meios de hospedagem**.
 
 O CMVS garante que o negócio esteja devidamente cadastrado e autorizado a funcionar, evitando multas, interdições e problemas na abertura ou renovação da licença.`,
@@ -250,6 +267,8 @@ O CMVS garante que o negócio esteja devidamente cadastrado e autorizado a funci
   },
   {
     title: 'LTA – Laudo Técnico de Avaliação',
+    keywords:
+      'LTA, laudo técnico de avaliação, laudo vigilância sanitária, laudo para alvará, laudo técnico para regularização, laudo de avaliação sanitária, documento vigilância sanitária',
     description: `Elaboração de **Laudo Técnico de Avaliação**, documento essencial para a abertura e regularização do estabelecimento junto à Vigilância Sanitária.
 
 O laudo comprova que o imóvel, os processos e as condições operacionais atendem às exigências sanitárias, permitindo que o empreendimento funcione com segurança e tranquilidade.`,
@@ -268,6 +287,8 @@ O laudo comprova que o imóvel, os processos e as condições operacionais atend
   // --------------------------------------------------------------------------
   {
     title: 'CTF – Cadastro Técnico Federal do IBAMA',
+    keywords:
+      'CTF, cadastro técnico federal, cadastro IBAMA, CTF APP, registro de atividades poluidoras, cadastro ambiental federal, regularização IBAMA, cadastro técnico federal de atividades potencialmente poluidoras',
     description: `Realização e acompanhamento do **Cadastro Técnico Federal**, obrigatório para empresas que exercem atividades potencialmente poluidoras ou utilizam recursos ambientais.
 
 O CTF é a base da regularização ambiental federal e viabiliza a emissão do Certificado de Regularidade.`,
@@ -282,6 +303,8 @@ O CTF é a base da regularização ambiental federal e viabiliza a emissão do C
   },
   {
     title: 'CR – Certificado de Regularidade do IBAMA',
+    keywords:
+      'CR, certificado de regularidade do IBAMA, certificado de regularidade ambiental, regularidade ambiental IBAMA, comprovante de regularidade, CR ativo, consultar CR IBAMA, certificado IBAMA',
     description: `Obtenção e manutenção do **Certificado de Regularidade**, documento que comprova que a empresa está em dia com suas obrigações ambientais federais.
 
 O CR é exigido em processos de licenciamento, licitações, contratos e operações com instituições financeiras.`,
@@ -296,6 +319,8 @@ O CR é exigido em processos de licenciamento, licitações, contratos e operaç
   },
   {
     title: 'RAPP – Relatório Anual de Atividades Potencialmente Poluidoras',
+    keywords:
+      'RAPP, relatório anual de atividades poluidoras, declaração IBAMA, entrega RAPP, relatório de atividades potencialmente poluidoras, obrigação anual IBAMA, rapp IBAMA, prazo rapp',
     description: `Elaboração e envio do **RAPP**, relatório anual obrigatório para empresas enquadradas no IBAMA, com informações sobre atividades, resíduos gerados e uso de recursos ambientais.
 
 A entrega correta do RAPP garante a manutenção do CR ativo e evita penalidades.`,
@@ -314,6 +339,8 @@ A entrega correta do RAPP garante a manutenção do CR ativo e evita penalidades
   // --------------------------------------------------------------------------
   {
     title: 'EIV – Estudo de Impacto de Vizinhança',
+    keywords:
+      'EIV, estudo de impacto de vizinhança, estudo de impacto de vizinhança prefeitura, relatório de impacto de vizinhança, licenciamento urbanístico, aprovação de projetos, impacto urbano, consultoria EIV',
     description: `Elaboração do **Estudo de Impacto de Vizinhança**, avaliando os impactos do empreendimento sobre a área do entorno, como trânsito, ruído, uso e ocupação do solo, infraestrutura urbana e serviços públicos.
 
 O EIV é fundamental para a aprovação de projetos e para a prevenção de conflitos com órgãos públicos, moradores e usuários da região.`,
@@ -328,6 +355,8 @@ O EIV é fundamental para a aprovação de projetos e para a prevenção de conf
   },
   {
     title: 'EIA/RIMA – Estudo e Relatório de Impacto Ambiental',
+    keywords:
+      'EIA, RIMA, estudo de impacto ambiental, relatório de impacto ambiental, licenciamento ambiental, EIA RIMA, elaboração de EIA, consultoria ambiental, impacto ambiental, estudo ambiental',
     description: `Elaboração de **EIA/RIMA** para empreendimentos de maior porte ou impacto ambiental, com análise detalhada dos impactos, riscos e definição de medidas de controle, mitigação e compensação ambiental.
 
 Esses estudos são essenciais para viabilizar o licenciamento ambiental de atividades com significativo potencial de impacto.`,
@@ -342,6 +371,8 @@ Esses estudos são essenciais para viabilizar o licenciamento ambiental de ativi
   },
   {
     title: 'RAS – Relatório Ambiental Simplificado',
+    keywords:
+      'RAS, relatório ambiental simplificado, licenciamento ambiental simplificado, estudo ambiental simplificado, RAS órgão ambiental, relatório para licenciamento',
     description: `Elaboração do **Relatório Ambiental Simplificado (RAS)** para empreendimentos de impacto ambiental moderado, conforme exigência dos órgãos ambientais.
 
 O RAS apresenta a caracterização do empreendimento, os aspectos ambientais envolvidos e as medidas de controle necessárias, servindo como base para o processo de licenciamento ambiental.`,
@@ -356,6 +387,8 @@ O RAS apresenta a caracterização do empreendimento, os aspectos ambientais env
   },
   {
     title: 'Laudo de Ruído Ambiental',
+    keywords:
+      'laudo de ruído ambiental, medição de ruído, poluição sonora, laudo de ruído para vigilância, avaliação de ruído, laudo acústico, regularização de ruído, níveis de ruído, consultoria ruído ambiental',
     description: `Elaboração de **Laudo de Ruído Ambiental**, com medições e análises técnicas para avaliação dos níveis de ruído gerados pelas atividades do empreendimento.
 
 O laudo verifica a conformidade com a legislação vigente e auxilia na prevenção de multas, reclamações e sanções por poluição sonora.`,
@@ -374,6 +407,8 @@ O laudo verifica a conformidade com a legislação vigente e auxilia na prevenç
   // --------------------------------------------------------------------------
   {
     title: 'AVCB – Auto de Vistoria do Corpo de Bombeiros',
+    keywords:
+      'AVCB, auto de vistoria do corpo de bombeiros, regularização de bombeiros, vistoria bombeiros, segurança contra incêndio, obtenção AVCB, renovação AVCB, AVCB para empresas, bombeiros SP',
     description: `Regularização do **AVCB**, exigido para edificações e áreas de risco que necessitam de vistoria técnica do Corpo de Bombeiros para comprovar o atendimento às medidas de segurança contra incêndio.
 
 A atuação envolve análise do imóvel, adequações técnicas, acompanhamento do processo e suporte até a liberação final.`,
@@ -388,6 +423,8 @@ A atuação envolve análise do imóvel, adequações técnicas, acompanhamento 
   },
   {
     title: 'CLCB – Certificado de Licença do Corpo de Bombeiros',
+    keywords:
+      'CLCB, certificado de licença do corpo de bombeiros, CLCB simplificado, licença bombeiros, regularização bombeiros para baixo risco, certificado de bombeiros',
     description: `Regularização do **CLCB**, aplicável a edificações de menor risco, com processo simplificado, conforme critérios do Corpo de Bombeiros.
 
 A Lumia realiza o enquadramento correto da atividade e acompanha o processo para garantir que o certificado seja emitido sem inconsistências.`,
@@ -406,6 +443,8 @@ A Lumia realiza o enquadramento correto da atividade e acompanha o processo para
   // --------------------------------------------------------------------------
   {
     title: 'Habite-se',
+    keywords:
+      'habite-se, obtenção de habite-se, habite-se prefeitura, regularização de imóvel, certificado de conclusão de obra, habite-se para comercial, documento de edificação',
     description: `Regularização e obtenção do **Habite-se**, documento que comprova que a edificação foi executada conforme o projeto aprovado e está apta para uso e ocupação.
 
 O Habite-se é exigido para funcionamento de atividades comerciais, obtenção de alvarás, financiamentos e regularização patrimonial do imóvel.`,
@@ -420,6 +459,8 @@ O Habite-se é exigido para funcionamento de atividades comerciais, obtenção d
   },
   {
     title: 'Alvará de Funcionamento',
+    keywords:
+      'alvará de funcionamento, licença de funcionamento, alvará municipal, regularização de comércio, alvará para empresa, obtenção de alvará, renovação de alvará, documento para funcionamento',
     description: `Atuação completa para obtenção e renovação do **Alvará de Funcionamento**, documento que autoriza legalmente o exercício da atividade no local.
 
 A Lumia realiza o enquadramento correto da atividade, organiza a documentação e acompanha o processo junto à Prefeitura, evitando atrasos e indeferimentos.`,
@@ -438,6 +479,8 @@ A Lumia realiza o enquadramento correto da atividade, organiza a documentação 
   // --------------------------------------------------------------------------
   {
     title: 'Suporte Anual',
+    keywords:
+      'suporte ambiental anual, assessoria ambiental contínua, contrato de consultoria ambiental, manutenção ambiental, suporte técnico ambiental, acompanhamento ambiental, serviços ambientais recorrentes',
     description: `Prestação de **suporte técnico ambiental por contrato anual**, com atendimento contínuo conforme escopo previamente definido e pagamentos mensais.
 
 Esse modelo garante previsibilidade, organização e continuidade no atendimento das demandas ambientais da empresa, evitando soluções emergências e retrabalho.`,
@@ -452,6 +495,8 @@ Esse modelo garante previsibilidade, organização e continuidade no atendimento
   },
   {
     title: 'Treinamentos',
+    keywords:
+      ' treinamento ambiental, curso de legislação ambiental, treinamento em gestão de resíduos, capacitação ambiental, treinamento para equipes, educação ambiental corporativa, treinamento de conformidade legal',
     description: `Realização de **treinamentos técnicos e práticos** voltados às equipes, com foco em legislação ambiental, gestão de resíduos, boas práticas operacionais e conformidade legal.
 
 Os treinamentos são adaptados à realidade da empresa e às atividades desenvolvidas, fortalecendo a atuação interna e a prevenção de não conformidades.`,
@@ -466,6 +511,8 @@ Os treinamentos são adaptados à realidade da empresa e às atividades desenvol
   },
   {
     title: 'Palestras',
+    keywords:
+      'palestras ambientais, palestra sobre sustentabilidade, palestra meio ambiente, educação ambiental, conscientização ambiental, palestra corporativa ambiental, temas ambientais',
     description: `Palestras **educativas e corporativas** sobre temas ambientais e sustentabilidade, voltadas à conscientização, engajamento e fortalecimento da cultura ambiental dentro das organizações.
 
 As palestras unem conteúdo técnico e linguagem acessível, promovendo entendimento e responsabilidade ambiental na prática.`,
@@ -484,6 +531,8 @@ As palestras unem conteúdo técnico e linguagem acessível, promovendo entendim
   // --------------------------------------------------------------------------
   {
     title: 'Economia Circular',
+    keywords:
+      ' economia circular, projeto de economia circular, consultoria economia circular, sustentabilidade, reaproveitamento de resíduos, redução de resíduos, logística reversa, circularidade, práticas sustentáveis',
     description: `Estruturação de soluções que priorizam o **reaproveitamento de materiais, a redução na geração de resíduos e a reinserção de recursos no ciclo produtivo**, sempre de acordo com a viabilidade técnica e econômica do empreendimento.`,
     businessAdvantages: [
       'Redução de custos com destinação de resíduos',
@@ -496,6 +545,8 @@ As palestras unem conteúdo técnico e linguagem acessível, promovendo entendim
   },
   {
     title: 'Logística Reversa',
+    keywords:
+      'projeto de logística reversa, implementação de logística reversa, sistema de logística reversa, consultoria logística reversa, plano de logística reversa, logística reversa de produtos, destinação pós-consumo',
     description: `Desenvolvimento e implementação de **sistemas de logística reversa**, atendendo às exigências legais para retorno, reaproveitamento ou destinação adequada de produtos e embalagens pós-consumo.
 
 Os projetos são adaptados à realidade de cada empresa, garantindo rastreabilidade, controle documental e conformidade com a legislação vigente.`,

@@ -39,7 +39,7 @@ export default function AboutSummarySection() {
               alt="About Summary"
               width={500}
               height={500}
-              className="w-full h-full bg-muted rounded-2xl border-2 border-primary/75 "
+              className="w-full h-full bg-muted rounded-2xl border-2 border-primary/75"
             />
             <div className="hidden lg:block absolute -bottom-20 -right-6 bg-card p-6 rounded-xl shadow-elevated border border-border">
               <div className="flex items-center gap-4">

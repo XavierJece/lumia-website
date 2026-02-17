@@ -165,6 +165,7 @@ export default function SolutionsPage({ params }: ISolutionsPageProps) {
         imagensURL={solution.coverURL ? [solution.coverURL] : undefined}
       />
       <C.ContentSection
+        slug={slug}
         solution={{
           title: solution.title,
           businessAdvantages: solution.businessAdvantages,
@@ -176,7 +177,7 @@ export default function SolutionsPage({ params }: ISolutionsPageProps) {
           process: solution.process,
         }}
       /> */}
-      <C.CtaSection />
+      <C.CtaSection slug={slug} />
     </>
   )
 }

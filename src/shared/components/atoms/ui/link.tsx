@@ -1,15 +1,18 @@
+'use client'
+
 import NextLink from 'next/link'
 import * as React from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 import { cn } from '~/shared/components/shadcn'
+import { event } from '~/shared/lib/gtag'
 import { buttonVariants } from './button'
 
 const linkVariants = tv({
-  base: 'text-primary-green hover:text-green-600 transition-all focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2',
+  base: 'text-primary-green hover:text-green-600 transition-all hover:no-underline',
   variants: {
     visual: {
       button: buttonVariants({ variant: 'default' }), // Base button styles
-      text: '',
+      text: 'hover:no-underline',
       underline: 'underline underline-offset-4',
       subtle: 'text-neutral-600 hover:text-neutral-900',
     },
@@ -44,7 +47,7 @@ export interface ILinkProps
   // Only show button-related props when visual is 'button'
   buttonVariant?: VariantProps<typeof buttonVariants>['variant']
   buttonSize?: VariantProps<typeof buttonVariants>['size']
-  buttonColor?: VariantProps<typeof buttonVariants>['color']
+  trackParams: Record<string, unknown>
 }
 
 export const Link = React.forwardRef<
@@ -60,12 +63,21 @@ export const Link = React.forwardRef<
       // Button-specific props
       buttonVariant,
       buttonSize,
-      buttonColor,
+      trackParams,
       ...props
     },
     ref,
   ) => {
     const isButtonStyle = visual === 'button'
+
+    const handleClick = () => {
+      event('click', {
+        ...trackParams,
+        event_category: trackParams.category,
+        event_label: trackParams.label,
+        link_url: props.href,
+      })
+    }
 
     return (
       <NextLink
@@ -75,7 +87,6 @@ export const Link = React.forwardRef<
             ? buttonVariants({
                 variant: buttonVariant,
                 size: buttonSize,
-                color: buttonColor,
               })
             : linkVariants({ visual, hoverEffect, size }),
           isButtonStyle &&
@@ -87,6 +98,7 @@ export const Link = React.forwardRef<
           className,
         )}
         role={isButtonStyle ? 'button' : undefined}
+        onClick={handleClick}
         {...props}
       />
     )

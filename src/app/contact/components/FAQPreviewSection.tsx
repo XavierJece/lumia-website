@@ -1,6 +1,6 @@
 'use client'
-
 import { ArrowRight } from 'lucide-react'
+import { useState } from 'react'
 import {
   Accordion,
   AccordionContent,
@@ -8,9 +8,34 @@ import {
   AccordionTrigger,
 } from '~/shared/components/atoms/ui/accordion'
 import { Button } from '~/shared/components/atoms/ui/button'
+import { Link } from '~/shared/components/atoms/ui/link'
 import { FAQQuestionsContent } from '~/shared/data/contact'
+import { event } from '~/shared/lib/gtag'
 
 export default function FAQPreviewSection() {
+  const [openItem, setOpenItem] = useState<string | undefined>(undefined)
+
+  const onAccordionValueChange = (value: string) => {
+    if (value) {
+      const openedFaq = FAQQuestionsContent.find((faq) => faq.id === value)
+      event('accordion_open', {
+        event_category: 'Contato',
+        section_page: 'FAQ',
+        question_id: value,
+        question_text: openedFaq?.question || 'unknown',
+      })
+    } else if (openItem) {
+      const closedFaq = FAQQuestionsContent.find((faq) => faq.id === openItem)
+      event('accordion_close', {
+        event_category: 'Contato',
+        section_page: 'FAQ',
+        question_id: openItem,
+        question_text: closedFaq?.question || 'unknown',
+      })
+    }
+    setOpenItem(value)
+  }
+
   return (
     <section className="section-padding bg-muted/30">
       <div className="container-lumia">
@@ -19,7 +44,12 @@ export default function FAQPreviewSection() {
             Dúvidas Frequentes
           </h2>
 
-          <Accordion type="single" collapsible className="mb-8 space-y-4">
+          <Accordion
+            type="single"
+            collapsible
+            className="mb-8 space-y-4"
+            onValueChange={onAccordionValueChange}
+          >
             {FAQQuestionsContent.map((faq) => (
               <AccordionItem
                 key={faq.id}
@@ -44,14 +74,21 @@ export default function FAQPreviewSection() {
             Ainda tem dúvidas? Entre em contato conosco.
           </p>
           <Button asChild size="lg" variant="outline" className="font-semibold">
-            <a
+            <Link
               href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Olá! Gostaria de saber tirar uma dúvida sobre os serviços da LUMIA.`}
               target="_blank"
               rel="noopener noreferrer"
+              className="text-black hover:no-underline"
+              trackParams={{
+                category: 'Contato',
+                section_page: 'FAQ',
+                label: 'Tire Suas Dúvidas',
+                is_cta: true,
+              }}
             >
               Tire Suas Dúvidas
               <ArrowRight className="ml-2" size={16} />
-            </a>
+            </Link>
           </Button>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { Link } from '~/shared/components/atoms/ui/link'
+
 export default function MainSection() {
   return (
     <section className="section-padding bg-background">
@@ -93,14 +95,14 @@ export default function MainSection() {
           continuamente nosso site. O Google pode armazenar cookies em seu
           dispositivo para essa finalidade. Para mais informações sobre como o
           Google trata dados, consulte a{' '}
-          <a
+          <Link
             href="https://policies.google.com/privacy"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary underline"
           >
             Política de Privacidade do Google
-          </a>
+          </Link>
           .
         </p>
         <p className="text-muted-foreground leading-relaxed mb-2">
@@ -198,12 +200,12 @@ export default function MainSection() {
         </ul>
         <p className="text-muted-foreground leading-relaxed mb-2">
           Para exercer seus direitos, entre em contato conosco através do e-mail{' '}
-          <a
+          <Link
             href="mailto:contato@lumia.eng.br"
             className="text-primary underline"
           >
             contato@lumia.eng.br
-          </a>
+          </Link>
           .
         </p>
 
@@ -236,12 +238,12 @@ export default function MainSection() {
           Caso tenha dúvidas sobre esta Política de Privacidade ou sobre o
           tratamento de seus dados, entre em contato com nosso Encarregado de
           Proteção de Dados (DPO) pelo e-mail{' '}
-          <a
+          <Link
             href="mailto:contato@lumia.eng.br"
             className="text-primary underline"
           >
             contato@lumia.eng.br
-          </a>
+          </Link>
           .
         </p>
       </div>

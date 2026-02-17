@@ -22,6 +22,13 @@ export function CtaSection() {
             href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Tenho uma demanda específica e gostaria de conversar.`}
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:no-underline hover:text-horizon-green"
+            trackParams={{
+              category: 'Solutions',
+              section_page: 'CTA',
+              label: 'Fale Conosco',
+              is_cta: true,
+            }}
           >
             Fale Conosco
             <ArrowRight className="ml-2" size={20} />

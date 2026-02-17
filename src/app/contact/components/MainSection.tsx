@@ -1,6 +1,6 @@
 import { ArrowRight, MessageCircle } from 'lucide-react'
-import Link from 'next/link'
 import { Button } from '~/shared/components/atoms/ui/button'
+import { Link } from '~/shared/components/atoms/ui/link'
 import {
   contactInfo,
   IContactInfoItem,
@@ -26,8 +26,14 @@ function ContactInfo({ contactInfo }: IContactInfoProps) {
         <h3 className="font-semibold text-foreground">{contactInfo.title}</h3>
         <Link
           href={contactInfo.href}
-          className="text-muted-foreground hover:text-primary-green transition-colors text-sm"
+          className="text-muted-foreground hover:text-primary-green transition-colors text-sm hover:no-underline"
           target={contactInfo.href === '#' ? '_self' : '_blank'}
+          trackParams={{
+            category: 'Contact',
+            section_page: 'Main',
+            label: contactInfo.label,
+            type: contactInfo.type,
+          }}
         >
           {contactInfo.label}
         </Link>
@@ -38,15 +44,22 @@ function ContactInfo({ contactInfo }: IContactInfoProps) {
 
 function SocialLink({ socialNetworksContent }: SocialLinkProps) {
   return (
-    <a
+    <Link
       href={socialNetworksContent.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-3 px-5 py-3 bg-muted rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors group"
+      className="flex items-center gap-3 px-5 py-3 bg-muted rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors group hover:no-underline text-black"
+      trackParams={{
+        category: 'Contact',
+        section_page: 'Main',
+        label: `${socialNetworksContent.label} - Icon`,
+        type: 'social-media',
+        platform: socialNetworksContent.platform,
+      }}
     >
       <socialNetworksContent.icon size={20} />
       <span className="font-medium">{socialNetworksContent.label}</span>
-    </a>
+    </Link>
   )
 }
 
@@ -73,14 +86,20 @@ export default function MainSection() {
               size="lg"
               className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg px-10 shadow-elevated"
             >
-              <a
+              <Link
                 href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Olá! Gostaria de saber tirar uma dúvida sobre os serviços da LUMIA.`}
                 target="_blank"
                 rel="noopener noreferrer"
+                trackParams={{
+                  category: 'Contato',
+                  section_page: 'Main',
+                  label: 'Falar com especialista',
+                  is_cta: true,
+                }}
               >
                 Falar com especialista
                 <ArrowRight className="ml-2" size={20} />
-              </a>
+              </Link>
             </Button>
           </div>
 
@@ -99,7 +118,7 @@ export default function MainSection() {
 
             {/* Social Links */}
             <div className="w-full ">
-              <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
+              <h3 className="font-heading font-semibold text-lg text-foreground my-4">
                 Redes Sociais
               </h3>
               <div className="flex flex-wrap gap-3 w-full ">

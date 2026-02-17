@@ -2,7 +2,6 @@
 
 import { ArrowRight, ClipboardEdit } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import { Badge } from '~/shared/components/atoms/ui/badge'
@@ -13,6 +12,7 @@ import {
 } from '~/shared/data/solutionContent'
 import { slugFy } from '~/shared/utils/string'
 
+import { Link } from '~/shared/components/atoms/ui/link'
 import {
   Tooltip,
   TooltipContent,
@@ -67,14 +67,20 @@ export function CompleteView({ service }: SolutionItemProps) {
             variant="outline"
             className="font-semibold max-sm:w-full"
           >
-            <a
+            <Link
               href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Gostaria de saber mais sobre ${encodeURIComponent(service.title)}.`}
               target="_blank"
               rel="noopener noreferrer"
+              trackParams={{
+                category: 'Solutions',
+                section_page: 'Cards',
+                label: 'Solicitar Orçamento',
+                is_cta: true,
+              }}
             >
               Solicitar Orçamento
               <ArrowRight className="ml-2" size={16} />
-            </a>
+            </Link>
           </Button>
         </div>
       </div>
@@ -103,14 +109,20 @@ export function SummaryView({ service }: SolutionItemProps) {
             variant="outline"
             className="font-semibold w-full lg:w-auto"
           >
-            <a
+            <Link
               href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Gostaria de saber mais sobre ${encodeURIComponent(service.title)}.`}
               target="_blank"
               rel="noopener noreferrer"
+              trackParams={{
+                category: 'Solutions',
+                section_page: 'Cards',
+                label: 'Solicitar Orçamento',
+                is_cta: true,
+              }}
             >
               Solicitar Orçamento
               <ArrowRight className="ml-2" size={16} />
-            </a>
+            </Link>
           </Button>
         </div>
       </div>
@@ -129,7 +141,13 @@ export function CardView({
       <TooltipTrigger asChild>
         <Link
           href={`/solutions/${slugFy(service.title)}`}
-          className="group bg-card rounded-2xl shadow-soft border border-border overflow-hidden hover-lift transition-all duration-300 flex flex-col"
+          className="group bg-card rounded-2xl shadow-soft border border-border overflow-hidden hover-lift transition-all duration-300 flex flex-col hover:no-underline"
+          trackParams={{
+            category: 'Solutions',
+            section_page: 'Cards',
+            label: service.title,
+            is_card: true,
+          }}
         >
           {/* Image */}
           <div className="relative h-48 overflow-hidden">

@@ -1,6 +1,6 @@
 import { ArrowRight, Leaf } from 'lucide-react'
-import Link from 'next/link'
 import { Button } from '~/shared/components/atoms/ui/button'
+import { Link } from '~/shared/components/atoms/ui/link'
 import { Text } from '~/shared/components/atoms/ui/text'
 import { heroContent } from '~/shared/data/homeContent'
 
@@ -44,7 +44,15 @@ export default function HeroSection() {
               variant="outline"
               className="font-semibold text-lg px-8"
             >
-              <Link href={heroContent.buttons[0].link}>
+              <Link
+                href={heroContent.buttons[0].link}
+                className="hover:no-underline"
+                trackParams={{
+                  category: 'Home',
+                  section_page: 'Hero',
+                  label: heroContent.buttons[0].label,
+                }}
+              >
                 {heroContent.buttons[0].label}
               </Link>
             </Button>
@@ -58,6 +66,13 @@ export default function HeroSection() {
                 href={heroContent.buttons[1].link}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:no-underline hover:text-horizon-green"
+                trackParams={{
+                  category: 'Home',
+                  section_page: 'Hero',
+                  label: heroContent.buttons[1].label,
+                  is_cta: true,
+                }}
               >
                 {heroContent.buttons[1].label}
                 <ArrowRight className="ml-2" size={20} />

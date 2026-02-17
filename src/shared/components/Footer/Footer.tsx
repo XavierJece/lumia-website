@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import { footerContent } from '~/shared/data/footerContent'
 import { Logo } from '../Logo/Logo'
+import { Link } from '../atoms/ui/link'
 
 const Footer = () => {
   return (
@@ -8,7 +8,14 @@ const Footer = () => {
       <div className="container-lumia section-padding grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Brand */}
         <div className="lg:col-span-1 flex items-center justify-center flex-col">
-          <Link href="/" className="flex items-center gap-2 mb-6">
+          <Link
+            href="/"
+            className="flex items-center gap-2 mb-6"
+            trackParams={{
+              category: 'Footer',
+              label: 'Logo',
+            }}
+          >
             <Logo variant="simple" colorScheme="color" className="" />
           </Link>
           <p className="text-secondary-foreground/80 text-sm leading-relaxed text-center">
@@ -27,7 +34,11 @@ const Footer = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-secondary-foreground/70 hover:text-accent transition-colors text-sm"
+                    className="text-secondary-foreground/70 hover:text-accent transition-colors text-sm hover:no-underline"
+                    trackParams={{
+                      category: `Footer - ${column.title}`,
+                      label: link.label,
+                    }}
                   >
                     {link.label}
                   </Link>
@@ -49,8 +60,13 @@ const Footer = () => {
                 />
                 <Link
                   href={item.href}
-                  className="text-secondary-foreground/70 hover:text-accent transition-colors text-sm"
+                  className="text-secondary-foreground/70 hover:text-accent transition-colors text-sm hover:no-underline"
                   target="_blank"
+                  trackParams={{
+                    category: `Footer - Contato`,
+                    label: item.label,
+                    type: item.type,
+                  }}
                 >
                   {item.label}
                 </Link>
@@ -61,16 +77,22 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex gap-4 mt-6">
             {footerContent.social.socialNetworks.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors text-white-essential hover:text-white-essential"
                 aria-label={item.label}
+                trackParams={{
+                  category: `Footer - Contato`,
+                  label: `${item.label} - Icon`,
+                  type: 'social-media',
+                  platform: item.platform,
+                }}
               >
                 <item.icon size={18} />
-              </a>
+              </Link>
             ))}
           </div>
         </div>

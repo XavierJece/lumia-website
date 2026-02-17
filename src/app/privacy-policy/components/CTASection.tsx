@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { Button } from '~/shared/components/atoms/ui/button'
+import { Link } from '~/shared/components/atoms/ui/link'
 
 export default function CTASection() {
   return (
@@ -18,14 +19,14 @@ export default function CTASection() {
           variant="tertiary"
           className="font-semibold text-lg px-10 shadow-elevated"
         >
-          <a
+          <Link
             href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Conheci a LUMIA e gostaria de saber mais.`}
             target="_blank"
             rel="noopener noreferrer"
           >
             Fale Conosco
             <ArrowRight className="ml-2" size={20} />
-          </a>
+          </Link>
         </Button>
       </div>
     </section>

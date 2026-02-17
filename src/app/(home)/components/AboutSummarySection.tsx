@@ -1,7 +1,7 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Button } from '~/shared/components/atoms/ui/button'
+import { Link } from '~/shared/components/atoms/ui/link'
 
 export default function AboutSummarySection() {
   return (
@@ -27,7 +27,15 @@ export default function AboutSummarySection() {
               receba a atenção que merece.
             </p>
             <Button asChild variant="outline" className="font-semibold">
-              <Link href="/about">
+              <Link
+                href="/about"
+                className="hover:no-underline"
+                trackParams={{
+                  category: 'Home',
+                  section_page: 'AboutSummary',
+                  label: 'Saiba Mais Sobre Nós',
+                }}
+              >
                 Saiba Mais Sobre Nós
                 <ArrowRight className="ml-2" size={16} />
               </Link>

@@ -2,7 +2,6 @@
 
 import Autoplay from 'embla-carousel-autoplay'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { Button } from '~/shared/components/atoms/ui/button'
@@ -12,6 +11,7 @@ import {
   CarouselItem,
   type CarouselApi,
 } from '~/shared/components/atoms/ui/carousel'
+import { Link } from '~/shared/components/atoms/ui/link'
 import { solutionsCategoryContent } from '~/shared/data/solutionContent'
 
 export function CarouselView() {
@@ -40,7 +40,13 @@ export function CarouselView() {
           <Link
             key={category.title}
             href={`/solutions?c=${category.slug}`}
-            className="block bg-card p-4 rounded-xl shadow-soft border border-border group transition-all duration-300 hover:border-primary/30"
+            className="block bg-card p-4 rounded-xl shadow-soft border border-border group transition-all duration-300 hover:border-primary/30 hover:no-underline"
+            trackParams={{
+              category: 'Home',
+              section_page: 'SolutionCategory - Mobile',
+              label: category.title,
+              is_card: true,
+            }}
           >
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary transition-colors duration-300">
               <category.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
@@ -93,7 +99,13 @@ export function CarouselView() {
               >
                 <Link
                   href={`/solutions?c=${category.slug}`}
-                  className="block bg-card p-6 rounded-xl shadow-soft hover-lift border border-border group h-full transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+                  className="block bg-card p-6 rounded-xl shadow-soft hover-lift border border-border group h-full transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:no-underline"
+                  trackParams={{
+                    category: 'Home',
+                    section_page: 'SolutionCategory - Desktop',
+                    label: category.title,
+                    is_card: true,
+                  }}
                 >
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
                     <category.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
@@ -220,7 +232,15 @@ export default function SolutionSummarySection() {
 
         <div className="text-center mt-10">
           <Button asChild size="lg" variant="outline" className="font-semibold">
-            <Link href="/solutions">
+            <Link
+              href="/solutions"
+              className="hover:no-underline"
+              trackParams={{
+                category: 'Home',
+                section_page: 'SolutionCategory',
+                label: 'Ver Todos as Soluções',
+              }}
+            >
               Ver Todos as Soluções
               <ArrowRight className="ml-2" size={16} />
             </Link>

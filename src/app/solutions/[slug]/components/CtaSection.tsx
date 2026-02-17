@@ -2,7 +2,7 @@ import { ArrowRight, FileCheck } from 'lucide-react'
 import { Button } from '~/shared/components/atoms/ui/button'
 import { Link } from '~/shared/components/atoms/ui/link'
 
-export function CtaSection() {
+export function CtaSection({ slug }: { slug: string }) {
   return (
     <section className="section-padding gradient-hero">
       <div className="container-lumia text-center">
@@ -23,6 +23,12 @@ export function CtaSection() {
             href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Tenho uma demanda específica e gostaria de conversar.`}
             target="_blank"
             rel="noopener noreferrer"
+            trackParams={{
+              category: `Solutions - ${slug}`,
+              section_page: 'CTA',
+              label: 'Solicitar Orçamento Grátis',
+              is_cta: true,
+            }}
           >
             Solicitar Orçamento Grátis
             <ArrowRight className="ml-2" size={20} />

@@ -9,9 +9,10 @@ interface IContentSection {
     ISolutionServiceContent,
     'description' | 'businessAdvantages' | 'title'
   >
+  slug: string
 }
 
-export function ContentSection({ solution }: IContentSection) {
+export function ContentSection({ solution, slug }: IContentSection) {
   return (
     <section className="section-padding bg-muted">
       <div className="container-lumia">
@@ -77,7 +78,12 @@ export function ContentSection({ solution }: IContentSection) {
                   href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Olá! Gostaria de saber mais sobre *${solution.title}*.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="un"
+                  trackParams={{
+                    category: `Solutions - ${slug}`,
+                    section_page: 'Main',
+                    label: 'Fale no WhatsApp',
+                    is_cta: true,
+                  }}
                 >
                   <Phone size={18} className="mr-2" />
                   Fale no WhatsApp

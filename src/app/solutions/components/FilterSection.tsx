@@ -16,6 +16,7 @@ import {
   solutionsCategoryContent,
   solutionsServiceContent,
 } from '~/shared/data/solutionContent'
+import { event } from '~/shared/lib/gtag'
 
 interface FilterListProps {
   activeCategory: string | null
@@ -94,9 +95,16 @@ export function FilterSection() {
     const params = new URLSearchParams(searchParams.toString())
 
     if (filter) {
+      event('filter_applied', {
+        filter,
+        event_category: 'Solutions',
+      })
       params.set('c', filter)
     } else {
       // Remove filter if null (all solutions)
+      event('filter_removed', {
+        event_category: 'Solutions',
+      })
       params.delete('c')
     }
 

@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { Button } from '~/shared/components/atoms/ui/button'
+import { Link } from '~/shared/components/atoms/ui/link'
 
 export function CtaSection() {
   return (
@@ -17,14 +18,21 @@ export function CtaSection() {
           size="lg"
           className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg px-10"
         >
-          <a
+          <Link
             href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Olá! Vi os projetos da LUMIA e gostaria de conversar sobre minha demanda.`}
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:no-underline hover:text-horizon-green"
+            trackParams={{
+              category: 'Projects',
+              section_page: 'CTA',
+              label: 'Inicie seu Projeto',
+              is_cta: true,
+            }}
           >
             Inicie seu Projeto
             <ArrowRight className="ml-2" size={20} />
-          </a>
+          </Link>
         </Button>
       </div>
     </section>

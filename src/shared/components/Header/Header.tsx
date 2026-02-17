@@ -1,30 +1,38 @@
 'use client'
 
 import { Menu, X } from 'lucide-react'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { headerContent } from '~/shared/data/headerContent'
 import { Logo } from '../Logo/Logo'
 import { Button } from '../atoms/ui/button'
+import { Link } from '../atoms/ui/link'
 
-const CTAButton = () => {
+interface ICTAButtonProps {
+  isMobile: boolean
+}
+
+const CTAButton = ({ isMobile }: ICTAButtonProps) => {
   return (
-    <div className="hidden lg:block">
-      <Button
-        asChild
-        size="lg"
-        className="font-semibold shadow-soft hover:shadow-card transition-all"
+    <Button
+      data-isMobile={isMobile}
+      asChild
+      size="lg"
+      className="font-semibold shadow-soft hover:shadow-card transition-all data-[isMobile=false]:hidden data-[isMobile=false]:lg:flex data-[isMobile=true]:w-full"
+    >
+      <Link
+        href={headerContent.ctaPrimary.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        trackParams={{
+          category: `Header`,
+          label: `WhatsApp Button - ${isMobile ? 'Mobile' : 'Desktop'}`,
+          is_cta: true,
+        }}
       >
-        <a
-          href={headerContent.ctaPrimary.href}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {headerContent.ctaPrimary.text}
-        </a>
-      </Button>
-    </div>
+        {headerContent.ctaPrimary.text}
+      </Link>
+    </Button>
   )
 }
 
@@ -40,7 +48,11 @@ const NavItems = () => {
           key={link.href}
           href={link.href}
           data-active={isActive(link.href)}
-          className="relative font-medium text-sm transition-colors text-muted-foreground text-secondary-green hover:text-primary-green data-[active=true]:text-primary-green"
+          className="relative font-medium text-sm transition-colors text-muted-foreground text-secondary-green hover:text-primary-green data-[active=true]:text-primary-green hover:no-underline"
+          trackParams={{
+            category: `Header - Nav Desktop`,
+            label: link.label,
+          }}
         >
           {link.label}
           {isActive(link.href) && (
@@ -76,7 +88,11 @@ const MobileMenu = ({
               href={link.href}
               onClick={onClose}
               data-active={isActive(link.href)}
-              className="relative font-medium text-lg transition-colors hover:text-primary py-2 text-secondary-green hover:text-primary-green data-[active=true]:text-primary-green"
+              className="relative font-medium text-lg transition-colors hover:text-primary py-2 text-secondary-green hover:text-primary-green data-[active=true]:text-primary-green hover:no-underline"
+              trackParams={{
+                category: `Header - Nav Mobile`,
+                label: link.label,
+              }}
             >
               {link.label}{' '}
               {isActive(link.href) && (
@@ -88,20 +104,7 @@ const MobileMenu = ({
 
         {/* CTA Button Mobile */}
         <div className="pt-4 border-t border-border/50">
-          <Button
-            asChild
-            size="lg"
-            className="w-full font-semibold shadow-soft hover:shadow-card transition-all"
-          >
-            <a
-              href={headerContent.ctaPrimary.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={onClose}
-            >
-              {headerContent.ctaPrimary.text}
-            </a>
-          </Button>
+          <CTAButton isMobile />
         </div>
       </div>
     </div>
@@ -118,14 +121,21 @@ const Header = () => {
       <div className="container-lumia">
         <nav className="flex items-center justify-between w-full">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link
+            href="/"
+            className="flex items-center gap-2 group"
+            trackParams={{
+              category: `Header`,
+              label: 'Logo',
+            }}
+          >
             <Logo variant="simple" colorScheme="color" className="w-52 h-12" />
             {/* <Logo className="" /> */}
           </Link>
 
           <NavItems />
 
-          <CTAButton />
+          <CTAButton isMobile={false} />
 
           {/* Mobile Menu Button */}
           <button

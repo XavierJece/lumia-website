@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-const imagem = [
+const IMAGENS_DEFAULT = [
   'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=800&h=600&fit=crop',
   'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop',
   'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&h=600&fit=crop',
@@ -38,26 +38,60 @@ interface IGallerySectionProps {
 }
 
 export function GallerySection({ imagensURL }: IGallerySectionProps) {
+  const allImages =
+    imagensURL && imagensURL.length > 0 ? imagensURL : IMAGENS_DEFAULT
+  const isOnlyCover = allImages.length === 1
+
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background/50 py-16 md:py-24">
       <div className="container-lumia">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {(imagensURL || imagem).map((image, index) => (
-            <div
-              data-isCover={index === 0}
-              key={index}
-              className="relative rounded-2xl border-2 overflow-hidden shadow-soft data-[isCover=true]:md:col-span-2 data-[isCover=true]:md:row-span-2"
-              style={{ minHeight: '200px' }} // or use h-48, aspect-video, etc.
-            >
-              <Image
-                src={image}
-                alt={`Image ${index}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-          ))}
+          {allImages.map((image, index) => {
+            const isCover = index === 0
+
+            return (
+              <div
+                key={index}
+                data-isCover={isCover}
+                data-isOnlyCover={isOnlyCover}
+                className="group relative overflow-hidden rounded-2xl border border-neutral-200/60 bg-neutral-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 data-[isCover=true]:md:col-span-2 data-[isOnlyCover=true]:md:col-span-full data-[isCover=true]:md:row-span-2 min-h-[200px] data-[isOnlyCover=true]:md:min-h-[400px]"
+              >
+                {isCover ? (
+                  <div className="relative h-full w-full overflow-hidden">
+                    {/* Background blurred layer to fill edges */}
+                    <div className="absolute inset-0 z-0">
+                      <Image
+                        src={image}
+                        alt=""
+                        fill
+                        className="scale-110 object-cover opacity-50 blur-3xl"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    {/* Main image layer showing full content */}
+                    <div className="relative z-10 flex h-full w-full items-center justify-center">
+                      <Image
+                        src={image}
+                        alt={`Registro do projeto ${index + 1}`}
+                        fill
+                        className="object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+                        sizes="100vw"
+                        priority
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <Image
+                    src={image}
+                    alt={`Registro do projeto ${index + 1}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>
